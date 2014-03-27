@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		119420D518E015F10051474A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119420D418E015F10051474A /* Foundation.framework */; };
+		119420D718E015F10051474A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119420D618E015F10051474A /* CoreGraphics.framework */; };
+		119420D918E015F10051474A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119420D818E015F10051474A /* UIKit.framework */; };
+		1194210E18E0170A0051474A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194210A18E0170A0051474A /* AppDelegate.m */; };
+		1194210F18E0170A0051474A /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1194210B18E0170A0051474A /* readme.txt */; };
+		1194211418E017340051474A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194211118E017340051474A /* main.m */; };
+		1194218118E018A40051474A /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194217C18E018A40051474A /* AsyncUdpSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1194218218E018A40051474A /* SocketConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194217E18E018A40051474A /* SocketConnection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1194218318E018A40051474A /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194218018E018A40051474A /* Utils.m */; };
+		1194218518E01CA70051474A /* libntlm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1194218418E01CA70051474A /* libntlm.a */; };
+		1194219418E01D6A0051474A /* ExtensionViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194218F18E01D6A0051474A /* ExtensionViewControllers.m */; };
+		1194219518E01D6A0051474A /* RootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194219118E01D6A0051474A /* RootController.m */; };
+		1194219618E01D6A0051474A /* UIViewSizeShortcuts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194219318E01D6A0051474A /* UIViewSizeShortcuts.m */; };
+		1194219918E01EB70051474A /* ServersController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194219818E01EB70051474A /* ServersController.m */; };
+		1194219C18E01EC10051474A /* SharesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194219B18E01EC10051474A /* SharesController.m */; };
+		1194219F18E024610051474A /* PrinterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194219E18E024610051474A /* PrinterController.m */; };
+		119E722D18E42FDE00B73C09 /* DceRpcBind.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71EA18E42FDE00B73C09 /* DceRpcBind.m */; };
+		119E722E18E42FDE00B73C09 /* DceRpcClosePrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71EC18E42FDE00B73C09 /* DceRpcClosePrinter.m */; };
+		119E722F18E42FDE00B73C09 /* DceRpcData.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71EE18E42FDE00B73C09 /* DceRpcData.m */; };
+		119E723018E42FDE00B73C09 /* DceRpcEndDocPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71F118E42FDE00B73C09 /* DceRpcEndDocPrinter.m */; };
+		119E723118E42FDE00B73C09 /* DceRpcEnumAll.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71F318E42FDE00B73C09 /* DceRpcEnumAll.m */; };
+		119E723218E42FDE00B73C09 /* DceRpcGetPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71F518E42FDE00B73C09 /* DceRpcGetPrinter.m */; };
+		119E723318E42FDE00B73C09 /* DceRpcMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71F718E42FDE00B73C09 /* DceRpcMessage.m */; };
+		119E723518E42FDE00B73C09 /* DceRpcOpenPrinterEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71FB18E42FDE00B73C09 /* DceRpcOpenPrinterEx.m */; };
+		119E723618E42FDE00B73C09 /* DceRpcPrinterInfo2.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71FD18E42FDE00B73C09 /* DceRpcPrinterInfo2.m */; };
+		119E723718E42FDE00B73C09 /* DceRpcStartDocPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71FF18E42FDE00B73C09 /* DceRpcStartDocPrinter.m */; };
+		119E723818E42FDE00B73C09 /* DceRpcWritePrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720118E42FDE00B73C09 /* DceRpcWritePrinter.m */; };
+		119E723918E42FDE00B73C09 /* NbtConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720318E42FDE00B73C09 /* NbtConnection.m */; };
+		119E723A18E42FDE00B73C09 /* NetBios.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720618E42FDE00B73C09 /* NetBios.m */; };
+		119E723B18E42FDE00B73C09 /* NetBiosQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720818E42FDE00B73C09 /* NetBiosQuery.m */; };
+		119E723C18E42FDE00B73C09 /* NSMutableData+SMB.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720A18E42FDE00B73C09 /* NSMutableData+SMB.m */; };
+		119E723D18E42FDE00B73C09 /* RapMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720D18E42FDE00B73C09 /* RapMessage.m */; };
+		119E723E18E42FDE00B73C09 /* RapNetServerEnum2.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720F18E42FDE00B73C09 /* RapNetServerEnum2.m */; };
+		119E723F18E42FDE00B73C09 /* RapNetServerInfo1.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721118E42FDE00B73C09 /* RapNetServerInfo1.m */; };
+		119E724018E42FDE00B73C09 /* SmbCloseMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721318E42FDE00B73C09 /* SmbCloseMessage.m */; };
+		119E724118E42FDE00B73C09 /* SmbConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721518E42FDE00B73C09 /* SmbConnection.m */; };
+		119E724318E42FDE00B73C09 /* SmbLogoffMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721A18E42FDE00B73C09 /* SmbLogoffMessage.m */; };
+		119E724418E42FDE00B73C09 /* SmbMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721C18E42FDE00B73C09 /* SmbMessage.m */; };
+		119E724518E42FDE00B73C09 /* SmbNegotiateProtocolMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721E18E42FDE00B73C09 /* SmbNegotiateProtocolMessage.m */; };
+		119E724618E42FDE00B73C09 /* SmbNtCreateMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722018E42FDE00B73C09 /* SmbNtCreateMessage.m */; };
+		119E724718E42FDE00B73C09 /* SmbReadMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722218E42FDE00B73C09 /* SmbReadMessage.m */; };
+		119E724818E42FDE00B73C09 /* SmbSessionSetupMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722418E42FDE00B73C09 /* SmbSessionSetupMessage.m */; };
+		119E724918E42FDE00B73C09 /* SmbTransactionMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722618E42FDE00B73C09 /* SmbTransactionMessage.m */; };
+		119E724A18E42FDE00B73C09 /* SmbTreeConnectMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722818E42FDE00B73C09 /* SmbTreeConnectMessage.m */; };
+		119E724B18E42FDE00B73C09 /* SmbTreeDisconnectMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722A18E42FDE00B73C09 /* SmbTreeDisconnectMessage.m */; };
+		119E724C18E42FDE00B73C09 /* SmbWriteMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722C18E42FDE00B73C09 /* SmbWriteMessage.m */; };
+		119E724F18E430FD00B73C09 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E724E18E430FD00B73C09 /* LoginController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		119420D118E015F10051474A /* smb4ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smb4ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		119420D418E015F10051474A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		119420D618E015F10051474A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		119420D818E015F10051474A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		119420F318E015F10051474A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		1194210918E0170A0051474A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = SOURCE_ROOT; };
+		1194210A18E0170A0051474A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = SOURCE_ROOT; };
+		1194210B18E0170A0051474A /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = SOURCE_ROOT; };
+		1194211118E017340051474A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
+		1194211218E017340051474A /* smb4ios-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "smb4ios-Info.plist"; sourceTree = SOURCE_ROOT; };
+		1194211318E017340051474A /* smb4ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "smb4ios-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		1194217B18E018A40051474A /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
+		1194217C18E018A40051474A /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
+		1194217D18E018A40051474A /* SocketConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketConnection.h; sourceTree = "<group>"; };
+		1194217E18E018A40051474A /* SocketConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketConnection.m; sourceTree = "<group>"; };
+		1194217F18E018A40051474A /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		1194218018E018A40051474A /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		1194218418E01CA70051474A /* libntlm.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libntlm.a; path = Lib/libntlm.a; sourceTree = "<group>"; };
+		1194218818E01CD10051474A /* ntlm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ntlm.h; sourceTree = "<group>"; };
+		1194218E18E01D6A0051474A /* ExtensionViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtensionViewControllers.h; sourceTree = "<group>"; };
+		1194218F18E01D6A0051474A /* ExtensionViewControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtensionViewControllers.m; sourceTree = "<group>"; };
+		1194219018E01D6A0051474A /* RootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootController.h; sourceTree = "<group>"; };
+		1194219118E01D6A0051474A /* RootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootController.m; sourceTree = "<group>"; };
+		1194219218E01D6A0051474A /* UIViewSizeShortcuts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewSizeShortcuts.h; sourceTree = "<group>"; };
+		1194219318E01D6A0051474A /* UIViewSizeShortcuts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewSizeShortcuts.m; sourceTree = "<group>"; };
+		1194219718E01EB70051474A /* ServersController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServersController.h; sourceTree = "<group>"; };
+		1194219818E01EB70051474A /* ServersController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServersController.m; sourceTree = "<group>"; };
+		1194219A18E01EC10051474A /* SharesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharesController.h; sourceTree = "<group>"; };
+		1194219B18E01EC10051474A /* SharesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharesController.m; sourceTree = "<group>"; };
+		1194219D18E024610051474A /* PrinterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrinterController.h; sourceTree = "<group>"; };
+		1194219E18E024610051474A /* PrinterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrinterController.m; sourceTree = "<group>"; };
+		119E71E818E42FDE00B73C09 /* DceRpc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpc.h; sourceTree = "<group>"; };
+		119E71E918E42FDE00B73C09 /* DceRpcBind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcBind.h; sourceTree = "<group>"; };
+		119E71EA18E42FDE00B73C09 /* DceRpcBind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DceRpcBind.m; sourceTree = "<group>"; };
+		119E71EB18E42FDE00B73C09 /* DceRpcClosePrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcClosePrinter.h; sourceTree = "<group>"; };
+		119E71EC18E42FDE00B73C09 /* DceRpcClosePrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DceRpcClosePrinter.m; sourceTree = "<group>"; };
+		119E71ED18E42FDE00B73C09 /* DceRpcData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcData.h; sourceTree = "<group>"; };
+		119E71EE18E42FDE00B73C09 /* DceRpcData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DceRpcData.m; sourceTree = "<group>"; };
+		119E71EF18E42FDE00B73C09 /* DceRpcDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcDefines.h; sourceTree = "<group>"; };
+		119E71F018E42FDE00B73C09 /* DceRpcEndDocPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcEndDocPrinter.h; sourceTree = "<group>"; };
+		119E71F118E42FDE00B73C09 /* DceRpcEndDocPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DceRpcEndDocPrinter.m; sourceTree = "<group>"; };
+		119E71F218E42FDE00B73C09 /* DceRpcEnumAll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcEnumAll.h; sourceTree = "<group>"; };
+		119E71F318E42FDE00B73C09 /* DceRpcEnumAll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DceRpcEnumAll.m; sourceTree = "<group>"; };
+		119E71F418E42FDE00B73C09 /* DceRpcGetPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcGetPrinter.h; sourceTree = "<group>"; };
+		119E71F518E42FDE00B73C09 /* DceRpcGetPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DceRpcGetPrinter.m; sourceTree = "<group>"; };
+		119E71F618E42FDE00B73C09 /* DceRpcMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcMessage.h; sourceTree = "<group>"; };
+		119E71F718E42FDE00B73C09 /* DceRpcMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DceRpcMessage.m; sourceTree = "<group>"; };
+		119E71FA18E42FDE00B73C09 /* DceRpcOpenPrinterEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcOpenPrinterEx.h; sourceTree = "<group>"; };
+		119E71FB18E42FDE00B73C09 /* DceRpcOpenPrinterEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DceRpcOpenPrinterEx.m; sourceTree = "<group>"; };
+		119E71FC18E42FDE00B73C09 /* DceRpcPrinterInfo2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcPrinterInfo2.h; sourceTree = "<group>"; };
+		119E71FD18E42FDE00B73C09 /* DceRpcPrinterInfo2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DceRpcPrinterInfo2.m; sourceTree = "<group>"; };
+		119E71FE18E42FDE00B73C09 /* DceRpcStartDocPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcStartDocPrinter.h; sourceTree = "<group>"; };
+		119E71FF18E42FDE00B73C09 /* DceRpcStartDocPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DceRpcStartDocPrinter.m; sourceTree = "<group>"; };
+		119E720018E42FDE00B73C09 /* DceRpcWritePrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcWritePrinter.h; sourceTree = "<group>"; };
+		119E720118E42FDE00B73C09 /* DceRpcWritePrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DceRpcWritePrinter.m; sourceTree = "<group>"; };
+		119E720218E42FDE00B73C09 /* NbtConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NbtConnection.h; sourceTree = "<group>"; };
+		119E720318E42FDE00B73C09 /* NbtConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NbtConnection.m; sourceTree = "<group>"; };
+		119E720518E42FDE00B73C09 /* NetBios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetBios.h; sourceTree = "<group>"; };
+		119E720618E42FDE00B73C09 /* NetBios.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetBios.m; sourceTree = "<group>"; };
+		119E720718E42FDE00B73C09 /* NetBiosQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetBiosQuery.h; sourceTree = "<group>"; };
+		119E720818E42FDE00B73C09 /* NetBiosQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetBiosQuery.m; sourceTree = "<group>"; };
+		119E720918E42FDE00B73C09 /* NSMutableData+SMB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableData+SMB.h"; sourceTree = "<group>"; };
+		119E720A18E42FDE00B73C09 /* NSMutableData+SMB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableData+SMB.m"; sourceTree = "<group>"; };
+		119E720C18E42FDE00B73C09 /* RapMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RapMessage.h; sourceTree = "<group>"; };
+		119E720D18E42FDE00B73C09 /* RapMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RapMessage.m; sourceTree = "<group>"; };
+		119E720E18E42FDE00B73C09 /* RapNetServerEnum2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RapNetServerEnum2.h; sourceTree = "<group>"; };
+		119E720F18E42FDE00B73C09 /* RapNetServerEnum2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RapNetServerEnum2.m; sourceTree = "<group>"; };
+		119E721018E42FDE00B73C09 /* RapNetServerInfo1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RapNetServerInfo1.h; sourceTree = "<group>"; };
+		119E721118E42FDE00B73C09 /* RapNetServerInfo1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RapNetServerInfo1.m; sourceTree = "<group>"; };
+		119E721218E42FDE00B73C09 /* SmbCloseMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbCloseMessage.h; sourceTree = "<group>"; };
+		119E721318E42FDE00B73C09 /* SmbCloseMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbCloseMessage.m; sourceTree = "<group>"; };
+		119E721418E42FDE00B73C09 /* SmbConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbConnection.h; sourceTree = "<group>"; };
+		119E721518E42FDE00B73C09 /* SmbConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbConnection.m; sourceTree = "<group>"; };
+		119E721618E42FDE00B73C09 /* SmbDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbDefines.h; sourceTree = "<group>"; };
+		119E721918E42FDE00B73C09 /* SmbLogoffMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbLogoffMessage.h; sourceTree = "<group>"; };
+		119E721A18E42FDE00B73C09 /* SmbLogoffMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbLogoffMessage.m; sourceTree = "<group>"; };
+		119E721B18E42FDE00B73C09 /* SmbMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbMessage.h; sourceTree = "<group>"; };
+		119E721C18E42FDE00B73C09 /* SmbMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbMessage.m; sourceTree = "<group>"; };
+		119E721D18E42FDE00B73C09 /* SmbNegotiateProtocolMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbNegotiateProtocolMessage.h; sourceTree = "<group>"; };
+		119E721E18E42FDE00B73C09 /* SmbNegotiateProtocolMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbNegotiateProtocolMessage.m; sourceTree = "<group>"; };
+		119E721F18E42FDE00B73C09 /* SmbNtCreateMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbNtCreateMessage.h; sourceTree = "<group>"; };
+		119E722018E42FDE00B73C09 /* SmbNtCreateMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbNtCreateMessage.m; sourceTree = "<group>"; };
+		119E722118E42FDE00B73C09 /* SmbReadMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbReadMessage.h; sourceTree = "<group>"; };
+		119E722218E42FDE00B73C09 /* SmbReadMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbReadMessage.m; sourceTree = "<group>"; };
+		119E722318E42FDE00B73C09 /* SmbSessionSetupMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbSessionSetupMessage.h; sourceTree = "<group>"; };
+		119E722418E42FDE00B73C09 /* SmbSessionSetupMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbSessionSetupMessage.m; sourceTree = "<group>"; };
+		119E722518E42FDE00B73C09 /* SmbTransactionMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbTransactionMessage.h; sourceTree = "<group>"; };
+		119E722618E42FDE00B73C09 /* SmbTransactionMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbTransactionMessage.m; sourceTree = "<group>"; };
+		119E722718E42FDE00B73C09 /* SmbTreeConnectMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbTreeConnectMessage.h; sourceTree = "<group>"; };
+		119E722818E42FDE00B73C09 /* SmbTreeConnectMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbTreeConnectMessage.m; sourceTree = "<group>"; };
+		119E722918E42FDE00B73C09 /* SmbTreeDisconnectMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbTreeDisconnectMessage.h; sourceTree = "<group>"; };
+		119E722A18E42FDE00B73C09 /* SmbTreeDisconnectMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbTreeDisconnectMessage.m; sourceTree = "<group>"; };
+		119E722B18E42FDE00B73C09 /* SmbWriteMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbWriteMessage.h; sourceTree = "<group>"; };
+		119E722C18E42FDE00B73C09 /* SmbWriteMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbWriteMessage.m; sourceTree = "<group>"; };
+		119E724D18E430FD00B73C09 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		119E724E18E430FD00B73C09 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		119420CE18E015F10051474A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1194218518E01CA70051474A /* libntlm.a in Frameworks */,
+				119420D718E015F10051474A /* CoreGraphics.framework in Frameworks */,
+				119420D918E015F10051474A /* UIKit.framework in Frameworks */,
+				119420D518E015F10051474A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		119420C818E015F10051474A = {
+			isa = PBXGroup;
+			children = (
+				1194210B18E0170A0051474A /* readme.txt */,
+				119E71E618E42FDE00B73C09 /* SMB */,
+				1194217A18E018A40051474A /* Common */,
+				1194218618E01CD00051474A /* Lib */,
+				1194218D18E01D6A0051474A /* UI */,
+				119420DA18E015F10051474A /* smb4ios */,
+				119420DB18E015F10051474A /* Supporting Files */,
+				119420D318E015F10051474A /* Frameworks */,
+				119420D218E015F10051474A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		119420D218E015F10051474A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				119420D118E015F10051474A /* smb4ios.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		119420D318E015F10051474A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1194218418E01CA70051474A /* libntlm.a */,
+				119420D418E015F10051474A /* Foundation.framework */,
+				119420D618E015F10051474A /* CoreGraphics.framework */,
+				119420D818E015F10051474A /* UIKit.framework */,
+				119420F318E015F10051474A /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		119420DA18E015F10051474A /* smb4ios */ = {
+			isa = PBXGroup;
+			children = (
+				1194210918E0170A0051474A /* AppDelegate.h */,
+				1194210A18E0170A0051474A /* AppDelegate.m */,
+			);
+			path = smb4ios;
+			sourceTree = "<group>";
+		};
+		119420DB18E015F10051474A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1194211118E017340051474A /* main.m */,
+				1194211218E017340051474A /* smb4ios-Info.plist */,
+				1194211318E017340051474A /* smb4ios-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			path = smb4ios;
+			sourceTree = "<group>";
+		};
+		1194217A18E018A40051474A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1194217B18E018A40051474A /* AsyncUdpSocket.h */,
+				1194217C18E018A40051474A /* AsyncUdpSocket.m */,
+				1194217D18E018A40051474A /* SocketConnection.h */,
+				1194217E18E018A40051474A /* SocketConnection.m */,
+				1194217F18E018A40051474A /* Utils.h */,
+				1194218018E018A40051474A /* Utils.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		1194218618E01CD00051474A /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				1194218818E01CD10051474A /* ntlm.h */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		1194218D18E01D6A0051474A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1194219018E01D6A0051474A /* RootController.h */,
+				1194219118E01D6A0051474A /* RootController.m */,
+				1194219718E01EB70051474A /* ServersController.h */,
+				1194219818E01EB70051474A /* ServersController.m */,
+				119E724D18E430FD00B73C09 /* LoginController.h */,
+				119E724E18E430FD00B73C09 /* LoginController.m */,
+				1194219A18E01EC10051474A /* SharesController.h */,
+				1194219B18E01EC10051474A /* SharesController.m */,
+				1194219D18E024610051474A /* PrinterController.h */,
+				1194219E18E024610051474A /* PrinterController.m */,
+				1194218E18E01D6A0051474A /* ExtensionViewControllers.h */,
+				1194218F18E01D6A0051474A /* ExtensionViewControllers.m */,
+				1194219218E01D6A0051474A /* UIViewSizeShortcuts.h */,
+				1194219318E01D6A0051474A /* UIViewSizeShortcuts.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		119E71E618E42FDE00B73C09 /* SMB */ = {
+			isa = PBXGroup;
+			children = (
+				119E720418E42FDE00B73C09 /* NetBIOS */,
+				119E720B18E42FDE00B73C09 /* RAP */,
+				119E71E718E42FDE00B73C09 /* DCERPC */,
+				119E721418E42FDE00B73C09 /* SmbConnection.h */,
+				119E721518E42FDE00B73C09 /* SmbConnection.m */,
+				119E721618E42FDE00B73C09 /* SmbDefines.h */,
+				119E721918E42FDE00B73C09 /* SmbLogoffMessage.h */,
+				119E721A18E42FDE00B73C09 /* SmbLogoffMessage.m */,
+				119E721B18E42FDE00B73C09 /* SmbMessage.h */,
+				119E721C18E42FDE00B73C09 /* SmbMessage.m */,
+				119E721D18E42FDE00B73C09 /* SmbNegotiateProtocolMessage.h */,
+				119E721E18E42FDE00B73C09 /* SmbNegotiateProtocolMessage.m */,
+				119E721F18E42FDE00B73C09 /* SmbNtCreateMessage.h */,
+				119E722018E42FDE00B73C09 /* SmbNtCreateMessage.m */,
+				119E722118E42FDE00B73C09 /* SmbReadMessage.h */,
+				119E722218E42FDE00B73C09 /* SmbReadMessage.m */,
+				119E722318E42FDE00B73C09 /* SmbSessionSetupMessage.h */,
+				119E722418E42FDE00B73C09 /* SmbSessionSetupMessage.m */,
+				119E722518E42FDE00B73C09 /* SmbTransactionMessage.h */,
+				119E722618E42FDE00B73C09 /* SmbTransactionMessage.m */,
+				119E722718E42FDE00B73C09 /* SmbTreeConnectMessage.h */,
+				119E722818E42FDE00B73C09 /* SmbTreeConnectMessage.m */,
+				119E722918E42FDE00B73C09 /* SmbTreeDisconnectMessage.h */,
+				119E722A18E42FDE00B73C09 /* SmbTreeDisconnectMessage.m */,
+				119E722B18E42FDE00B73C09 /* SmbWriteMessage.h */,
+				119E722C18E42FDE00B73C09 /* SmbWriteMessage.m */,
+				119E721218E42FDE00B73C09 /* SmbCloseMessage.h */,
+				119E721318E42FDE00B73C09 /* SmbCloseMessage.m */,
+				119E720218E42FDE00B73C09 /* NbtConnection.h */,
+				119E720318E42FDE00B73C09 /* NbtConnection.m */,
+				119E720918E42FDE00B73C09 /* NSMutableData+SMB.h */,
+				119E720A18E42FDE00B73C09 /* NSMutableData+SMB.m */,
+			);
+			path = SMB;
+			sourceTree = "<group>";
+		};
+		119E71E718E42FDE00B73C09 /* DCERPC */ = {
+			isa = PBXGroup;
+			children = (
+				119E71E818E42FDE00B73C09 /* DceRpc.h */,
+				119E71E918E42FDE00B73C09 /* DceRpcBind.h */,
+				119E71EA18E42FDE00B73C09 /* DceRpcBind.m */,
+				119E71EB18E42FDE00B73C09 /* DceRpcClosePrinter.h */,
+				119E71EC18E42FDE00B73C09 /* DceRpcClosePrinter.m */,
+				119E71ED18E42FDE00B73C09 /* DceRpcData.h */,
+				119E71EE18E42FDE00B73C09 /* DceRpcData.m */,
+				119E71EF18E42FDE00B73C09 /* DceRpcDefines.h */,
+				119E71F018E42FDE00B73C09 /* DceRpcEndDocPrinter.h */,
+				119E71F118E42FDE00B73C09 /* DceRpcEndDocPrinter.m */,
+				119E71F218E42FDE00B73C09 /* DceRpcEnumAll.h */,
+				119E71F318E42FDE00B73C09 /* DceRpcEnumAll.m */,
+				119E71F418E42FDE00B73C09 /* DceRpcGetPrinter.h */,
+				119E71F518E42FDE00B73C09 /* DceRpcGetPrinter.m */,
+				119E71F618E42FDE00B73C09 /* DceRpcMessage.h */,
+				119E71F718E42FDE00B73C09 /* DceRpcMessage.m */,
+				119E71FA18E42FDE00B73C09 /* DceRpcOpenPrinterEx.h */,
+				119E71FB18E42FDE00B73C09 /* DceRpcOpenPrinterEx.m */,
+				119E71FC18E42FDE00B73C09 /* DceRpcPrinterInfo2.h */,
+				119E71FD18E42FDE00B73C09 /* DceRpcPrinterInfo2.m */,
+				119E71FE18E42FDE00B73C09 /* DceRpcStartDocPrinter.h */,
+				119E71FF18E42FDE00B73C09 /* DceRpcStartDocPrinter.m */,
+				119E720018E42FDE00B73C09 /* DceRpcWritePrinter.h */,
+				119E720118E42FDE00B73C09 /* DceRpcWritePrinter.m */,
+			);
+			path = DCERPC;
+			sourceTree = "<group>";
+		};
+		119E720418E42FDE00B73C09 /* NetBIOS */ = {
+			isa = PBXGroup;
+			children = (
+				119E720518E42FDE00B73C09 /* NetBios.h */,
+				119E720618E42FDE00B73C09 /* NetBios.m */,
+				119E720718E42FDE00B73C09 /* NetBiosQuery.h */,
+				119E720818E42FDE00B73C09 /* NetBiosQuery.m */,
+			);
+			path = NetBIOS;
+			sourceTree = "<group>";
+		};
+		119E720B18E42FDE00B73C09 /* RAP */ = {
+			isa = PBXGroup;
+			children = (
+				119E720C18E42FDE00B73C09 /* RapMessage.h */,
+				119E720D18E42FDE00B73C09 /* RapMessage.m */,
+				119E720E18E42FDE00B73C09 /* RapNetServerEnum2.h */,
+				119E720F18E42FDE00B73C09 /* RapNetServerEnum2.m */,
+				119E721018E42FDE00B73C09 /* RapNetServerInfo1.h */,
+				119E721118E42FDE00B73C09 /* RapNetServerInfo1.m */,
+			);
+			path = RAP;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		119420D018E015F10051474A /* smb4ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1194210318E015F20051474A /* Build configuration list for PBXNativeTarget "smb4ios" */;
+			buildPhases = (
+				119420CD18E015F10051474A /* Sources */,
+				119420CE18E015F10051474A /* Frameworks */,
+				119420CF18E015F10051474A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = smb4ios;
+			productName = smb4ios;
+			productReference = 119420D118E015F10051474A /* smb4ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		119420C918E015F10051474A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = none;
+			};
+			buildConfigurationList = 119420CC18E015F10051474A /* Build configuration list for PBXProject "smb4ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 119420C818E015F10051474A;
+			productRefGroup = 119420D218E015F10051474A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				119420D018E015F10051474A /* smb4ios */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		119420CF18E015F10051474A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1194210F18E0170A0051474A /* readme.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		119420CD18E015F10051474A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				119E724B18E42FDE00B73C09 /* SmbTreeDisconnectMessage.m in Sources */,
+				119E723318E42FDE00B73C09 /* DceRpcMessage.m in Sources */,
+				119E723718E42FDE00B73C09 /* DceRpcStartDocPrinter.m in Sources */,
+				1194219418E01D6A0051474A /* ExtensionViewControllers.m in Sources */,
+				119E722D18E42FDE00B73C09 /* DceRpcBind.m in Sources */,
+				119E722E18E42FDE00B73C09 /* DceRpcClosePrinter.m in Sources */,
+				119E723518E42FDE00B73C09 /* DceRpcOpenPrinterEx.m in Sources */,
+				119E723918E42FDE00B73C09 /* NbtConnection.m in Sources */,
+				119E723C18E42FDE00B73C09 /* NSMutableData+SMB.m in Sources */,
+				1194218218E018A40051474A /* SocketConnection.m in Sources */,
+				119E724518E42FDE00B73C09 /* SmbNegotiateProtocolMessage.m in Sources */,
+				1194218118E018A40051474A /* AsyncUdpSocket.m in Sources */,
+				119E724C18E42FDE00B73C09 /* SmbWriteMessage.m in Sources */,
+				1194219918E01EB70051474A /* ServersController.m in Sources */,
+				119E723D18E42FDE00B73C09 /* RapMessage.m in Sources */,
+				1194219F18E024610051474A /* PrinterController.m in Sources */,
+				119E723218E42FDE00B73C09 /* DceRpcGetPrinter.m in Sources */,
+				1194218318E018A40051474A /* Utils.m in Sources */,
+				119E723E18E42FDE00B73C09 /* RapNetServerEnum2.m in Sources */,
+				119E723F18E42FDE00B73C09 /* RapNetServerInfo1.m in Sources */,
+				119E724418E42FDE00B73C09 /* SmbMessage.m in Sources */,
+				119E723818E42FDE00B73C09 /* DceRpcWritePrinter.m in Sources */,
+				1194219518E01D6A0051474A /* RootController.m in Sources */,
+				119E724A18E42FDE00B73C09 /* SmbTreeConnectMessage.m in Sources */,
+				119E724618E42FDE00B73C09 /* SmbNtCreateMessage.m in Sources */,
+				119E724018E42FDE00B73C09 /* SmbCloseMessage.m in Sources */,
+				119E724718E42FDE00B73C09 /* SmbReadMessage.m in Sources */,
+				119E723B18E42FDE00B73C09 /* NetBiosQuery.m in Sources */,
+				119E723118E42FDE00B73C09 /* DceRpcEnumAll.m in Sources */,
+				1194219C18E01EC10051474A /* SharesController.m in Sources */,
+				119E723A18E42FDE00B73C09 /* NetBios.m in Sources */,
+				1194211418E017340051474A /* main.m in Sources */,
+				119E724918E42FDE00B73C09 /* SmbTransactionMessage.m in Sources */,
+				1194219618E01D6A0051474A /* UIViewSizeShortcuts.m in Sources */,
+				119E724F18E430FD00B73C09 /* LoginController.m in Sources */,
+				119E722F18E42FDE00B73C09 /* DceRpcData.m in Sources */,
+				119E724318E42FDE00B73C09 /* SmbLogoffMessage.m in Sources */,
+				119E724118E42FDE00B73C09 /* SmbConnection.m in Sources */,
+				119E723618E42FDE00B73C09 /* DceRpcPrinterInfo2.m in Sources */,
+				119E723018E42FDE00B73C09 /* DceRpcEndDocPrinter.m in Sources */,
+				1194210E18E0170A0051474A /* AppDelegate.m in Sources */,
+				119E724818E42FDE00B73C09 /* SmbSessionSetupMessage.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1194210118E015F20051474A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1194210218E015F20051474A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1194210418E015F20051474A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "smb4ios-Prefix.pch";
+				INFOPLIST_FILE = "smb4ios-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Lib",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1194210518E015F20051474A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "smb4ios-Prefix.pch";
+				INFOPLIST_FILE = "smb4ios-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Lib",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		119420CC18E015F10051474A /* Build configuration list for PBXProject "smb4ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1194210118E015F20051474A /* Debug */,
+				1194210218E015F20051474A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1194210318E015F20051474A /* Build configuration list for PBXNativeTarget "smb4ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1194210418E015F20051474A /* Debug */,
+				1194210518E015F20051474A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 119420C918E015F10051474A /* Project object */;
+}
