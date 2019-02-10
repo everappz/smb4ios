@@ -16,7 +16,6 @@
 		1194218118E018A40051474A /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194217C18E018A40051474A /* AsyncUdpSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1194218218E018A40051474A /* SocketConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194217E18E018A40051474A /* SocketConnection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1194218318E018A40051474A /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194218018E018A40051474A /* Utils.m */; };
-		1194218518E01CA70051474A /* libntlm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1194218418E01CA70051474A /* libntlm.a */; };
 		1194219418E01D6A0051474A /* ExtensionViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194218F18E01D6A0051474A /* ExtensionViewControllers.m */; };
 		1194219518E01D6A0051474A /* RootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194219118E01D6A0051474A /* RootController.m */; };
 		1194219618E01D6A0051474A /* UIViewSizeShortcuts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194219318E01D6A0051474A /* UIViewSizeShortcuts.m */; };
@@ -54,6 +53,10 @@
 		119E724B18E42FDE00B73C09 /* SmbTreeDisconnectMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722A18E42FDE00B73C09 /* SmbTreeDisconnectMessage.m */; };
 		119E724C18E42FDE00B73C09 /* SmbWriteMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722C18E42FDE00B73C09 /* SmbWriteMessage.m */; };
 		119E724F18E430FD00B73C09 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E724E18E430FD00B73C09 /* LoginController.m */; };
+		AC1E166522102287003100AF /* smbencrypt.c in Sources */ = {isa = PBXBuildFile; fileRef = AC1E166322102287003100AF /* smbencrypt.c */; };
+		AC1E166622102287003100AF /* smbutil.c in Sources */ = {isa = PBXBuildFile; fileRef = AC1E166422102287003100AF /* smbutil.c */; };
+		AC1E166C22102326003100AF /* md4.c in Sources */ = {isa = PBXBuildFile; fileRef = AC1E166922102326003100AF /* md4.c */; };
+		AC1E166D22102326003100AF /* des.c in Sources */ = {isa = PBXBuildFile; fileRef = AC1E166B22102326003100AF /* des.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,7 +77,6 @@
 		1194217E18E018A40051474A /* SocketConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketConnection.m; sourceTree = "<group>"; };
 		1194217F18E018A40051474A /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		1194218018E018A40051474A /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
-		1194218418E01CA70051474A /* libntlm.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libntlm.a; path = Lib/libntlm.a; sourceTree = "<group>"; };
 		1194218818E01CD10051474A /* ntlm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ntlm.h; sourceTree = "<group>"; };
 		1194218E18E01D6A0051474A /* ExtensionViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtensionViewControllers.h; sourceTree = "<group>"; };
 		1194218F18E01D6A0051474A /* ExtensionViewControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtensionViewControllers.m; sourceTree = "<group>"; };
@@ -153,6 +155,14 @@
 		119E722C18E42FDE00B73C09 /* SmbWriteMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbWriteMessage.m; sourceTree = "<group>"; };
 		119E724D18E430FD00B73C09 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		119E724E18E430FD00B73C09 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+		AC1E166322102287003100AF /* smbencrypt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = smbencrypt.c; sourceTree = "<group>"; };
+		AC1E166422102287003100AF /* smbutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = smbutil.c; sourceTree = "<group>"; };
+		AC1E1667221022D4003100AF /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		AC1E166822102325003100AF /* des.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = des.h; sourceTree = "<group>"; };
+		AC1E166922102326003100AF /* md4.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = md4.c; sourceTree = "<group>"; };
+		AC1E166A22102326003100AF /* md4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md4.h; sourceTree = "<group>"; };
+		AC1E166B22102326003100AF /* des.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = des.c; sourceTree = "<group>"; };
+		AC1E166E2210233B003100AF /* byteswap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = byteswap.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +170,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1194218518E01CA70051474A /* libntlm.a in Frameworks */,
 				119420D718E015F10051474A /* CoreGraphics.framework in Frameworks */,
 				119420D918E015F10051474A /* UIKit.framework in Frameworks */,
 				119420D518E015F10051474A /* Foundation.framework in Frameworks */,
@@ -196,7 +205,6 @@
 		119420D318E015F10051474A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1194218418E01CA70051474A /* libntlm.a */,
 				119420D418E015F10051474A /* Foundation.framework */,
 				119420D618E015F10051474A /* CoreGraphics.framework */,
 				119420D818E015F10051474A /* UIKit.framework */,
@@ -241,6 +249,14 @@
 		1194218618E01CD00051474A /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				AC1E166E2210233B003100AF /* byteswap.h */,
+				AC1E166B22102326003100AF /* des.c */,
+				AC1E166822102325003100AF /* des.h */,
+				AC1E166922102326003100AF /* md4.c */,
+				AC1E166A22102326003100AF /* md4.h */,
+				AC1E1667221022D4003100AF /* config.h */,
+				AC1E166322102287003100AF /* smbencrypt.c */,
+				AC1E166422102287003100AF /* smbutil.c */,
 				1194218818E01CD10051474A /* ntlm.h */,
 			);
 			path = Lib;
@@ -433,11 +449,13 @@
 				119E723518E42FDE00B73C09 /* DceRpcOpenPrinterEx.m in Sources */,
 				119E723918E42FDE00B73C09 /* NbtConnection.m in Sources */,
 				119E723C18E42FDE00B73C09 /* NSMutableData+SMB.m in Sources */,
+				AC1E166C22102326003100AF /* md4.c in Sources */,
 				1194218218E018A40051474A /* SocketConnection.m in Sources */,
 				119E724518E42FDE00B73C09 /* SmbNegotiateProtocolMessage.m in Sources */,
 				1194218118E018A40051474A /* AsyncUdpSocket.m in Sources */,
 				119E724C18E42FDE00B73C09 /* SmbWriteMessage.m in Sources */,
 				1194219918E01EB70051474A /* ServersController.m in Sources */,
+				AC1E166622102287003100AF /* smbutil.c in Sources */,
 				119E723D18E42FDE00B73C09 /* RapMessage.m in Sources */,
 				1194219F18E024610051474A /* PrinterController.m in Sources */,
 				119E723218E42FDE00B73C09 /* DceRpcGetPrinter.m in Sources */,
@@ -447,6 +465,7 @@
 				119E724418E42FDE00B73C09 /* SmbMessage.m in Sources */,
 				119E723818E42FDE00B73C09 /* DceRpcWritePrinter.m in Sources */,
 				1194219518E01D6A0051474A /* RootController.m in Sources */,
+				AC1E166522102287003100AF /* smbencrypt.c in Sources */,
 				119E724A18E42FDE00B73C09 /* SmbTreeConnectMessage.m in Sources */,
 				119E724618E42FDE00B73C09 /* SmbNtCreateMessage.m in Sources */,
 				119E724018E42FDE00B73C09 /* SmbCloseMessage.m in Sources */,
@@ -459,6 +478,7 @@
 				119E724918E42FDE00B73C09 /* SmbTransactionMessage.m in Sources */,
 				1194219618E01D6A0051474A /* UIViewSizeShortcuts.m in Sources */,
 				119E724F18E430FD00B73C09 /* LoginController.m in Sources */,
+				AC1E166D22102326003100AF /* des.c in Sources */,
 				119E722F18E42FDE00B73C09 /* DceRpcData.m in Sources */,
 				119E724318E42FDE00B73C09 /* SmbLogoffMessage.m in Sources */,
 				119E724118E42FDE00B73C09 /* SmbConnection.m in Sources */,
