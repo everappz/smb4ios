@@ -25,7 +25,7 @@
 	txtUsername = [[UITextField alloc] initWithFrame:
 		CGRectMake(10, 20, self.view.width - 10 * 2, 38)];
 	txtUsername.placeholder = @"Username";
-	txtUsername.backgroundColor = RGBCOLOR(240, 240, 240);
+	txtUsername.backgroundColor = [UIColor colorWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:1.0];
 	txtUsername.clearButtonMode = UITextFieldViewModeWhileEditing;
 	txtUsername.autocapitalizationType = UITextAutocapitalizationTypeNone;
 	txtUsername.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -35,7 +35,7 @@
 	txtPassword = [[UITextField alloc] initWithFrame:
 		CGRectMake(10, 60, self.view.width - 10 * 2, 38)];
 	txtPassword.placeholder = @"Password";
-	txtPassword.backgroundColor = RGBCOLOR(240, 240, 240);
+	txtPassword.backgroundColor = [UIColor colorWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:1.0];
 	txtPassword.clearButtonMode = UITextFieldViewModeWhileEditing;
 	txtPassword.autocapitalizationType = UITextAutocapitalizationTypeNone;
 	txtPassword.autocorrectionType = UITextAutocorrectionTypeNo;

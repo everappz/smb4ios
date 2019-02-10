@@ -73,7 +73,7 @@
 	self.host = host;
 	self.error = NULL;
 
-	[super connectToAddress:[NSString stringWithFormat:@"%@:445", self.host]];
+    [super connectToAddress:self.host port:445];
 }
 
 - (bool) runSmb:(SmbMessage *)smb
@@ -212,32 +212,34 @@
 	}
 	else
 	{
-		tSmbNtlmAuthRequest authRequest;
-		buildSmbNtlmAuthRequest(&authRequest, "", "");
+        
+        tSmbNtlmAuthRequest authRequest;
+        buildSmbNtlmAuthRequest(&authRequest, "", "");
 
-		SmbSessionSetupMessage *sessionSetupN = [[SmbSessionSetupMessage alloc] init];
-		sessionSetupN.sessionKey = negotiate.sessionKey;
-		sessionSetupN.requestSecurityBlob = [NSData dataWithBytes:&authRequest length:sizeof(authRequest)];
-		if (![self runSmb:sessionSetupN])
-			return false;
-		
-		uid = sessionSetupN.uid;
+        SmbSessionSetupMessage *sessionSetupN = [[SmbSessionSetupMessage alloc] init];
+        sessionSetupN.sessionKey = negotiate.sessionKey;
+        sessionSetupN.requestSecurityBlob = [NSData dataWithBytes:&authRequest length:sizeof(authRequest)];
+        if (![self runSmb:sessionSetupN])
+            return false;
+        
+        uid = sessionSetupN.uid;
 
-		tSmbNtlmAuthChallenge challenge;
-		memset(&challenge, 0, sizeof(challenge));
-		memcpy(&challenge, sessionSetupN.responseSecurityBlob.bytes, sessionSetupN.responseSecurityBlob.length);
+        tSmbNtlmAuthChallenge challenge;
+        memset(&challenge, 0, sizeof(challenge));
+        memcpy(&challenge, sessionSetupN.responseSecurityBlob.bytes, sessionSetupN.responseSecurityBlob.length);
 
-		NSString *username = (self.username == NULL ? @"" : self.username);
-		NSString *password = (self.password == NULL ? @"" : self.password);
+        NSString *username = (self.username == NULL ? @"" : self.username);
+        NSString *password = (self.password == NULL ? @"" : self.password);
 
-		tSmbNtlmAuthResponse authResponse;
-		buildSmbNtlmAuthResponse(&challenge, &authResponse, [username UTF8String], [password UTF8String]);
+        tSmbNtlmAuthResponse authResponse;
+        buildSmbNtlmAuthResponse(&challenge, &authResponse, [username UTF8String], [password UTF8String]);
 
-		SmbSessionSetupMessage *sessionSetupA = [[SmbSessionSetupMessage alloc] init];
-		sessionSetupA.sessionKey = negotiate.sessionKey;
-		sessionSetupA.requestSecurityBlob = [NSData dataWithBytes:&authResponse length:sizeof(authResponse)];
-		if (![self runSmb:sessionSetupA])
-			return false;
+        SmbSessionSetupMessage *sessionSetupA = [[SmbSessionSetupMessage alloc] init];
+        sessionSetupA.sessionKey = negotiate.sessionKey;
+        sessionSetupA.requestSecurityBlob = [NSData dataWithBytes:&authResponse length:sizeof(authResponse)];
+        if (![self runSmb:sessionSetupA])
+            return false;
+        
 	}
 
 	// Tree Connect

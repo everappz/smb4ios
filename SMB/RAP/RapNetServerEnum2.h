@@ -1,3 +1,6 @@
+
+
+#import <Foundation/Foundation.h>
 #import "RapMessage.h"
 #import "RapNetServerInfo1.h"
 

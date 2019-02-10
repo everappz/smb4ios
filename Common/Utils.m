@@ -34,18 +34,6 @@
 	return result;
 }
 
-+ (bool) isPortrait
-{
-	UIDeviceOrientation ornt = [[UIDevice currentDevice] orientation];
-	bool portrait = (ornt == UIInterfaceOrientationPortrait || ornt == UIInterfaceOrientationPortraitUpsideDown);
-	bool landscape = (ornt == UIInterfaceOrientationLandscapeLeft || ornt == UIInterfaceOrientationLandscapeRight);
-	
-	if (portrait || landscape)
-		return portrait;
-	else
-		return UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]);
-}
-
 + (NSString *) sockaddrToString:(const void *)sockaddr
 {
 	if (sockaddr == NULL)
@@ -136,31 +124,6 @@
 		
 		ptr += charsToPrintInRow;
 	}
-}
-
-+ (NSString *) uniqueDeviceId
-{
-	if ([[[UIDevice currentDevice] systemVersion] floatValue] < 6.0)
-		// just register as new device every time, it's an old iOS which nobody use anymore
-		return [[NSUUID UUID] UUIDString];
-	else
-		return [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-}
-
-// Alerts
-
-+ (void) alertError:(NSString *)msg
-{
-	[Utils alert:msg title:@"Error"];
-}
-
-+ (void) alert:(NSString *)msg title:(NSString *)title
-{
-	UIAlertView *alert = [[UIAlertView alloc] init];
-	alert.title = title;
-	alert.message = msg;
-	[alert addButtonWithTitle:@"OK"];
-	[alert show];
 }
 
 @end

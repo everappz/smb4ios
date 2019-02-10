@@ -1,5 +1,7 @@
 #import "NSMutableData+SMB.h"
 
+#define CheckIndexAndReturnTypeLength(__INDEX__,__RETURN_TYPE__) if(self.length<(__INDEX__+sizeof(__RETURN_TYPE__))){return 0;}
+
 @implementation NSMutableData (SMB)
 
 - (void) appendByte:(UInt8)byte
@@ -84,32 +86,71 @@
 
 - (UInt8) byteAt:(int)index
 {
-	return *((UInt8 *)self.bytes + index);
+    CheckIndexAndReturnTypeLength(index,UInt8);
+    UInt8 value = 0;
+    NSUInteger length = sizeof(UInt8);
+    void *buffer = malloc(length);
+    [self getBytes:buffer range:NSMakeRange(index, length)];
+    value = (*(const UInt8 *)buffer);
+    free(buffer);
+    return value;
 }
 
 - (UInt16) wordLEAt:(int)index
 {
-	return *(UInt16 *)((UInt8 *)self.bytes + index);
+    CheckIndexAndReturnTypeLength(index,UInt16);
+    UInt16 value = 0;
+    NSUInteger length = sizeof(UInt16);
+    void *buffer = malloc(length);
+    [self getBytes:buffer range:NSMakeRange(index, length)];
+    value = CFSwapInt16LittleToHost(*(const UInt16 *)buffer);
+    free(buffer);
+    return value;
 }
 
 - (UInt16) wordBEAt:(int)index
 {
-	UInt16 number = *(UInt16 *)((UInt8 *)self.bytes + index);
-	return ntohs(number);
+    CheckIndexAndReturnTypeLength(index,UInt16);
+    UInt16 value = 0;
+    NSUInteger length = sizeof(UInt16);
+    void *buffer = malloc(length);
+    [self getBytes:buffer range:NSMakeRange(index, length)];
+    value = CFSwapInt16BigToHost(*(const UInt16 *)buffer);
+    free(buffer);
+    return value;
 }
 
 - (UInt32) uint32LEAt:(int)index
 {
-	return *(UInt32 *)((UInt8 *)self.bytes + index);
+    CheckIndexAndReturnTypeLength(index,UInt32);
+    UInt32 value = 0;
+    NSUInteger length = sizeof(UInt32);
+    void *buffer = malloc(length);
+    [self getBytes:buffer range:NSMakeRange(index, length)];
+    value = CFSwapInt32LittleToHost(*(const UInt32 *)buffer);
+    free(buffer);
+    return value;
 }
 
-+ (int) pad:(int)index to:(int)value
-{
+- (UInt32)uint32BEAt:(int)index{
+    CheckIndexAndReturnTypeLength(index,UInt32);
+    UInt32 value = 0;
+    NSUInteger length = sizeof(UInt32);
+    void *buffer = malloc(length);
+    [self getBytes:buffer range:NSMakeRange(index, length)];
+    value = CFSwapInt32BigToHost(*(const UInt32 *)buffer);
+    free(buffer);
+    return value;
+}
+
++ (int)pad:(int)index to:(int)value{
 	int rem = index % value;
-	if (rem == 0)
+    if (rem == 0){
 		return index;
-	else
+    }
+    else{
 		return index + value - rem;
+    }
 }
 
 @end

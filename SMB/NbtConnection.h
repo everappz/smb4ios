@@ -3,6 +3,14 @@
 
 @interface NbtConnection : SocketConnection
 
-- (bool) writeNbtMessage:(NSData *)data;
+- (BOOL)writeNbtMessage:(NSData *)data;
+
+- (void)close;
+
+- (BOOL)connectToAddress:(NSString *)addr port:(NSUInteger)port;
+
+- (BOOL)write:(NSData *)data;
+
+- (NSData *)read;
 
 @end

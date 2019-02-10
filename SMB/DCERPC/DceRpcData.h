@@ -1,4 +1,6 @@
 
+#import <Foundation/Foundation.h>
+
 @interface DceRpcDataReader : NSObject
 
 @property (nonatomic, strong) NSData *data;

@@ -1,5 +1,5 @@
 //
-//  AsyncUdpSocket.m
+//  SMB4iOSAsyncUdpSocket.m
 //  
 //  This class is in the public domain.
 //  Originally created by Robbie Hanson on Wed Oct 01 2008.
@@ -8,7 +8,7 @@
 //  http://code.google.com/p/cocoaasyncsocket/
 //
 
-#import "AsyncUdpSocket.h"
+#import "SMB4iOSAsyncUdpSocket.h"
 #import <sys/socket.h>
 #import <netinet/in.h>
 #import <arpa/inet.h>
@@ -27,16 +27,16 @@
 
 #define DEFAULT_MAX_RECEIVE_BUFFER_SIZE 9216
 
-NSString *const AsyncUdpSocketException = @"AsyncUdpSocketException";
-NSString *const AsyncUdpSocketErrorDomain = @"AsyncUdpSocketErrorDomain";
+NSString *const SMB4iOSAsyncUdpSocketException = @"SMB4iOSAsyncUdpSocketException";
+NSString *const SMB4iOSAsyncUdpSocketErrorDomain = @"SMB4iOSAsyncUdpSocketErrorDomain";
 
 #if MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_5
-// Mutex lock used by all instances of AsyncUdpSocket, to protect getaddrinfo.
+// Mutex lock used by all instances of SMB4iOSAsyncUdpSocket, to protect getaddrinfo.
 // Prior to Mac OS X 10.5 this method was not thread-safe.
 static NSString *getaddrinfoLock = @"lock";
 #endif
 
-enum AsyncUdpSocketFlags
+enum SMB4iOSAsyncUdpSocketFlags
 {
 	kDidBind                 = 1 <<  0,  // If set, bind has been called.
 	kDidConnect              = 1 <<  1,  // If set, connect has been called.
@@ -53,7 +53,7 @@ enum AsyncUdpSocketFlags
 	kFlipFlop                = 1 << 12,  // Used to alternate between IPv4 and IPv6 sockets.
 };
 
-@interface AsyncUdpSocket (Private)
+@interface SMB4iOSAsyncUdpSocket (Private)
 
 // Run Loop
 - (void)runLoopAddSource:(CFRunLoopSourceRef)source;
@@ -110,16 +110,16 @@ enum AsyncUdpSocketFlags
 
 @end
 
-static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, const void *, void *);
+static void SMB4iOSCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, const void *, void *);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
- * The AsyncSendPacket encompasses the instructions for a single send/write.
+ * The SMB4iOSAsyncSendPacket encompasses the instructions for a single send/write.
 **/
-@interface AsyncSendPacket : NSObject
+@interface SMB4iOSAsyncSendPacket : NSObject
 {
 @public
 	NSData *buffer;
@@ -130,25 +130,18 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 - (id)initWithData:(NSData *)d address:(NSData *)a timeout:(NSTimeInterval)t tag:(long)i;
 @end
 
-@implementation AsyncSendPacket
+@implementation SMB4iOSAsyncSendPacket
 
 - (id)initWithData:(NSData *)d address:(NSData *)a timeout:(NSTimeInterval)t tag:(long)i
 {
 	if((self = [super init]))
 	{
-		buffer = [d retain];
-		address = [a retain];
+		buffer = d;
+		address = a;
 		timeout = t;
 		tag = i;
 	}
 	return self;
-}
-
-- (void)dealloc
-{
-	[buffer release];
-	[address release];
-	[super dealloc];
 }
 
 @end
@@ -158,9 +151,9 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
- * The AsyncReceivePacket encompasses the instructions for a single receive/read.
+ * The SMB4iOSAsyncReceivePacket encompasses the instructions for a single receive/read.
 **/
-@interface AsyncReceivePacket : NSObject
+@interface SMB4iOSAsyncReceivePacket : NSObject
 {
 @public
 	NSTimeInterval timeout;
@@ -172,7 +165,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 - (id)initWithTimeout:(NSTimeInterval)t tag:(long)i;
 @end
 
-@implementation AsyncReceivePacket
+@implementation SMB4iOSAsyncReceivePacket
 
 - (id)initWithTimeout:(NSTimeInterval)t tag:(long)i
 {
@@ -188,20 +181,13 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	return self;
 }
 
-- (void)dealloc
-{
-	[buffer release];
-	[host release];
-	[super dealloc];
-}
-
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-@implementation AsyncUdpSocket
+@implementation SMB4iOSAsyncUdpSocket
 
 - (id)initWithDelegate:(id)delegate userData:(long)userData enableIPv4:(BOOL)enableIPv4 enableIPv6:(BOOL)enableIPv6
 {
@@ -222,7 +208,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 		
 		// Socket context
 		theContext.version = 0;
-		theContext.info = self;
+        theContext.info = (__bridge void *)(self);
 		theContext.retain = nil;
 		theContext.release = nil;
 		theContext.copyDescription = nil;
@@ -238,7 +224,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 										SOCK_DGRAM,
 										IPPROTO_UDP,
 										kCFSocketReadCallBack | kCFSocketWriteCallBack,
-										(CFSocketCallBack)&MyCFSocketCallback,
+										(CFSocketCallBack)&SMB4iOSCFSocketCallback,
 										&theContext);
 		}
 		if(enableIPv6)
@@ -248,7 +234,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 										SOCK_DGRAM,
 										IPPROTO_UDP,
 										kCFSocketReadCallBack | kCFSocketWriteCallBack,
-										(CFSocketCallBack)&MyCFSocketCallback,
+										(CFSocketCallBack)&SMB4iOSCFSocketCallback,
 										&theContext);
 		}
 		
@@ -268,7 +254,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 		theRunLoop = CFRunLoopGetCurrent();
 		
 		// Set default run loop modes
-		theRunLoopModes = [[NSArray arrayWithObject:NSDefaultRunLoopMode] retain];
+		theRunLoopModes = [NSArray arrayWithObject:NSDefaultRunLoopMode];
 		
 		// Attach the sockets to the run loop
 		
@@ -318,14 +304,8 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 - (void) dealloc
 {
 	[self close];
-	[theSendQueue release];
-	[theReceiveQueue release];
-	[theRunLoopModes release];
-	[cachedLocalHost release];
-	[cachedConnectedHost release];
 	[NSObject cancelPreviousPerformRequestsWithTarget:theDelegate selector:@selector(onUdpSocketDidClose:) object:self];
 	[NSObject cancelPreviousPerformRequestsWithTarget:self];
-	[super dealloc];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -361,7 +341,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	NSUInteger i, count = [theRunLoopModes count];
 	for(i = 0; i < count; i++)
 	{
-		CFStringRef runLoopMode = (CFStringRef)[theRunLoopModes objectAtIndex:i];
+        CFStringRef runLoopMode = (__bridge CFStringRef)[theRunLoopModes objectAtIndex:i];
 		CFRunLoopAddSource(theRunLoop, source, runLoopMode);
 	}
 }
@@ -371,7 +351,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	NSUInteger i, count = [theRunLoopModes count];
 	for(i = 0; i < count; i++)
 	{
-		CFStringRef runLoopMode = (CFStringRef)[theRunLoopModes objectAtIndex:i];
+        CFStringRef runLoopMode = (__bridge CFStringRef)[theRunLoopModes objectAtIndex:i];
 		CFRunLoopRemoveSource(theRunLoop, source, runLoopMode);
 	}
 }
@@ -381,7 +361,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	NSUInteger i, count = [theRunLoopModes count];
 	for(i = 0; i < count; i++)
 	{
-		CFStringRef runLoopMode = (CFStringRef)[theRunLoopModes objectAtIndex:i];
+        CFStringRef runLoopMode = (__bridge CFStringRef)[theRunLoopModes objectAtIndex:i];
 		CFRunLoopAddTimer(theRunLoop, (CFRunLoopTimerRef)timer, runLoopMode);
 	}
 }
@@ -391,7 +371,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	NSUInteger i, count = [theRunLoopModes count];
 	for(i = 0; i < count; i++)		
 	{
-		CFStringRef runLoopMode = (CFStringRef)[theRunLoopModes objectAtIndex:i];
+        CFStringRef runLoopMode = (__bridge CFStringRef)[theRunLoopModes objectAtIndex:i];
 		CFRunLoopRemoveTimer(theRunLoop, (CFRunLoopTimerRef)timer, runLoopMode);
 	}
 }
@@ -436,8 +416,8 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	
 	// We do not retain the timers - they get retained by the runloop when we add them as a source.
 	// Since we're about to remove them as a source, we retain now, and release again below.
-	[theSendTimer retain];
-	[theReceiveTimer retain];
+    NSTimer *theSendTimerLocal = theSendTimer;
+    NSTimer *theReceiveTimerLocal = theReceiveTimer;
 	
 	if(theSendTimer)    [self runLoopRemoveTimer:theSendTimer];
 	if(theReceiveTimer) [self runLoopRemoveTimer:theReceiveTimer];
@@ -448,8 +428,8 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	if(theReceiveTimer) [self runLoopAddTimer:theReceiveTimer];
 	
 	// Release timers since we retained them above
-	[theSendTimer release];
-	[theReceiveTimer release];
+    theSendTimerLocal = nil;
+    theReceiveTimerLocal = nil;
 	
 	if(theSource4) [self runLoopAddSource:theSource4];
 	if(theSource6) [self runLoopAddSource:theSource6];
@@ -487,21 +467,21 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	
 	// We do not retain the timers - they get retained by the runloop when we add them as a source.
 	// Since we're about to remove them as a source, we retain now, and release again below.
-	[theSendTimer retain];
-	[theReceiveTimer retain];
+    NSTimer *theSendTimerLocal = theSendTimer;
+    NSTimer *theReceiveTimerLocal = theReceiveTimer;
 	
 	if(theSendTimer)    [self runLoopRemoveTimer:theSendTimer];
 	if(theReceiveTimer) [self runLoopRemoveTimer:theReceiveTimer];
 	
-	[theRunLoopModes release];
+	theRunLoopModes = nil;
 	theRunLoopModes = [runLoopModes copy];
 	
 	if(theSendTimer)    [self runLoopAddTimer:theSendTimer];
 	if(theReceiveTimer) [self runLoopAddTimer:theReceiveTimer];
 	
 	// Release timers since we retained them above
-	[theSendTimer release];
-	[theReceiveTimer release];
+    theSendTimerLocal = nil;
+    theReceiveTimerLocal = nil;
 	
 	if(theSource4) [self runLoopAddSource:theSource4];
 	if(theSource6) [self runLoopAddSource:theSource6];
@@ -515,7 +495,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 
 - (NSArray *)runLoopModes
 {
-	return [[theRunLoopModes retain] autorelease];
+	return theRunLoopModes;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -775,17 +755,17 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 {
 	if(theFlags & kDidClose)
 	{
-		[NSException raise:AsyncUdpSocketException
+		[NSException raise:SMB4iOSAsyncUdpSocketException
 		            format:@"The socket is closed."];
 	}
 	if(theFlags & kDidBind)
 	{
-		[NSException raise:AsyncUdpSocketException
+		[NSException raise:SMB4iOSAsyncUdpSocketException
 		            format:@"Cannot bind a socket more than once."];
 	}
 	if(theFlags & kDidConnect)
 	{
-		[NSException raise:AsyncUdpSocketException
+		[NSException raise:SMB4iOSAsyncUdpSocketException
 		            format:@"Cannot bind after connecting. If needed, bind first, then connect."];
 	}
 	
@@ -813,6 +793,11 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	if (theSocket4)	setsockopt(CFSocketGetNative(theSocket4), SOL_SOCKET, SO_REUSEADDR, &reuseOn, sizeof(reuseOn));
 	if (theSocket6)	setsockopt(CFSocketGetNative(theSocket6), SOL_SOCKET, SO_REUSEADDR, &reuseOn, sizeof(reuseOn));
 	
+    // Make sure this socket cannot generate SIG_PIPE
+    int noSigPipe = 1;
+    if (theSocket4) setsockopt(CFSocketGetNative(theSocket4), SOL_SOCKET, SO_NOSIGPIPE, &noSigPipe, sizeof(noSigPipe));
+    if (theSocket6) setsockopt(CFSocketGetNative(theSocket6), SOL_SOCKET, SO_NOSIGPIPE, &noSigPipe, sizeof(noSigPipe));
+    
 	// Bind the sockets
 	
 	if(address4)
@@ -881,12 +866,12 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 {
 	if(theFlags & kDidClose)
 	{
-		[NSException raise:AsyncUdpSocketException
+		[NSException raise:SMB4iOSAsyncUdpSocketException
 		            format:@"The socket is closed."];
 	}
 	if(theFlags & kDidConnect)
 	{
-		[NSException raise:AsyncUdpSocketException
+		[NSException raise:SMB4iOSAsyncUdpSocketException
 		            format:@"Cannot connect a socket more than once."];
 	}
 	
@@ -981,12 +966,12 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 {
 	if(theFlags & kDidClose)
 	{
-		[NSException raise:AsyncUdpSocketException
+		[NSException raise:SMB4iOSAsyncUdpSocketException
 		            format:@"The socket is closed."];
 	}
 	if(theFlags & kDidConnect)
 	{
-		[NSException raise:AsyncUdpSocketException
+		[NSException raise:SMB4iOSAsyncUdpSocketException
 		            format:@"Cannot connect a socket more than once."];
 	}
 	
@@ -1046,8 +1031,8 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 		NSString *errMsg = @"remoteAddr parameter is not a valid address";
 		NSDictionary *info = [NSDictionary dictionaryWithObject:errMsg forKey:NSLocalizedDescriptionKey];
 		
-		*errPtr = [NSError errorWithDomain:AsyncUdpSocketErrorDomain
-									  code:AsyncUdpSocketBadParameter
+		*errPtr = [NSError errorWithDomain:SMB4iOSAsyncUdpSocketErrorDomain
+									  code:SMB4iOSAsyncUdpSocketBadParameter
 								  userInfo:info];
 	}
 	return NO;
@@ -1068,17 +1053,17 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 {
 	if(theFlags & kDidClose)
 	{
-		[NSException raise:AsyncUdpSocketException
+		[NSException raise:SMB4iOSAsyncUdpSocketException
 		            format:@"The socket is closed."];
 	}
 	if(!(theFlags & kDidBind))
 	{
-		[NSException raise:AsyncUdpSocketException
+		[NSException raise:SMB4iOSAsyncUdpSocketException
 		            format:@"Must bind a socket before joining a multicast group."];
 	}
 	if(theFlags & kDidConnect)
 	{
-		[NSException raise:AsyncUdpSocketException
+		[NSException raise:SMB4iOSAsyncUdpSocketException
 		            format:@"Cannot join a multicast group if connected."];
 	}
 	
@@ -1187,8 +1172,8 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 		NSString *errMsg = @"Invalid group and/or address, not matching existing socket(s)";
 		NSDictionary *info = [NSDictionary dictionaryWithObject:errMsg forKey:NSLocalizedDescriptionKey];
 		
-		*errPtr = [NSError errorWithDomain:AsyncUdpSocketErrorDomain
-		                              code:AsyncUdpSocketBadParameter
+		*errPtr = [NSError errorWithDomain:SMB4iOSAsyncUdpSocketErrorDomain
+		                              code:SMB4iOSAsyncUdpSocketBadParameter
 		                          userInfo:info];
 	}
 	return NO;
@@ -1384,7 +1369,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	NSString *errMsg = @"General CFSocket error";
 	NSDictionary *info = [NSDictionary dictionaryWithObject:errMsg forKey:NSLocalizedDescriptionKey];
 	
-	return [NSError errorWithDomain:AsyncUdpSocketErrorDomain code:AsyncUdpSocketCFSocketError userInfo:info];
+	return [NSError errorWithDomain:SMB4iOSAsyncUdpSocketErrorDomain code:SMB4iOSAsyncUdpSocketCFSocketError userInfo:info];
 }
 
 - (NSError *)getIPv4UnavailableError
@@ -1392,7 +1377,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	NSString *errMsg = @"IPv4 is unavailable due to binding/connecting using IPv6 only";
 	NSDictionary *info = [NSDictionary dictionaryWithObject:errMsg forKey:NSLocalizedDescriptionKey];
 	
-	return [NSError errorWithDomain:AsyncUdpSocketErrorDomain code:AsyncUdpSocketIPv4Unavailable userInfo:info];
+	return [NSError errorWithDomain:SMB4iOSAsyncUdpSocketErrorDomain code:SMB4iOSAsyncUdpSocketIPv4Unavailable userInfo:info];
 }
 
 - (NSError *)getIPv6UnavailableError
@@ -1400,7 +1385,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	NSString *errMsg = @"IPv6 is unavailable due to binding/connecting using IPv4 only or is not supported on this platform";
 	NSDictionary *info = [NSDictionary dictionaryWithObject:errMsg forKey:NSLocalizedDescriptionKey];
 	
-	return [NSError errorWithDomain:AsyncUdpSocketErrorDomain code:AsyncUdpSocketIPv6Unavailable userInfo:info];
+	return [NSError errorWithDomain:SMB4iOSAsyncUdpSocketErrorDomain code:SMB4iOSAsyncUdpSocketIPv6Unavailable userInfo:info];
 }
 
 - (NSError *)getSendTimeoutError
@@ -1408,14 +1393,14 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	NSString *errMsg = @"Send operation timed out";
 	NSDictionary *info = [NSDictionary dictionaryWithObject:errMsg forKey:NSLocalizedDescriptionKey];
 	
-	return [NSError errorWithDomain:AsyncUdpSocketErrorDomain code:AsyncUdpSocketSendTimeoutError userInfo:info];
+	return [NSError errorWithDomain:SMB4iOSAsyncUdpSocketErrorDomain code:SMB4iOSAsyncUdpSocketSendTimeoutError userInfo:info];
 }
 - (NSError *)getReceiveTimeoutError
 {
 	NSString *errMsg = @"Receive operation timed out";
 	NSDictionary *info = [NSDictionary dictionaryWithObject:errMsg forKey:NSLocalizedDescriptionKey];
 	
-	return [NSError errorWithDomain:AsyncUdpSocketErrorDomain code:AsyncUdpSocketReceiveTimeoutError userInfo:info];
+	return [NSError errorWithDomain:SMB4iOSAsyncUdpSocketErrorDomain code:SMB4iOSAsyncUdpSocketReceiveTimeoutError userInfo:info];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1498,7 +1483,6 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	
 	if(theFlags & kDidBind)
 	{
-		[cachedLocalHost release];
 		cachedLocalHost = [result copy];
 	}
 	
@@ -1583,7 +1567,6 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	
 	if(theFlags & kDidConnect)
 	{
-		[cachedConnectedHost release];
 		cachedConnectedHost = [result copy];
 	}
 	
@@ -1701,12 +1684,11 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	// This method is only for connected sockets
 	if(![self isConnected]) return NO;
 	
-	AsyncSendPacket *packet = [[AsyncSendPacket alloc] initWithData:data address:nil timeout:timeout tag:tag];
+	SMB4iOSAsyncSendPacket *packet = [[SMB4iOSAsyncSendPacket alloc] initWithData:data address:nil timeout:timeout tag:tag];
 	
 	[theSendQueue addObject:packet];
 	[self scheduleDequeueSend];
 	
-	[packet release];
 	return YES;
 }
 
@@ -1722,19 +1704,18 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	NSData *address4 = nil, *address6 = nil;
 	[self convertForSendHost:host port:port intoAddress4:&address4 address6:&address6];
 	
-	AsyncSendPacket *packet = nil;
+	SMB4iOSAsyncSendPacket *packet = nil;
 	
 	if(address4 && theSocket4)
-		packet = [[AsyncSendPacket alloc] initWithData:data address:address4 timeout:timeout tag:tag];
+		packet = [[SMB4iOSAsyncSendPacket alloc] initWithData:data address:address4 timeout:timeout tag:tag];
 	else if(address6 && theSocket6)
-		packet = [[AsyncSendPacket alloc] initWithData:data address:address6 timeout:timeout tag:tag];
+		packet = [[SMB4iOSAsyncSendPacket alloc] initWithData:data address:address6 timeout:timeout tag:tag];
 	else
 		return NO;
 	
 	[theSendQueue addObject:packet];
 	[self scheduleDequeueSend];
 	
-	[packet release];
 	return YES;
 }
 
@@ -1753,12 +1734,11 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	if([remoteAddr length] == sizeof(struct sockaddr_in6) && !theSocket6)
 		return NO;
 	
-	AsyncSendPacket *packet = [[AsyncSendPacket alloc] initWithData:data address:remoteAddr timeout:timeout tag:tag];
+	SMB4iOSAsyncSendPacket *packet = [[SMB4iOSAsyncSendPacket alloc] initWithData:data address:remoteAddr timeout:timeout tag:tag];
 	
 	[theSendQueue addObject:packet];
 	[self scheduleDequeueSend];
 	
-	[packet release];
 	return YES;
 }
 
@@ -1792,7 +1772,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	return select(FD_SETSIZE, NULL, &fds, NULL, &timeout) > 0;
 }
 
-- (CFSocketRef)socketForPacket:(AsyncSendPacket *)packet
+- (CFSocketRef)socketForPacket:(SMB4iOSAsyncSendPacket *)packet
 {
 	if(!theSocket4)
 		return theSocket6;
@@ -1828,7 +1808,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 		if([theSendQueue count] > 0)
 		{
 			// Dequeue next send packet
-			theCurrentSend = [[theSendQueue objectAtIndex:0] retain];
+			theCurrentSend = [theSendQueue objectAtIndex:0];
 			[theSendQueue removeObjectAtIndex:0];
 			
 			// Start time-out timer.
@@ -1957,7 +1937,6 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	[theSendTimer invalidate];
 	theSendTimer = nil;
 	
-	[theCurrentSend release];
 	theCurrentSend = nil;
 }
 
@@ -1980,12 +1959,11 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	if(theFlags & kForbidSendReceive) return;
 	if(theFlags & kDidClose) return;
 	
-	AsyncReceivePacket *packet = [[AsyncReceivePacket alloc] initWithTimeout:timeout tag:tag];
+	SMB4iOSAsyncReceivePacket *packet = [[SMB4iOSAsyncReceivePacket alloc] initWithTimeout:timeout tag:tag];
 	
 	[theReceiveQueue addObject:packet];
 	[self scheduleDequeueReceive];
 	
-	[packet release];
 }
 
 - (BOOL)hasBytesAvailable:(CFSocketRef)sockRef
@@ -2043,7 +2021,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 		if([theReceiveQueue count] > 0)
 		{
 			// Dequeue next receive packet
-			theCurrentReceive = [[theReceiveQueue objectAtIndex:0] retain];
+			theCurrentReceive = [theReceiveQueue objectAtIndex:0];
 			[theReceiveQueue removeObjectAtIndex:0];
 			
 			// Start time-out timer.
@@ -2154,7 +2132,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 							theCurrentReceive->buffer = [[NSMutableData alloc] initWithBytesNoCopy:buf
 																					 length:result
 																			   freeWhenDone:YES];
-							theCurrentReceive->host = [host retain];
+							theCurrentReceive->host = [host copy];
 							theCurrentReceive->port = port;
 						}
 					}
@@ -2188,7 +2166,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 							theCurrentReceive->buffer = [[NSMutableData alloc] initWithBytesNoCopy:buf
 																					 length:result
 																			   freeWhenDone:YES];
-							theCurrentReceive->host = [host retain];
+							theCurrentReceive->host = [host copy];
 							theCurrentReceive->port = port;
 						}
 					}
@@ -2218,9 +2196,6 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 					}
 					else
 					{
-						[theCurrentReceive->buffer release];
-						[theCurrentReceive->host release];
-						
 						theCurrentReceive->buffer = nil;
 						theCurrentReceive->host = nil;
 						
@@ -2279,7 +2254,6 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 	[theReceiveTimer invalidate];
 	theReceiveTimer = nil;
 	
-	[theCurrentReceive release];
 	theCurrentReceive = nil;
 }
 
@@ -2321,7 +2295,7 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
 			[self doSend:sock];
 			break;
 		default:
-			NSLog (@"AsyncUdpSocket %p received unexpected CFSocketCallBackType %lu.", self, (unsigned long)type);
+			NSLog (@"SMB4iOSAsyncUdpSocket %p received unexpected CFSocketCallBackType %lu.", self, (unsigned long)type);
 			break;
 	}
 }
@@ -2330,14 +2304,13 @@ static void MyCFSocketCallback(CFSocketRef, CFSocketCallBackType, CFDataRef, con
  * This is the callback we setup for CFSocket.
  * This method does nothing but forward the call to it's Objective-C counterpart
 **/
-static void MyCFSocketCallback(CFSocketRef sref, CFSocketCallBackType type, CFDataRef address, const void *pData, void *pInfo)
+static void SMB4iOSCFSocketCallback(CFSocketRef sref, CFSocketCallBackType type, CFDataRef address, const void *pData, void *pInfo)
 {
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	
-	AsyncUdpSocket *theSocket = [[(AsyncUdpSocket *)pInfo retain] autorelease];
-	[theSocket doCFSocketCallback:type forSocket:sref withAddress:(NSData *)address withData:pData];
-	
-	[pool release];
+    @autoreleasepool{
+        SMB4iOSAsyncUdpSocket *theSocket = (__bridge SMB4iOSAsyncUdpSocket *)pInfo;
+        if(theSocket->theFlags & kDidClose) return;
+        [theSocket doCFSocketCallback:type forSocket:sref withAddress:(__bridge NSData *)address withData:pData];
+    }
 }
 
 @end

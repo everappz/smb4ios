@@ -1,8 +1,6 @@
 #import "NetBiosQuery.h"
 #import "NSMutableData+SMB.h"
 
-#define TRANSACTION_ID 0x1234
-
 #define TYPE_NB     0x20
 #define TYPE_NBSTAT 0x21
 
@@ -65,7 +63,9 @@ char *L1_Encode(char *dst, const char *name, const char sfx)
 
 	NSMutableData *request = [NSMutableData data];
 	
-	[request appendWordBE:TRANSACTION_ID]; // Transaction ID
+    NSParameterAssert(self.transactionID!=0);
+    
+	[request appendWordBE:self.transactionID]; // Transaction ID
 	[request appendWordBE:flags]; // Flags
 	[request appendWordBE:0x0001]; // Questions
 	[request appendWordBE:0x0000]; // Answer RRs
@@ -92,8 +92,10 @@ char *L1_Encode(char *dst, const char *name, const char sfx)
 	
 	int n = 0;
 	
+    NSParameterAssert(self.transactionID!=0);
+    
 	int transactionId = [data wordBEAt:n]; n += 2;
-	if (transactionId != TRANSACTION_ID)
+	if (transactionId != self.transactionID)
 	{
 		self.error = @"Not the requested packet";
 		return false;

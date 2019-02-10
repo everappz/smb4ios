@@ -1,6 +1,6 @@
 #import "NetBios.h"
 #import "Utils.h"
-#import "AsyncUdpSocket.h"
+#import "SMB4iOSAsyncUdpSocket.h"
 #import "NetBiosQuery.h"
 
 //#define LOG(format, ...) NSLog(format, ## __VA_ARGS__)
@@ -9,128 +9,200 @@
 //#define LOGDATA(data) [Utils logData:data]
 #define LOGDATA(data)
 
-#define LISTEN_PORT 55355
-#define WRITE_TIMEOUT 2.0
-#define READ_TIMEOUT  2.0
-
-static NetBios *netBios = NULL;
+#define LISTEN_PORT 0
+#define WRITE_TIMEOUT 5.0
+#define READ_TIMEOUT  5.0
 
 
-@interface NetBios () <AsyncUdpSocketDelegate>
+@interface NetBiosOperation : NSObject
+
+@property (nonatomic,copy)NetBiosCompletionBlock completion;
+@property (nonatomic,assign)NSUInteger tag;
 
 @end
 
-@implementation NetBios
-{
-	AsyncUdpSocket *udpSocket;
-	void(^completion)(NSString *host);
-	NSString *resolvedHost;
+
+@interface NetBios () <SMB4iOSAsyncUdpSocketDelegate>
+
+@property (nonatomic,strong)SMB4iOSAsyncUdpSocket *udpSocket;
+
+@end
+
+
+
+@implementation NetBios{
+	SMB4iOSAsyncUdpSocket *_udpSocket;
+    NSMutableDictionary<NSNumber *,NetBiosOperation *> *_operations;
+    long _nextOperationTag;
 }
 
-+ (NetBios *) instance
-{
-	if (netBios == NULL)
-		netBios = [[NetBios alloc] init];
-	return netBios;
++ (NetBios *) instance{
+    static dispatch_once_t onceToken;
+    static NetBios *netBios = nil;
+    dispatch_once(&onceToken, ^{
+        netBios = [[NetBios alloc] init];
+    });
+    return netBios;
 }
 
-- (void) resolveMasterBrowser:(void(^)(NSString *host))aCompletion
-{
+- (instancetype)init{
+    self = [super init];
+    if(self){
+        _operations = [[NSMutableDictionary<NSNumber *,NetBiosOperation *> alloc] init];
+        _nextOperationTag = 1;
+    }
+    return self;
+}
+
+- (long)nextOperationTag{
+    long result = _nextOperationTag;
+    _nextOperationTag++;
+    if(_nextOperationTag>=2048){
+        _nextOperationTag = 1;
+    }
+    return result;
+}
+
+- (void) resolveMasterBrowser:(void(^)(NSString *host))aCompletion{
 	[self resolveName:@"\1\2__MSBROWSE__\2" suffix:'\1' onHost:@"255.255.255.255" completion:aCompletion];
 }
 
-- (void) resolveAllOnHost:(NSString *)host completion:(void(^)(NSString *host))aCompletion
-{
+- (void) resolveAllOnHost:(NSString *)host completion:(void(^)(NSString *host))aCompletion{
 	// @"*\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
 	[self resolveName:@"<all>" suffix:'\0' onHost:host completion:aCompletion];
 }
 
-- (void) resolveServer:(NSString *)nbtName completion:(void(^)(NSString *host))aCompletion
-{
+- (void) resolveServer_0x20:(NSString *)nbtName completion:(void(^)(NSString *host))aCompletion{
 	[self resolveName:nbtName suffix:0x20 onHost:@"255.255.255.255" completion:aCompletion];
 }
 
-- (void) resolveName:(NSString *)name suffix:(char)suffix onHost:(NSString *)host
-	completion:(void(^)(NSString *host))aCompletion
-{
-	if (udpSocket != NULL)
-	{
-		NSLog(@"already running");
-		return;
-	}
-
-	completion = aCompletion;
-
-	NetBiosQuery *query = [[NetBiosQuery alloc] init];
-	query.nbtName = name;
-	query.nbtSuffix = suffix;
-	NSData *request = [query getRequest];
-	LOGDATA(request);
-	
-	resolvedHost = NULL;
-	
-	udpSocket = [[AsyncUdpSocket alloc] initWithDelegate:self];
-
-	if ( ![udpSocket bindToPort:LISTEN_PORT error:NULL]
-		|| ![udpSocket enableBroadcast:true error:NULL]
-		|| ![udpSocket sendData:request toHost:host port:137 withTimeout:WRITE_TIMEOUT tag:0])
-	{
-		NSLog(@"error initializing AsyncUdpSocket");
-		completion(NULL);
-		completion = NULL;
-		[udpSocket close];
-		udpSocket = NULL;
-		return;
-	}
-
-	[udpSocket receiveWithTimeout:READ_TIMEOUT tag:0];
+- (void) resolveServer_0x1D:(NSString *)nbtName completion:(void(^)(NSString *host))aCompletion{
+    [self resolveName:nbtName suffix:0x1d onHost:@"255.255.255.255" completion:aCompletion];
 }
 
-- (void)onUdpSocket:(AsyncUdpSocket *)sock didSendDataWithTag:(long)tag
-{
-	LOG(@"didSendDataWithTag");
+- (SMB4iOSAsyncUdpSocket *)udpSocket{
+    if(_udpSocket==nil){
+        _udpSocket = [[SMB4iOSAsyncUdpSocket alloc] initWithDelegate:self];
+        if ( [_udpSocket bindToPort:LISTEN_PORT error:NULL]==NO
+            || [_udpSocket enableBroadcast:YES error:NULL]==NO){
+            NSLog(@"error initializing SMB4iOSAsyncUdpSocket");
+            [self closeSocket];
+        }
+    }
+    return _udpSocket;
 }
 
-- (void)onUdpSocket:(AsyncUdpSocket *)sock didNotSendDataWithTag:(long)tag dueToError:(NSError *)error
-{
-	LOG(@"didNotSendDataWithTag");
+- (void)closeSocket{
+    if(_udpSocket){
+        _udpSocket.delegate = nil;
+        [_udpSocket close];
+        _udpSocket = nil;
+    }
 }
 
-- (BOOL)onUdpSocket:(AsyncUdpSocket *)sock
+- (void) resolveName:(NSString *)name
+              suffix:(char)suffix
+              onHost:(NSString *)host
+	completion:(void(^)(NSString *host))aCompletion{
+
+    @synchronized(self){
+        
+        NetBiosOperation *op = [[NetBiosOperation alloc] init];
+        op.completion = aCompletion;
+        op.tag = [self nextOperationTag];
+        
+        NetBiosQuery *query = [[NetBiosQuery alloc] init];
+        query.nbtName = name;
+        query.nbtSuffix = suffix;
+        query.transactionID = op.tag;
+        NSData *request = [query getRequest];
+        LOGDATA(request);
+        
+        if(self.udpSocket==nil){
+            if(aCompletion){
+                aCompletion(nil);
+            }
+            return;
+        }
+        
+        [_operations setObject:op forKey:@(op.tag)];
+        
+        if ([self.udpSocket sendData:request toHost:host port:137 withTimeout:WRITE_TIMEOUT tag:op.tag]==NO){
+            NSLog(@"error sending SMB4iOSAsyncUdpSocket");
+            if(aCompletion){
+                aCompletion(nil);
+            }
+            [_operations removeObjectForKey:@(op.tag)];
+            return;
+        }
+        
+        [self.udpSocket receiveWithTimeout:READ_TIMEOUT tag:op.tag];
+        
+    }
+    
+}
+
+- (void)onUdpSocket:(SMB4iOSAsyncUdpSocket *)sock didSendDataWithTag:(long)tag{
+    LOG(@"didSendDataWithTag: %@",@(tag));
+}
+
+- (void)onUdpSocket:(SMB4iOSAsyncUdpSocket *)sock didNotSendDataWithTag:(long)tag dueToError:(NSError *)error{
+    LOG(@"didNotSendDataWithTag: %@ error: %@",@(tag),error);
+}
+
+- (BOOL)onUdpSocket:(SMB4iOSAsyncUdpSocket *)sock
      didReceiveData:(NSData *)data
             withTag:(long)tag
            fromHost:(NSString *)host
-               port:(UInt16)port
-{
-	LOG(@"didReceiveData %i from %@:%i", data.length, host, port);
+               port:(UInt16)port{
+	LOG(@"didReceiveData %@ from %@:%@", @(data.length), host, @(port));
 	LOGDATA(data);
-	
-	NetBiosQuery *query = [[NetBiosQuery alloc] init];
-	if (![query parseResponse:data])
-		return false;
-	
-	resolvedHost = query.host;
-	[udpSocket close];
-	return true;
+    @synchronized(self){
+        BOOL result = NO;
+        NSString *resolvedHost = nil;
+        NetBiosQuery *query = [[NetBiosQuery alloc] init];
+        query.transactionID = tag;
+        if ([query parseResponse:data]){
+            resolvedHost = query.host;
+            result = YES;
+        }
+        NetBiosOperation *op = [_operations objectForKey:@(tag)];
+        if(op.completion){
+            op.completion(resolvedHost);
+        }
+        [_operations removeObjectForKey:@(tag)];
+        return result;
+    }
 }
 
-- (void)onUdpSocket:(AsyncUdpSocket *)sock didNotReceiveDataWithTag:(long)tag dueToError:(NSError *)error
-{
-	LOG(@"didNotReceiveDataWithTag");
-
-	[udpSocket close];
+- (void)onUdpSocket:(SMB4iOSAsyncUdpSocket *)sock didNotReceiveDataWithTag:(long)tag dueToError:(NSError *)error{
+    LOG(@"didNotReceiveDataWithTag: %@ error: %@",@(tag),error);
+     @synchronized(self){
+        NetBiosOperation *op = [_operations objectForKey:@(tag)];
+        if(op.completion){
+            op.completion(nil);
+        }
+        [_operations removeObjectForKey:@(tag)];
+     }
 }
 
-- (void)onUdpSocketDidClose:(AsyncUdpSocket *)sock
-{
+- (void)onUdpSocketDidClose:(SMB4iOSAsyncUdpSocket *)sock{
 	LOG(@"onUdpSocketDidClose");
-
-	udpSocket = NULL;
-
-	if (completion != NULL)
-		completion(resolvedHost);
-
-	completion = NULL;
+    @synchronized(self){
+        _udpSocket = nil;
+        [_operations enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull key, NetBiosOperation * _Nonnull obj, BOOL * _Nonnull stop) {
+            NetBiosOperation *op = obj;
+            if(op.completion){
+                op.completion(nil);
+            }
+        }];
+        [_operations removeAllObjects];
+    }
 }
+
+@end
+
+
+@implementation NetBiosOperation
 
 @end

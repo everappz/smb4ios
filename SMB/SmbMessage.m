@@ -17,45 +17,55 @@
 #define	SMB_FLAGS2_EAS                0x0002 // Client understands Extened Attributes
 #define SMB_FLAGS2_KNOWS_LONG_NAMES   0x0001 // Client accepts long filenames in response
 
+const Byte SMB_PROTOCOL_ID[4] = {(Byte) 0xFF, 'S', 'M', 'B'};
 
 @implementation SmbMessage
 
-- (void) populateHeader:(unsigned char *)buffer_ptr
+- (void) populateHeader:(NSMutableData *)buffer
 {
 	// Protocol
-	*(buffer_ptr) = 0xff;
-	*(buffer_ptr + 1) = 'S';
-	*(buffer_ptr + 2) = 'M';
-	*(buffer_ptr + 3) = 'B';
+    [buffer replaceBytesInRange:NSMakeRange(0, 4) withBytes:SMB_PROTOCOL_ID];
 	
 	// Command
-	*(unsigned char *)(buffer_ptr + SMB_HEADER_COMMAND_BYTE) = self.command;
+    unsigned char command = self.command;
+    [buffer replaceBytesInRange:NSMakeRange(SMB_HEADER_COMMAND_BYTE, sizeof(command)) withBytes:&command];
 	
 	// Status
-	*(unsigned int *)(buffer_ptr + SMB_HEADER_STATUS_INT) = 0x00;
+    unsigned int status = 0x00;
+    [buffer replaceBytesInRange:NSMakeRange(SMB_HEADER_STATUS_INT, sizeof(status)) withBytes:&status];
 	
 	// Flags
-	*(unsigned char *)(buffer_ptr + SMB_HEADER_FLAGS_BYTE) = 0x00;
-	*(unsigned char *)(buffer_ptr + SMB_HEADER_FLAGS_BYTE) |= SMB_FLAGS_CASELESS_PATHNAMES;
-
+    unsigned char flags = 0x00;
+    flags |= SMB_FLAGS_CASELESS_PATHNAMES;
+    [buffer replaceBytesInRange:NSMakeRange(SMB_HEADER_FLAGS_BYTE, sizeof(flags)) withBytes:&flags];
+    
 	// Flags2
-	*(unsigned short *)(buffer_ptr + SMB_HEADER_FLAGS2_SHORT) = 0x0000;
-	*(unsigned short *)(buffer_ptr + SMB_HEADER_FLAGS2_SHORT) |= SMB_FLAGS2_UNICODE_STRINGS;
-	*(unsigned short *)(buffer_ptr + SMB_HEADER_FLAGS2_SHORT) |= SMB_FLAGS2_32BIT_STATUS;
-	*(unsigned short *)(buffer_ptr + SMB_HEADER_FLAGS2_SHORT) |= SMB_FLAGS2_IS_LONG_NAME;
-	*(unsigned short *)(buffer_ptr + SMB_HEADER_FLAGS2_SHORT) |= SMB_FLAGS2_KNOWS_LONG_NAMES;
-	*(unsigned short *)(buffer_ptr + SMB_HEADER_FLAGS2_SHORT) |= SMB_FLAGS2_EXTENDED_SECURITY;
-	
+    unsigned short flags2 = 0x0000;
+    flags2 |= SMB_FLAGS2_UNICODE_STRINGS;
+    flags2 |= SMB_FLAGS2_32BIT_STATUS;
+    flags2 |= SMB_FLAGS2_IS_LONG_NAME;
+    flags2 |= SMB_FLAGS2_KNOWS_LONG_NAMES;
+    flags2 |= SMB_FLAGS2_EXTENDED_SECURITY;
+    [buffer replaceBytesInRange:NSMakeRange(SMB_HEADER_FLAGS2_SHORT, sizeof(flags2)) withBytes:&flags2];
+    
 	// Extra
 	
 	// TID
-	*(unsigned short *)(buffer_ptr + SMB_HEADER_TID_SHORT) = self.tid;
+	unsigned short tid = self.tid;
+    [buffer replaceBytesInRange:NSMakeRange(SMB_HEADER_TID_SHORT, sizeof(tid)) withBytes:&tid];
+    
 	// PID
-	*(unsigned short *)(buffer_ptr + SMB_HEADER_PID_SHORT) = self.pid;
+	unsigned short pid = self.pid;
+    [buffer replaceBytesInRange:NSMakeRange(SMB_HEADER_PID_SHORT, sizeof(pid)) withBytes:&pid];
+    
 	// UID
-	*(unsigned short *)(buffer_ptr + SMB_HEADER_UID_SHORT) = self.uid;
+	unsigned short uid = self.uid;
+    [buffer replaceBytesInRange:NSMakeRange(SMB_HEADER_UID_SHORT, sizeof(uid)) withBytes:&uid];
+    
 	// MID
-	*(unsigned short *)(buffer_ptr + SMB_HEADER_MID_SHORT) = self.mid;
+    unsigned short mid = self.mid;
+    [buffer replaceBytesInRange:NSMakeRange(SMB_HEADER_MID_SHORT, sizeof(mid)) withBytes:&mid];
+    
 }
 
 - (NSData *) getParametersData
@@ -71,7 +81,7 @@
 - (NSData *) getRequest
 {
 	NSMutableData *result = [NSMutableData dataWithLength:SMB_HEADER_LENGTH];
-	[self populateHeader:(unsigned char *)result.bytes];
+	[self populateHeader:result];
 	
 	NSData *params = [self getParametersData];
 
@@ -98,16 +108,14 @@
 		return false;
 	}
 
-	unsigned char *buffer_ptr = (unsigned char *)data.bytes;
-
-	int paramLength = *(unsigned char *)(buffer_ptr + SMB_HEADER_LENGTH) * 2;
+    int paramLength = [data byteAt:SMB_HEADER_LENGTH]*2;
 	if (data.length < SMB_HEADER_LENGTH + 1 + paramLength + 2)
 	{
 		self.error = @"Invalid length";
 		return false;
 	}
 	
-	int dataLength = *(unsigned short *)(buffer_ptr + SMB_HEADER_LENGTH + 1 + paramLength);
+    int dataLength = [data wordLEAt:SMB_HEADER_LENGTH + 1 + paramLength];
 	if (data.length < SMB_HEADER_LENGTH + 1 + paramLength + 2 + dataLength)
 	{
 		self.error = @"Invalid length";
@@ -115,16 +123,16 @@
 	}
 
 	// Header
-	if (*(buffer_ptr) != 0xff ||
-		*(buffer_ptr + 1) != 'S' ||
-		*(buffer_ptr + 2) != 'M' ||
-		*(buffer_ptr + 3) != 'B')
+    if ([data byteAt:0] != 0xff ||
+        [data byteAt:1] != 'S' ||
+        [data byteAt:2] != 'M' ||
+        [data byteAt:3] != 'B')
 	{
 		self.error = @"Invalid header";
 		return false;
 	}
 	
-	unsigned int ntStatus = *(unsigned int *)(buffer_ptr + SMB_HEADER_STATUS_INT);
+	unsigned int ntStatus = [data uint32LEAt:SMB_HEADER_STATUS_INT];
 
 	//if (ntStatus != 0) NSLog(@"NT_STATUS %08X", ntStatus);
 
@@ -152,7 +160,7 @@
 		return false;
 	}
 	
-	unsigned char receivedCommand = *(unsigned char *)(buffer_ptr + SMB_HEADER_COMMAND_BYTE);
+	unsigned char receivedCommand = [data byteAt:SMB_HEADER_COMMAND_BYTE];
 	if (receivedCommand != self.command)
 	{
 		self.error = @"Mismatching command";
@@ -160,13 +168,11 @@
 	}
 
 	self.responseParametersOffset = SMB_HEADER_LENGTH + 1;
-	self.responseParameters = [NSData dataWithBytes:buffer_ptr + self.responseParametersOffset
-		length:paramLength];
+    self.responseParameters = [data subdataWithRange:NSMakeRange(self.responseParametersOffset, paramLength)];
 
 	self.responseMessageOffset = SMB_HEADER_LENGTH + 1 + paramLength + 2;
-	self.responseMessageData = [NSData dataWithBytes:buffer_ptr + self.responseMessageOffset
-		length:dataLength];
-
+    self.responseMessageData = [data subdataWithRange:NSMakeRange(self.responseMessageOffset, dataLength)];
+    
 	return true;
 }
 

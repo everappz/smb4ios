@@ -36,9 +36,9 @@
 	
 	activityView = [[UIView alloc] initWithFrame:CGRectMake((self.view.width - 60) / 2,
 		(self.view.height - 60) / 2, 60, 60)];
-	activityView.autoresizingMask = FlexibleLeft | FlexibleRight | FlexibleTop | FlexibleBottom;
+	activityView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
 	activityView.layer.cornerRadius = 5.0;
-	activityView.backgroundColor = RGBACOLOR(0, 0, 0, 0.4);
+	activityView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4];
 	[self.view addSubview:activityView];
 		
 	activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:

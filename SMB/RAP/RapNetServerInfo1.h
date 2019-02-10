@@ -1,4 +1,6 @@
 
+#import <Foundation/Foundation.h>
+
 #define RapNetServerInfo1Size 26
 
 @interface RapNetServerInfo1 : NSObject

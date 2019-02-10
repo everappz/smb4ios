@@ -26,6 +26,7 @@
 - (UInt16) wordLEAt:(int)index;
 - (UInt16) wordBEAt:(int)index;
 - (UInt32) uint32LEAt:(int)index;
+- (UInt32) uint32BEAt:(int)index;
 
 + (int) pad:(int)index to:(int)value;
 

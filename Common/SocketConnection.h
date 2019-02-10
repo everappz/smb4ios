@@ -1,21 +1,43 @@
 #import <Foundation/Foundation.h>
 
 
-@interface SocketConnection : NSObject 
-{
-	CFSocketRef socket;
-	NSMutableData *buffer;
-	__block CFRunLoopRef threadRunLoop;
-	NSCondition *condition;
-}
+extern NSString * const SocketConnectionErrorDomain;
 
-@property (nonatomic, retain) NSMutableData *receivedData;
 
-- (void) connectToAddress:(NSString *)address;
-- (NSData *) read;
-- (bool) write:(NSData *)message;
-- (void) writeBuffered:(NSData *)message;
-- (bool) flush;
-- (void) close;
+typedef NS_ENUM(NSUInteger, SocketConnectionErrorCode) {
+    SocketConnectionErrorCodeNone = 0,
+    SocketConnectionErrorCodeUnknown = 1,
+    SocketConnectionErrorCodeCanNotGetAddressInfo,
+    SocketConnectionErrorCodeConnectionFailed,
+};
+
+@interface SocketConnection : NSObject
+
+@property (nonatomic,copy) NSString *ipAddress;
+@property (nonatomic,assign) NSUInteger port;
+
+- (instancetype)init;
+
+- (BOOL)connectWithTimeout:(NSTimeInterval)timeout
+                     error:(NSError **)error;
+
+- (void)disconnect;
+
+- (BOOL)isConnected;
+
+- (BOOL)hasBytesAvailable:(NSError **)errPtr;
+
+- (BOOL)writeData:(NSData *)data
+      withTimeout:(NSTimeInterval)timeout
+            error:(NSError **)errPtr;
+
+- (BOOL)readDataWithTimeout:(NSTimeInterval)timeout
+                     buffer:(NSMutableData *)mutableData
+                  maxLength:(NSUInteger)length
+                      error:(NSError **)errPtr;
+
+- (NSString *)ipAddress;
+
+- (NSUInteger)port;
 
 @end

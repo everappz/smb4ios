@@ -1,4 +1,6 @@
 
+#import <Foundation/Foundation.h>
+
 #define RAP_HEADER_LENGTH 4
 
 

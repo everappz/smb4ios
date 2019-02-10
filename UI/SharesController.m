@@ -18,7 +18,7 @@
 	self.title = @"Shares";
 
 	[[NetBios instance]
-		resolveServer:self.server completion:^(NSString *host)
+		resolveServer_0x20:self.server completion:^(NSString *host)
 		{
 			if (host == NULL)
 			{
