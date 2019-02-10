@@ -57,7 +57,47 @@
 		AC1E166C22102326003100AF /* md4.c in Sources */ = {isa = PBXBuildFile; fileRef = AC1E166922102326003100AF /* md4.c */; };
 		AC1E166D22102326003100AF /* des.c in Sources */ = {isa = PBXBuildFile; fileRef = AC1E166B22102326003100AF /* des.c */; };
 		AC1E167122102604003100AF /* SMB4iOSAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E166F22102604003100AF /* SMB4iOSAsyncUdpSocket.m */; };
+		AC1E168022102CA9003100AF /* SMB4iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E167F22102CA9003100AF /* SMB4iOS.m */; };
+		AC1E168122102CA9003100AF /* SMB4iOS.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC1E167E22102CA9003100AF /* SMB4iOS.h */; };
+		AC1E168522102CD1003100AF /* NetBios.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720618E42FDE00B73C09 /* NetBios.m */; };
+		AC1E168622102CD1003100AF /* NetBiosQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720818E42FDE00B73C09 /* NetBiosQuery.m */; };
+		AC1E168722102CD1003100AF /* RapMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720D18E42FDE00B73C09 /* RapMessage.m */; };
+		AC1E168822102CD1003100AF /* RapNetServerEnum2.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720F18E42FDE00B73C09 /* RapNetServerEnum2.m */; };
+		AC1E168922102CD1003100AF /* RapNetServerInfo1.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721118E42FDE00B73C09 /* RapNetServerInfo1.m */; };
+		AC1E168A22102CD1003100AF /* SmbConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721518E42FDE00B73C09 /* SmbConnection.m */; };
+		AC1E168B22102CD1003100AF /* SmbLogoffMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721A18E42FDE00B73C09 /* SmbLogoffMessage.m */; };
+		AC1E168C22102CD1003100AF /* SmbMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721C18E42FDE00B73C09 /* SmbMessage.m */; };
+		AC1E168D22102CD1003100AF /* SmbNegotiateProtocolMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721E18E42FDE00B73C09 /* SmbNegotiateProtocolMessage.m */; };
+		AC1E168E22102CD1003100AF /* SmbNtCreateMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722018E42FDE00B73C09 /* SmbNtCreateMessage.m */; };
+		AC1E168F22102CD1003100AF /* SmbReadMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722218E42FDE00B73C09 /* SmbReadMessage.m */; };
+		AC1E169022102CD1003100AF /* SmbSessionSetupMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722418E42FDE00B73C09 /* SmbSessionSetupMessage.m */; };
+		AC1E169122102CD1003100AF /* SmbTransactionMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722618E42FDE00B73C09 /* SmbTransactionMessage.m */; };
+		AC1E169222102CD1003100AF /* SmbTreeConnectMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722818E42FDE00B73C09 /* SmbTreeConnectMessage.m */; };
+		AC1E169322102CD1003100AF /* SmbTreeDisconnectMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722A18E42FDE00B73C09 /* SmbTreeDisconnectMessage.m */; };
+		AC1E169422102CD1003100AF /* SmbWriteMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722C18E42FDE00B73C09 /* SmbWriteMessage.m */; };
+		AC1E169522102CD1003100AF /* SmbCloseMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721318E42FDE00B73C09 /* SmbCloseMessage.m */; };
+		AC1E169622102CD1003100AF /* NbtConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720318E42FDE00B73C09 /* NbtConnection.m */; };
+		AC1E169722102CD1003100AF /* NSMutableData+SMB.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720A18E42FDE00B73C09 /* NSMutableData+SMB.m */; };
+		AC1E169822102CD1003100AF /* SMB4iOSAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E166F22102604003100AF /* SMB4iOSAsyncUdpSocket.m */; };
+		AC1E169922102CD1003100AF /* SocketConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194217E18E018A40051474A /* SocketConnection.m */; };
+		AC1E169A22102CD1003100AF /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194218018E018A40051474A /* Utils.m */; };
+		AC1E169B22102CD1003100AF /* des.c in Sources */ = {isa = PBXBuildFile; fileRef = AC1E166B22102326003100AF /* des.c */; };
+		AC1E169C22102CD1003100AF /* md4.c in Sources */ = {isa = PBXBuildFile; fileRef = AC1E166922102326003100AF /* md4.c */; };
+		AC1E169D22102CD1003100AF /* smbencrypt.c in Sources */ = {isa = PBXBuildFile; fileRef = AC1E166322102287003100AF /* smbencrypt.c */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AC1E167A22102CA9003100AF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				AC1E168122102CA9003100AF /* SMB4iOS.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		119420D118E015F10051474A /* smb4ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = smb4ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +203,9 @@
 		AC1E166E2210233B003100AF /* byteswap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = byteswap.h; sourceTree = "<group>"; };
 		AC1E166F22102604003100AF /* SMB4iOSAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSAsyncUdpSocket.m; sourceTree = "<group>"; };
 		AC1E167022102604003100AF /* SMB4iOSAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSAsyncUdpSocket.h; sourceTree = "<group>"; };
+		AC1E167C22102CA9003100AF /* libSMB4iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSMB4iOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC1E167E22102CA9003100AF /* SMB4iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMB4iOS.h; sourceTree = "<group>"; };
+		AC1E167F22102CA9003100AF /* SMB4iOS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMB4iOS.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +216,13 @@
 				119420D718E015F10051474A /* CoreGraphics.framework in Frameworks */,
 				119420D918E015F10051474A /* UIKit.framework in Frameworks */,
 				119420D518E015F10051474A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC1E167922102CA9003100AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +239,7 @@
 				1194218D18E01D6A0051474A /* UI */,
 				119420DA18E015F10051474A /* smb4ios */,
 				119420DB18E015F10051474A /* Supporting Files */,
+				AC1E167D22102CA9003100AF /* SMB4iOS */,
 				119420D318E015F10051474A /* Frameworks */,
 				119420D218E015F10051474A /* Products */,
 			);
@@ -198,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				119420D118E015F10051474A /* smb4ios.app */,
+				AC1E167C22102CA9003100AF /* libSMB4iOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -377,6 +429,15 @@
 			path = RAP;
 			sourceTree = "<group>";
 		};
+		AC1E167D22102CA9003100AF /* SMB4iOS */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E167E22102CA9003100AF /* SMB4iOS.h */,
+				AC1E167F22102CA9003100AF /* SMB4iOS.m */,
+			);
+			path = SMB4iOS;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -397,6 +458,23 @@
 			productReference = 119420D118E015F10051474A /* smb4ios.app */;
 			productType = "com.apple.product-type.application";
 		};
+		AC1E167B22102CA9003100AF /* SMB4iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC1E168422102CA9003100AF /* Build configuration list for PBXNativeTarget "SMB4iOS" */;
+			buildPhases = (
+				AC1E167822102CA9003100AF /* Sources */,
+				AC1E167922102CA9003100AF /* Frameworks */,
+				AC1E167A22102CA9003100AF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SMB4iOS;
+			productName = SMB4iOS;
+			productReference = AC1E167C22102CA9003100AF /* libSMB4iOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -405,6 +483,13 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = none;
+				TargetAttributes = {
+					AC1E167B22102CA9003100AF = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = 2Z797QJNH7;
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = 119420CC18E015F10051474A /* Build configuration list for PBXProject "smb4ios" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -420,6 +505,7 @@
 			projectRoot = "";
 			targets = (
 				119420D018E015F10051474A /* smb4ios */,
+				AC1E167B22102CA9003100AF /* SMB4iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -486,6 +572,39 @@
 				119E723018E42FDE00B73C09 /* DceRpcEndDocPrinter.m in Sources */,
 				1194210E18E0170A0051474A /* AppDelegate.m in Sources */,
 				119E724818E42FDE00B73C09 /* SmbSessionSetupMessage.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC1E167822102CA9003100AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC1E169422102CD1003100AF /* SmbWriteMessage.m in Sources */,
+				AC1E168622102CD1003100AF /* NetBiosQuery.m in Sources */,
+				AC1E168B22102CD1003100AF /* SmbLogoffMessage.m in Sources */,
+				AC1E168F22102CD1003100AF /* SmbReadMessage.m in Sources */,
+				AC1E168522102CD1003100AF /* NetBios.m in Sources */,
+				AC1E169522102CD1003100AF /* SmbCloseMessage.m in Sources */,
+				AC1E169922102CD1003100AF /* SocketConnection.m in Sources */,
+				AC1E168A22102CD1003100AF /* SmbConnection.m in Sources */,
+				AC1E169122102CD1003100AF /* SmbTransactionMessage.m in Sources */,
+				AC1E169822102CD1003100AF /* SMB4iOSAsyncUdpSocket.m in Sources */,
+				AC1E169322102CD1003100AF /* SmbTreeDisconnectMessage.m in Sources */,
+				AC1E168C22102CD1003100AF /* SmbMessage.m in Sources */,
+				AC1E168822102CD1003100AF /* RapNetServerEnum2.m in Sources */,
+				AC1E168022102CA9003100AF /* SMB4iOS.m in Sources */,
+				AC1E168E22102CD1003100AF /* SmbNtCreateMessage.m in Sources */,
+				AC1E168D22102CD1003100AF /* SmbNegotiateProtocolMessage.m in Sources */,
+				AC1E169222102CD1003100AF /* SmbTreeConnectMessage.m in Sources */,
+				AC1E168922102CD1003100AF /* RapNetServerInfo1.m in Sources */,
+				AC1E169B22102CD1003100AF /* des.c in Sources */,
+				AC1E169722102CD1003100AF /* NSMutableData+SMB.m in Sources */,
+				AC1E169622102CD1003100AF /* NbtConnection.m in Sources */,
+				AC1E168722102CD1003100AF /* RapMessage.m in Sources */,
+				AC1E169A22102CD1003100AF /* Utils.m in Sources */,
+				AC1E169022102CD1003100AF /* SmbSessionSetupMessage.m in Sources */,
+				AC1E169D22102CD1003100AF /* smbencrypt.c in Sources */,
+				AC1E169C22102CD1003100AF /* md4.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,6 +711,86 @@
 			};
 			name = Release;
 		};
+		AC1E168222102CA9003100AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 2Z797QJNH7;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AC1E168322102CA9003100AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 2Z797QJNH7;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -609,6 +808,15 @@
 			buildConfigurations = (
 				1194210418E015F20051474A /* Debug */,
 				1194210518E015F20051474A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC1E168422102CA9003100AF /* Build configuration list for PBXNativeTarget "SMB4iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC1E168222102CA9003100AF /* Debug */,
+				AC1E168322102CA9003100AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
