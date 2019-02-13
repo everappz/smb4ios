@@ -12,12 +12,12 @@
 		<key>SMB4iOSFramework.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>72</integer>
+			<integer>75</integer>
 		</dict>
 		<key>smb4ios.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>71</integer>
+			<integer>74</integer>
 		</dict>
 	</dict>
 </dict>
