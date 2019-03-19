@@ -3,11 +3,11 @@
 #import "SMB4iOSAsyncUdpSocket.h"
 #import "NetBiosQuery.h"
 
-//#define LOG(format, ...) NSLog(format, ## __VA_ARGS__)
-#define LOG(format, ...)
+#define LOG(format, ...) NSLog(format, ## __VA_ARGS__)
+//#define LOG(format, ...)
 
-//#define LOGDATA(data) [Utils logData:data]
-#define LOGDATA(data)
+#define LOGDATA(data) [Utils logData:data]
+//#define LOGDATA(data)
 
 #define LISTEN_PORT 0
 #define WRITE_TIMEOUT 5.0
@@ -64,20 +64,28 @@
 }
 
 - (void) resolveMasterBrowser:(void(^)(NSString *host))aCompletion{
-	[self resolveName:@"\1\2__MSBROWSE__\2" suffix:'\1' onHost:@"255.255.255.255" completion:aCompletion];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self resolveName:@"\1\2__MSBROWSE__\2" suffix:'\1' onHost:@"255.255.255.255" completion:aCompletion];
+    });
 }
 
 - (void) resolveAllOnHost:(NSString *)host completion:(void(^)(NSString *host))aCompletion{
 	// @"*\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
-	[self resolveName:@"<all>" suffix:'\0' onHost:host completion:aCompletion];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self resolveName:@"<all>" suffix:'\0' onHost:host completion:aCompletion];
+    });
 }
 
 - (void) resolveServer_0x20:(NSString *)nbtName completion:(void(^)(NSString *host))aCompletion{
-	[self resolveName:nbtName suffix:0x20 onHost:@"255.255.255.255" completion:aCompletion];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self resolveName:nbtName suffix:0x20 onHost:@"255.255.255.255" completion:aCompletion];
+    });
 }
 
 - (void) resolveServer_0x1D:(NSString *)nbtName completion:(void(^)(NSString *host))aCompletion{
-    [self resolveName:nbtName suffix:0x1d onHost:@"255.255.255.255" completion:aCompletion];
+    dispatch_async(dispatch_get_main_queue(), ^{
+         [self resolveName:nbtName suffix:0x1d onHost:@"255.255.255.255" completion:aCompletion];
+    });
 }
 
 - (SMB4iOSAsyncUdpSocket *)udpSocket{
@@ -119,9 +127,11 @@
         LOGDATA(request);
         
         if(self.udpSocket==nil){
-            if(aCompletion){
-                aCompletion(nil);
-            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if(aCompletion){
+                    aCompletion(nil);
+                }
+            });
             return;
         }
         
@@ -129,9 +139,11 @@
         
         if ([self.udpSocket sendData:request toHost:host port:137 withTimeout:WRITE_TIMEOUT tag:op.tag]==NO){
             NSLog(@"error sending SMB4iOSAsyncUdpSocket");
-            if(aCompletion){
-                aCompletion(nil);
-            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if(aCompletion){
+                    aCompletion(nil);
+                }
+            });
             [_operations removeObjectForKey:@(op.tag)];
             return;
         }
@@ -167,9 +179,11 @@
             result = YES;
         }
         NetBiosOperation *op = [_operations objectForKey:@(tag)];
-        if(op.completion){
-            op.completion(resolvedHost);
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(op.completion){
+                op.completion(resolvedHost);
+            }
+        });
         [_operations removeObjectForKey:@(tag)];
         return result;
     }
@@ -179,9 +193,11 @@
     LOG(@"didNotReceiveDataWithTag: %@ error: %@",@(tag),error);
      @synchronized(self){
         NetBiosOperation *op = [_operations objectForKey:@(tag)];
-        if(op.completion){
-            op.completion(nil);
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(op.completion){
+                op.completion(nil);
+            }
+        });
         [_operations removeObjectForKey:@(tag)];
      }
 }
@@ -190,12 +206,15 @@
 	LOG(@"onUdpSocketDidClose");
     @synchronized(self){
         _udpSocket = nil;
-        [_operations enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull key, NetBiosOperation * _Nonnull obj, BOOL * _Nonnull stop) {
-            NetBiosOperation *op = obj;
-            if(op.completion){
-                op.completion(nil);
-            }
-        }];
+        NSDictionary *operations = _operations;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [operations enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull key, NetBiosOperation * _Nonnull obj, BOOL * _Nonnull stop) {
+                NetBiosOperation *op = obj;
+                if(op.completion){
+                    op.completion(nil);
+                }
+            }];
+        });
         [_operations removeAllObjects];
     }
 }
