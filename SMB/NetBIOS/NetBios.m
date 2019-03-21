@@ -93,7 +93,7 @@
         _udpSocket = [[SMB4iOSAsyncUdpSocket alloc] initWithDelegate:self];
         if ( [_udpSocket bindToPort:LISTEN_PORT error:NULL]==NO
             || [_udpSocket enableBroadcast:YES error:NULL]==NO){
-            NSLog(@"error initializing SMB4iOSAsyncUdpSocket");
+            LOG(@"error initializing SMB4iOSAsyncUdpSocket");
             [self closeSocket];
         }
     }
@@ -138,7 +138,7 @@
         [_operations setObject:op forKey:@(op.tag)];
         
         if ([self.udpSocket sendData:request toHost:host port:137 withTimeout:WRITE_TIMEOUT tag:op.tag]==NO){
-            NSLog(@"error sending SMB4iOSAsyncUdpSocket");
+            LOG(@"error sending SMB4iOSAsyncUdpSocket");
             dispatch_async(dispatch_get_main_queue(), ^{
                 if(aCompletion){
                     aCompletion(nil);
