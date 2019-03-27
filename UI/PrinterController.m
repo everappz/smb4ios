@@ -1,7 +1,6 @@
 #import "PrinterController.h"
-#import "SmbConnection.h"
 #import "UIViewSizeShortcuts.h"
-
+#import <SMB4iOSFramework/SMB4iOSFramework.h>
 
 @implementation PrinterController
 

@@ -1,7 +1,6 @@
 #import "RootController.h"
-#import "SmbConnection.h"
 #import "ServersController.h"
-#import "NetBios.h"
+#import <SMB4iOSFramework/SMB4iOSFramework.h>
 
 
 @implementation RootController

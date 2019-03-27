@@ -1,8 +1,7 @@
 #import "LoginController.h"
-#import "Utils.h"
 #import "UIViewSizeShortcuts.h"
 #import "SharesController.h"
-
+#import <SMB4iOSFramework/SMB4iOSFramework.h>
 
 @interface LoginController () <UITextFieldDelegate>
 

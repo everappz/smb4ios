@@ -1,9 +1,6 @@
 #import "SharesController.h"
-#import "SmbConnection.h"
-#import "DceRpc.h"
-#import "NetBios.h"
 #import "PrinterController.h"
-
+#import <SMB4iOSFramework/SMB4iOSFramework.h>
 
 @implementation SharesController
 {
