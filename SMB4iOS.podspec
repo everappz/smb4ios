@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Common/*.{h,m}', 'Lib/*.{h,c}', 'SMB/*.{h,m}', 'SMB/DCERPC/*.{h,m}', 'SMB/NetBIOS/*.{h,m}', 'SMB/RAP/*.{h,m}'
   s.requires_arc = true
   s.frameworks = 'Foundation', 'CFNetwork'
+  s.public_header_files = 'Common/*.h', 'SMB/*.h', 'SMB/**/*.h'
 end
