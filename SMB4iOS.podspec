@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SMB4iOS"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
   s.summary      = "smb4ios is a basic SMB implementation in native Objective C. It is by no means complete or stable, and no particular effort is made to make it a reusable library. However, it contains enough know-how to provide you with a start for understanding SMB and implementing your own tasks."
   s.homepage     = "https://sourceforge.net/projects/smb4ios/"
   s.license      = 'MIT'
