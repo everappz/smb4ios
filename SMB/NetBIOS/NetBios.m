@@ -31,7 +31,7 @@
 
 
 @implementation NetBios{
-	SMB4iOSAsyncUdpSocket *_udpSocket;
+    SMB4iOSAsyncUdpSocket *_udpSocket;
     NSMutableDictionary<NSNumber *,NetBiosOperation *> *_operations;
     long _nextOperationTag;
 }
@@ -70,7 +70,7 @@
 }
 
 - (void) resolveAllOnHost:(NSString *)host completion:(void(^)(NSString *host))aCompletion{
-	// @"*\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
+    // @"*\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
     dispatch_async(dispatch_get_main_queue(), ^{
         [self resolveName:@"<all>" suffix:'\0' onHost:host completion:aCompletion];
     });
@@ -84,7 +84,7 @@
 
 - (void) resolveServer_0x1D:(NSString *)nbtName completion:(void(^)(NSString *host))aCompletion{
     dispatch_async(dispatch_get_main_queue(), ^{
-         [self resolveName:nbtName suffix:0x1d onHost:@"255.255.255.255" completion:aCompletion];
+        [self resolveName:nbtName suffix:0x1d onHost:@"255.255.255.255" completion:aCompletion];
     });
 }
 
@@ -111,9 +111,29 @@
 - (void) resolveName:(NSString *)name
               suffix:(char)suffix
               onHost:(NSString *)host
-	completion:(void(^)(NSString *host))aCompletion{
-
+          completion:(void(^)(NSString *host))aCompletion{
+    
     @synchronized(self){
+        
+        if(name == nil || name.length == 0){
+            LOG(@"name is empty");
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if(aCompletion){
+                    aCompletion(nil);
+                }
+            });
+            return;
+        }
+        
+        if(host == nil || host.length == 0){
+            LOG(@"host is empty");
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if(aCompletion){
+                    aCompletion(nil);
+                }
+            });
+            return;
+        }
         
         NetBiosOperation *op = [[NetBiosOperation alloc] init];
         op.completion = aCompletion;
@@ -167,8 +187,8 @@
             withTag:(long)tag
            fromHost:(NSString *)host
                port:(UInt16)port{
-	LOG(@"didReceiveData %@ from %@:%@", @(data.length), host, @(port));
-	LOGDATA(data);
+    LOG(@"didReceiveData %@ from %@:%@", @(data.length), host, @(port));
+    LOGDATA(data);
     @synchronized(self){
         BOOL result = NO;
         NSString *resolvedHost = nil;
@@ -191,7 +211,7 @@
 
 - (void)onUdpSocket:(SMB4iOSAsyncUdpSocket *)sock didNotReceiveDataWithTag:(long)tag dueToError:(NSError *)error{
     LOG(@"didNotReceiveDataWithTag: %@ error: %@",@(tag),error);
-     @synchronized(self){
+    @synchronized(self){
         NetBiosOperation *op = [_operations objectForKey:@(tag)];
         dispatch_async(dispatch_get_main_queue(), ^{
             if(op.completion){
@@ -199,11 +219,11 @@
             }
         });
         [_operations removeObjectForKey:@(tag)];
-     }
+    }
 }
 
 - (void)onUdpSocketDidClose:(SMB4iOSAsyncUdpSocket *)sock{
-	LOG(@"onUdpSocketDidClose");
+    LOG(@"onUdpSocketDidClose");
     @synchronized(self){
         _udpSocket = nil;
         NSDictionary *operations = _operations;
