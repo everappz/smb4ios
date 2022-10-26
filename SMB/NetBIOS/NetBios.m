@@ -74,47 +74,59 @@
     return result;
 }
 
++ (void)performOnTreadWithRunLoopInDefaultModeBlock:(dispatch_block_t)block{
+    NSString *runLoopMode = [NSRunLoop currentRunLoop].currentMode;
+    if ([runLoopMode isEqualToString:NSDefaultRunLoopMode]) {
+        if(block){
+            block();
+        }
+    }
+    else {
+        dispatch_async(dispatch_get_main_queue(), block);
+    }
+}
+
 - (void) resolveMasterBrowser:(NetBiosCompletionBlock)aCompletion{
-    dispatch_async(dispatch_get_main_queue(), ^{
+    [NetBios performOnTreadWithRunLoopInDefaultModeBlock: ^{
         [self resolveName:@"\1\2__MSBROWSE__\2"
                    suffix:'\1'
                    onHost:@"255.255.255.255"
                completion:aCompletion];
-    });
+    }];
 }
 
 - (void) resolveAllOnHost:(NSString *)host
                completion:(NetBiosCompletionBlock)aCompletion
 {
     // @"*\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
-    dispatch_async(dispatch_get_main_queue(), ^{
+    [NetBios performOnTreadWithRunLoopInDefaultModeBlock: ^{
         [self resolveName:@"<all>"
                    suffix:'\0'
                    onHost:host
                completion:aCompletion];
-    });
+    }];
 }
 
 - (void) resolveServer_0x20:(NSString *)nbtName
                  completion:(NetBiosCompletionBlock)aCompletion
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
+    [NetBios performOnTreadWithRunLoopInDefaultModeBlock: ^{
         [self resolveName:nbtName
                    suffix:0x20
                    onHost:@"255.255.255.255"
                completion:aCompletion];
-    });
+    }];
 }
 
 - (void) resolveServer_0x1D:(NSString *)nbtName
                  completion:(NetBiosCompletionBlock)aCompletion
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
+    [NetBios performOnTreadWithRunLoopInDefaultModeBlock: ^{
         [self resolveName:nbtName
                    suffix:0x1d
                    onHost:@"255.255.255.255"
                completion:aCompletion];
-    });
+    }];
 }
 
 - (SMB4iOSAsyncUdpSocket *)udpSocket{
