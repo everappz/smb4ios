@@ -14,7 +14,7 @@
     
     self.title = @"Shares";
     
-    [[NetBios instance]
+    [[SMB4iOSNetBios instance]
      resolveServer_0x20:self.server completion:^(NSString *host)
      {
         dispatch_async(dispatch_get_main_queue(), ^
@@ -27,7 +27,7 @@
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^
                            {
-                SmbConnection *conn = [[SmbConnection alloc] init];
+                SMB4iOSSmbConnection *conn = [[SMB4iOSSmbConnection alloc] init];
                 conn.username = self.username;
                 conn.password = self.password;
                 [conn connectToHost:host];

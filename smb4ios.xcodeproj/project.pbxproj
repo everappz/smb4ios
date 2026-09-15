@@ -11,6 +11,7 @@
 		119420D718E015F10051474A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119420D618E015F10051474A /* CoreGraphics.framework */; };
 		119420D918E015F10051474A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119420D818E015F10051474A /* UIKit.framework */; };
 		1194210E18E0170A0051474A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194210A18E0170A0051474A /* AppDelegate.m */; };
+		FA00000000000000000000A3 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA00000000000000000000A2 /* SceneDelegate.m */; };
 		1194210F18E0170A0051474A /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1194210B18E0170A0051474A /* readme.txt */; };
 		1194211418E017340051474A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194211118E017340051474A /* main.m */; };
 		1194219418E01D6A0051474A /* ExtensionViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194218F18E01D6A0051474A /* ExtensionViewControllers.m */; };
@@ -23,79 +24,79 @@
 		AC1E16D222102FFC003100AF /* SMB4iOSFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = AC1E16D022102FFC003100AF /* SMB4iOSFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AC1E16D522102FFC003100AF /* SMB4iOSFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1E16CE22102FFC003100AF /* SMB4iOSFramework.framework */; };
 		AC1E16D622102FFC003100AF /* SMB4iOSFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC1E16CE22102FFC003100AF /* SMB4iOSFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AC1E16DB221030EC003100AF /* NetBios.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E720518E42FDE00B73C09 /* NetBios.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16DC221030EC003100AF /* NetBiosQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E720718E42FDE00B73C09 /* NetBiosQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16DD221030EC003100AF /* RapMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E720C18E42FDE00B73C09 /* RapMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16DE221030EC003100AF /* RapNetServerEnum2.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E720E18E42FDE00B73C09 /* RapNetServerEnum2.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16DF221030EC003100AF /* RapNetServerInfo1.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E721018E42FDE00B73C09 /* RapNetServerInfo1.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16E0221030EC003100AF /* DceRpc.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71E818E42FDE00B73C09 /* DceRpc.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16E1221030EC003100AF /* DceRpcBind.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71E918E42FDE00B73C09 /* DceRpcBind.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16E2221030EC003100AF /* DceRpcClosePrinter.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71EB18E42FDE00B73C09 /* DceRpcClosePrinter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16E3221030EC003100AF /* DceRpcData.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71ED18E42FDE00B73C09 /* DceRpcData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16E4221030EC003100AF /* DceRpcDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71EF18E42FDE00B73C09 /* DceRpcDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16E5221030EC003100AF /* DceRpcEndDocPrinter.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71F018E42FDE00B73C09 /* DceRpcEndDocPrinter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16E6221030EC003100AF /* DceRpcEnumAll.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71F218E42FDE00B73C09 /* DceRpcEnumAll.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16E7221030EC003100AF /* DceRpcGetPrinter.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71F418E42FDE00B73C09 /* DceRpcGetPrinter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16E8221030EC003100AF /* DceRpcMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71F618E42FDE00B73C09 /* DceRpcMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16E9221030EC003100AF /* DceRpcOpenPrinterEx.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71FA18E42FDE00B73C09 /* DceRpcOpenPrinterEx.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16EA221030EC003100AF /* DceRpcPrinterInfo2.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71FC18E42FDE00B73C09 /* DceRpcPrinterInfo2.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16EB221030EC003100AF /* DceRpcStartDocPrinter.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71FE18E42FDE00B73C09 /* DceRpcStartDocPrinter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16EC221030EC003100AF /* DceRpcWritePrinter.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E720018E42FDE00B73C09 /* DceRpcWritePrinter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16ED221030EC003100AF /* SmbConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E721418E42FDE00B73C09 /* SmbConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16EE221030EC003100AF /* SmbDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E721618E42FDE00B73C09 /* SmbDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16EF221030EC003100AF /* SmbLogoffMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E721918E42FDE00B73C09 /* SmbLogoffMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16F0221030EC003100AF /* SmbMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E721B18E42FDE00B73C09 /* SmbMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16F1221030EC003100AF /* SmbNegotiateProtocolMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E721D18E42FDE00B73C09 /* SmbNegotiateProtocolMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16F2221030EC003100AF /* SmbNtCreateMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E721F18E42FDE00B73C09 /* SmbNtCreateMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16F3221030EC003100AF /* SmbReadMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E722118E42FDE00B73C09 /* SmbReadMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16F4221030EC003100AF /* SmbSessionSetupMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E722318E42FDE00B73C09 /* SmbSessionSetupMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16F5221030EC003100AF /* SmbTransactionMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E722518E42FDE00B73C09 /* SmbTransactionMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16F6221030EC003100AF /* SmbTreeConnectMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E722718E42FDE00B73C09 /* SmbTreeConnectMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16F7221030EC003100AF /* SmbTreeDisconnectMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E722918E42FDE00B73C09 /* SmbTreeDisconnectMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16F8221030EC003100AF /* SmbWriteMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E722B18E42FDE00B73C09 /* SmbWriteMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16F9221030EC003100AF /* SmbCloseMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E721218E42FDE00B73C09 /* SmbCloseMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16FA221030EC003100AF /* NbtConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E720218E42FDE00B73C09 /* NbtConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16FB221030EC003100AF /* NSMutableData+SMB.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E720918E42FDE00B73C09 /* NSMutableData+SMB.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16DB221030EC003100AF /* SMB4iOSNetBios.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E720518E42FDE00B73C09 /* SMB4iOSNetBios.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16DC221030EC003100AF /* SMB4iOSNetBiosQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E720718E42FDE00B73C09 /* SMB4iOSNetBiosQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16DD221030EC003100AF /* SMB4iOSRapMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E720C18E42FDE00B73C09 /* SMB4iOSRapMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16DE221030EC003100AF /* SMB4iOSRapNetServerEnum2.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E720E18E42FDE00B73C09 /* SMB4iOSRapNetServerEnum2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16DF221030EC003100AF /* SMB4iOSRapNetServerInfo1.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E721018E42FDE00B73C09 /* SMB4iOSRapNetServerInfo1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16E0221030EC003100AF /* SMB4iOSDceRpc.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71E818E42FDE00B73C09 /* SMB4iOSDceRpc.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16E1221030EC003100AF /* SMB4iOSDceRpcBind.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71E918E42FDE00B73C09 /* SMB4iOSDceRpcBind.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16E2221030EC003100AF /* SMB4iOSDceRpcClosePrinter.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71EB18E42FDE00B73C09 /* SMB4iOSDceRpcClosePrinter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16E3221030EC003100AF /* SMB4iOSDceRpcData.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71ED18E42FDE00B73C09 /* SMB4iOSDceRpcData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16E4221030EC003100AF /* SMB4iOSDceRpcDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71EF18E42FDE00B73C09 /* SMB4iOSDceRpcDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16E5221030EC003100AF /* SMB4iOSDceRpcEndDocPrinter.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71F018E42FDE00B73C09 /* SMB4iOSDceRpcEndDocPrinter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16E6221030EC003100AF /* SMB4iOSDceRpcEnumAll.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71F218E42FDE00B73C09 /* SMB4iOSDceRpcEnumAll.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16E7221030EC003100AF /* SMB4iOSDceRpcGetPrinter.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71F418E42FDE00B73C09 /* SMB4iOSDceRpcGetPrinter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16E8221030EC003100AF /* SMB4iOSDceRpcMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71F618E42FDE00B73C09 /* SMB4iOSDceRpcMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16E9221030EC003100AF /* SMB4iOSDceRpcOpenPrinterEx.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71FA18E42FDE00B73C09 /* SMB4iOSDceRpcOpenPrinterEx.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16EA221030EC003100AF /* SMB4iOSDceRpcPrinterInfo2.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71FC18E42FDE00B73C09 /* SMB4iOSDceRpcPrinterInfo2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16EB221030EC003100AF /* SMB4iOSDceRpcStartDocPrinter.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E71FE18E42FDE00B73C09 /* SMB4iOSDceRpcStartDocPrinter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16EC221030EC003100AF /* SMB4iOSDceRpcWritePrinter.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E720018E42FDE00B73C09 /* SMB4iOSDceRpcWritePrinter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16ED221030EC003100AF /* SMB4iOSSmbConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E721418E42FDE00B73C09 /* SMB4iOSSmbConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16EE221030EC003100AF /* SMB4iOSSmbDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E721618E42FDE00B73C09 /* SMB4iOSSmbDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16EF221030EC003100AF /* SMB4iOSSmbLogoffMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E721918E42FDE00B73C09 /* SMB4iOSSmbLogoffMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16F0221030EC003100AF /* SMB4iOSSmbMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E721B18E42FDE00B73C09 /* SMB4iOSSmbMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16F1221030EC003100AF /* SMB4iOSSmbNegotiateProtocolMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E721D18E42FDE00B73C09 /* SMB4iOSSmbNegotiateProtocolMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16F2221030EC003100AF /* SMB4iOSSmbNtCreateMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E721F18E42FDE00B73C09 /* SMB4iOSSmbNtCreateMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16F3221030EC003100AF /* SMB4iOSSmbReadMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E722118E42FDE00B73C09 /* SMB4iOSSmbReadMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16F4221030EC003100AF /* SMB4iOSSmbSessionSetupMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E722318E42FDE00B73C09 /* SMB4iOSSmbSessionSetupMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16F5221030EC003100AF /* SMB4iOSSmbTransactionMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E722518E42FDE00B73C09 /* SMB4iOSSmbTransactionMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16F6221030EC003100AF /* SMB4iOSSmbTreeConnectMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E722718E42FDE00B73C09 /* SMB4iOSSmbTreeConnectMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16F7221030EC003100AF /* SMB4iOSSmbTreeDisconnectMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E722918E42FDE00B73C09 /* SMB4iOSSmbTreeDisconnectMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16F8221030EC003100AF /* SMB4iOSSmbWriteMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E722B18E42FDE00B73C09 /* SMB4iOSSmbWriteMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16F9221030EC003100AF /* SMB4iOSSmbCloseMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E721218E42FDE00B73C09 /* SMB4iOSSmbCloseMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16FA221030EC003100AF /* SMB4iOSNbtConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E720218E42FDE00B73C09 /* SMB4iOSNbtConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16FB221030EC003100AF /* NSMutableData+SMB4iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 119E720918E42FDE00B73C09 /* NSMutableData+SMB4iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AC1E16FC221030EC003100AF /* SMB4iOSAsyncUdpSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = AC1E167022102604003100AF /* SMB4iOSAsyncUdpSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16FD221030EC003100AF /* SocketConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 1194217D18E018A40051474A /* SocketConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC1E16FE221030EC003100AF /* Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 1194217F18E018A40051474A /* Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC620A9F2210398C0070A1FA /* SmbConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721518E42FDE00B73C09 /* SmbConnection.m */; };
-		AC620AA0221039940070A1FA /* NetBios.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720618E42FDE00B73C09 /* NetBios.m */; };
-		AC620AA1221039940070A1FA /* NetBiosQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720818E42FDE00B73C09 /* NetBiosQuery.m */; };
-		AC620AA2221039990070A1FA /* RapMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720D18E42FDE00B73C09 /* RapMessage.m */; };
-		AC620AA3221039990070A1FA /* RapNetServerEnum2.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720F18E42FDE00B73C09 /* RapNetServerEnum2.m */; };
-		AC620AA4221039990070A1FA /* RapNetServerInfo1.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721118E42FDE00B73C09 /* RapNetServerInfo1.m */; };
-		AC620AA5221039A70070A1FA /* DceRpcBind.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71EA18E42FDE00B73C09 /* DceRpcBind.m */; };
-		AC620AA6221039A70070A1FA /* DceRpcClosePrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71EC18E42FDE00B73C09 /* DceRpcClosePrinter.m */; };
-		AC620AA7221039A70070A1FA /* DceRpcData.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71EE18E42FDE00B73C09 /* DceRpcData.m */; };
-		AC620AA8221039A70070A1FA /* DceRpcEndDocPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71F118E42FDE00B73C09 /* DceRpcEndDocPrinter.m */; };
-		AC620AA9221039A70070A1FA /* DceRpcEnumAll.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71F318E42FDE00B73C09 /* DceRpcEnumAll.m */; };
-		AC620AAA221039A70070A1FA /* DceRpcGetPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71F518E42FDE00B73C09 /* DceRpcGetPrinter.m */; };
-		AC620AAB221039A70070A1FA /* DceRpcMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71F718E42FDE00B73C09 /* DceRpcMessage.m */; };
-		AC620AAC221039A70070A1FA /* DceRpcOpenPrinterEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71FB18E42FDE00B73C09 /* DceRpcOpenPrinterEx.m */; };
-		AC620AAD221039A70070A1FA /* DceRpcPrinterInfo2.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71FD18E42FDE00B73C09 /* DceRpcPrinterInfo2.m */; };
-		AC620AAE221039A70070A1FA /* DceRpcStartDocPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71FF18E42FDE00B73C09 /* DceRpcStartDocPrinter.m */; };
-		AC620AAF221039A70070A1FA /* DceRpcWritePrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720118E42FDE00B73C09 /* DceRpcWritePrinter.m */; };
-		AC620AB0221039B80070A1FA /* SmbLogoffMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721A18E42FDE00B73C09 /* SmbLogoffMessage.m */; };
-		AC620AB1221039B80070A1FA /* SmbMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721C18E42FDE00B73C09 /* SmbMessage.m */; };
-		AC620AB2221039B80070A1FA /* SmbNegotiateProtocolMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721E18E42FDE00B73C09 /* SmbNegotiateProtocolMessage.m */; };
-		AC620AB3221039B80070A1FA /* SmbNtCreateMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722018E42FDE00B73C09 /* SmbNtCreateMessage.m */; };
-		AC620AB4221039B80070A1FA /* SmbReadMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722218E42FDE00B73C09 /* SmbReadMessage.m */; };
-		AC620AB5221039B80070A1FA /* SmbSessionSetupMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722418E42FDE00B73C09 /* SmbSessionSetupMessage.m */; };
-		AC620AB6221039B80070A1FA /* SmbTransactionMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722618E42FDE00B73C09 /* SmbTransactionMessage.m */; };
-		AC620AB7221039B80070A1FA /* SmbTreeConnectMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722818E42FDE00B73C09 /* SmbTreeConnectMessage.m */; };
-		AC620AB8221039B80070A1FA /* SmbTreeDisconnectMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722A18E42FDE00B73C09 /* SmbTreeDisconnectMessage.m */; };
-		AC620AB9221039B80070A1FA /* SmbWriteMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722C18E42FDE00B73C09 /* SmbWriteMessage.m */; };
-		AC620ABA221039B80070A1FA /* SmbCloseMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721318E42FDE00B73C09 /* SmbCloseMessage.m */; };
-		AC620ABB221039B80070A1FA /* NbtConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720318E42FDE00B73C09 /* NbtConnection.m */; };
-		AC620ABC221039B80070A1FA /* NSMutableData+SMB.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720A18E42FDE00B73C09 /* NSMutableData+SMB.m */; };
+		AC1E16FD221030EC003100AF /* SMB4iOSSocketConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 1194217D18E018A40051474A /* SMB4iOSSocketConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1E16FE221030EC003100AF /* SMB4iOSUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 1194217F18E018A40051474A /* SMB4iOSUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC620A9F2210398C0070A1FA /* SMB4iOSSmbConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721518E42FDE00B73C09 /* SMB4iOSSmbConnection.m */; };
+		AC620AA0221039940070A1FA /* SMB4iOSNetBios.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720618E42FDE00B73C09 /* SMB4iOSNetBios.m */; };
+		AC620AA1221039940070A1FA /* SMB4iOSNetBiosQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720818E42FDE00B73C09 /* SMB4iOSNetBiosQuery.m */; };
+		AC620AA2221039990070A1FA /* SMB4iOSRapMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720D18E42FDE00B73C09 /* SMB4iOSRapMessage.m */; };
+		AC620AA3221039990070A1FA /* SMB4iOSRapNetServerEnum2.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720F18E42FDE00B73C09 /* SMB4iOSRapNetServerEnum2.m */; };
+		AC620AA4221039990070A1FA /* SMB4iOSRapNetServerInfo1.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721118E42FDE00B73C09 /* SMB4iOSRapNetServerInfo1.m */; };
+		AC620AA5221039A70070A1FA /* SMB4iOSDceRpcBind.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71EA18E42FDE00B73C09 /* SMB4iOSDceRpcBind.m */; };
+		AC620AA6221039A70070A1FA /* SMB4iOSDceRpcClosePrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71EC18E42FDE00B73C09 /* SMB4iOSDceRpcClosePrinter.m */; };
+		AC620AA7221039A70070A1FA /* SMB4iOSDceRpcData.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71EE18E42FDE00B73C09 /* SMB4iOSDceRpcData.m */; };
+		AC620AA8221039A70070A1FA /* SMB4iOSDceRpcEndDocPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71F118E42FDE00B73C09 /* SMB4iOSDceRpcEndDocPrinter.m */; };
+		AC620AA9221039A70070A1FA /* SMB4iOSDceRpcEnumAll.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71F318E42FDE00B73C09 /* SMB4iOSDceRpcEnumAll.m */; };
+		AC620AAA221039A70070A1FA /* SMB4iOSDceRpcGetPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71F518E42FDE00B73C09 /* SMB4iOSDceRpcGetPrinter.m */; };
+		AC620AAB221039A70070A1FA /* SMB4iOSDceRpcMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71F718E42FDE00B73C09 /* SMB4iOSDceRpcMessage.m */; };
+		AC620AAC221039A70070A1FA /* SMB4iOSDceRpcOpenPrinterEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71FB18E42FDE00B73C09 /* SMB4iOSDceRpcOpenPrinterEx.m */; };
+		AC620AAD221039A70070A1FA /* SMB4iOSDceRpcPrinterInfo2.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71FD18E42FDE00B73C09 /* SMB4iOSDceRpcPrinterInfo2.m */; };
+		AC620AAE221039A70070A1FA /* SMB4iOSDceRpcStartDocPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E71FF18E42FDE00B73C09 /* SMB4iOSDceRpcStartDocPrinter.m */; };
+		AC620AAF221039A70070A1FA /* SMB4iOSDceRpcWritePrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720118E42FDE00B73C09 /* SMB4iOSDceRpcWritePrinter.m */; };
+		AC620AB0221039B80070A1FA /* SMB4iOSSmbLogoffMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721A18E42FDE00B73C09 /* SMB4iOSSmbLogoffMessage.m */; };
+		AC620AB1221039B80070A1FA /* SMB4iOSSmbMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721C18E42FDE00B73C09 /* SMB4iOSSmbMessage.m */; };
+		AC620AB2221039B80070A1FA /* SMB4iOSSmbNegotiateProtocolMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721E18E42FDE00B73C09 /* SMB4iOSSmbNegotiateProtocolMessage.m */; };
+		AC620AB3221039B80070A1FA /* SMB4iOSSmbNtCreateMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722018E42FDE00B73C09 /* SMB4iOSSmbNtCreateMessage.m */; };
+		AC620AB4221039B80070A1FA /* SMB4iOSSmbReadMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722218E42FDE00B73C09 /* SMB4iOSSmbReadMessage.m */; };
+		AC620AB5221039B80070A1FA /* SMB4iOSSmbSessionSetupMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722418E42FDE00B73C09 /* SMB4iOSSmbSessionSetupMessage.m */; };
+		AC620AB6221039B80070A1FA /* SMB4iOSSmbTransactionMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722618E42FDE00B73C09 /* SMB4iOSSmbTransactionMessage.m */; };
+		AC620AB7221039B80070A1FA /* SMB4iOSSmbTreeConnectMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722818E42FDE00B73C09 /* SMB4iOSSmbTreeConnectMessage.m */; };
+		AC620AB8221039B80070A1FA /* SMB4iOSSmbTreeDisconnectMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722A18E42FDE00B73C09 /* SMB4iOSSmbTreeDisconnectMessage.m */; };
+		AC620AB9221039B80070A1FA /* SMB4iOSSmbWriteMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E722C18E42FDE00B73C09 /* SMB4iOSSmbWriteMessage.m */; };
+		AC620ABA221039B80070A1FA /* SMB4iOSSmbCloseMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E721318E42FDE00B73C09 /* SMB4iOSSmbCloseMessage.m */; };
+		AC620ABB221039B80070A1FA /* SMB4iOSNbtConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720318E42FDE00B73C09 /* SMB4iOSNbtConnection.m */; };
+		AC620ABC221039B80070A1FA /* NSMutableData+SMB4iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E720A18E42FDE00B73C09 /* NSMutableData+SMB4iOS.m */; };
 		AC620ABD221039B80070A1FA /* SMB4iOSAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1E166F22102604003100AF /* SMB4iOSAsyncUdpSocket.m */; };
-		AC620ABE221039B80070A1FA /* SocketConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194217E18E018A40051474A /* SocketConnection.m */; };
-		AC620ABF221039B80070A1FA /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194218018E018A40051474A /* Utils.m */; };
-		AC620AC0221039C90070A1FA /* des.c in Sources */ = {isa = PBXBuildFile; fileRef = AC1E166B22102326003100AF /* des.c */; };
-		AC620AC1221039C90070A1FA /* md4.c in Sources */ = {isa = PBXBuildFile; fileRef = AC1E166922102326003100AF /* md4.c */; };
-		AC620AC2221039C90070A1FA /* smbencrypt.c in Sources */ = {isa = PBXBuildFile; fileRef = AC1E166322102287003100AF /* smbencrypt.c */; };
-		AC620AC3221039C90070A1FA /* smbutil.c in Sources */ = {isa = PBXBuildFile; fileRef = AC1E166422102287003100AF /* smbutil.c */; };
+		AC620ABE221039B80070A1FA /* SMB4iOSSocketConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194217E18E018A40051474A /* SMB4iOSSocketConnection.m */; };
+		AC620ABF221039B80070A1FA /* SMB4iOSUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1194218018E018A40051474A /* SMB4iOSUtils.m */; };
+		AC620AC0221039C90070A1FA /* SMB4iOSdes.c in Sources */ = {isa = PBXBuildFile; fileRef = AC1E166B22102326003100AF /* SMB4iOSdes.c */; };
+		AC620AC1221039C90070A1FA /* SMB4iOSmd4.c in Sources */ = {isa = PBXBuildFile; fileRef = AC1E166922102326003100AF /* SMB4iOSmd4.c */; };
+		AC620AC2221039C90070A1FA /* SMB4iOSsmbencrypt.c in Sources */ = {isa = PBXBuildFile; fileRef = AC1E166322102287003100AF /* SMB4iOSsmbencrypt.c */; };
+		AC620AC3221039C90070A1FA /* SMB4iOSsmbutil.c in Sources */ = {isa = PBXBuildFile; fileRef = AC1E166422102287003100AF /* SMB4iOSsmbutil.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,15 +131,17 @@
 		119420F318E015F10051474A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1194210918E0170A0051474A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		1194210A18E0170A0051474A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = SOURCE_ROOT; };
+		FA00000000000000000000A1 /* SceneDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = SOURCE_ROOT; };
+		FA00000000000000000000A2 /* SceneDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = SOURCE_ROOT; };
 		1194210B18E0170A0051474A /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = SOURCE_ROOT; };
 		1194211118E017340051474A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
 		1194211218E017340051474A /* smb4ios-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "smb4ios-Info.plist"; sourceTree = SOURCE_ROOT; };
 		1194211318E017340051474A /* smb4ios-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "smb4ios-Prefix.pch"; sourceTree = SOURCE_ROOT; };
-		1194217D18E018A40051474A /* SocketConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketConnection.h; sourceTree = "<group>"; };
-		1194217E18E018A40051474A /* SocketConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketConnection.m; sourceTree = "<group>"; };
-		1194217F18E018A40051474A /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
-		1194218018E018A40051474A /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
-		1194218818E01CD10051474A /* ntlm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ntlm.h; sourceTree = "<group>"; };
+		1194217D18E018A40051474A /* SMB4iOSSocketConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSSocketConnection.h; sourceTree = "<group>"; };
+		1194217E18E018A40051474A /* SMB4iOSSocketConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSSocketConnection.m; sourceTree = "<group>"; };
+		1194217F18E018A40051474A /* SMB4iOSUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSUtils.h; sourceTree = "<group>"; };
+		1194218018E018A40051474A /* SMB4iOSUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSUtils.m; sourceTree = "<group>"; };
+		1194218818E01CD10051474A /* SMB4iOSntlm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSntlm.h; sourceTree = "<group>"; };
 		1194218E18E01D6A0051474A /* ExtensionViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtensionViewControllers.h; sourceTree = "<group>"; };
 		1194218F18E01D6A0051474A /* ExtensionViewControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtensionViewControllers.m; sourceTree = "<group>"; };
 		1194219018E01D6A0051474A /* RootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootController.h; sourceTree = "<group>"; };
@@ -151,79 +154,79 @@
 		1194219B18E01EC10051474A /* SharesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharesController.m; sourceTree = "<group>"; };
 		1194219D18E024610051474A /* PrinterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrinterController.h; sourceTree = "<group>"; };
 		1194219E18E024610051474A /* PrinterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrinterController.m; sourceTree = "<group>"; };
-		119E71E818E42FDE00B73C09 /* DceRpc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpc.h; sourceTree = "<group>"; };
-		119E71E918E42FDE00B73C09 /* DceRpcBind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcBind.h; sourceTree = "<group>"; };
-		119E71EA18E42FDE00B73C09 /* DceRpcBind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DceRpcBind.m; sourceTree = "<group>"; };
-		119E71EB18E42FDE00B73C09 /* DceRpcClosePrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcClosePrinter.h; sourceTree = "<group>"; };
-		119E71EC18E42FDE00B73C09 /* DceRpcClosePrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DceRpcClosePrinter.m; sourceTree = "<group>"; };
-		119E71ED18E42FDE00B73C09 /* DceRpcData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcData.h; sourceTree = "<group>"; };
-		119E71EE18E42FDE00B73C09 /* DceRpcData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DceRpcData.m; sourceTree = "<group>"; };
-		119E71EF18E42FDE00B73C09 /* DceRpcDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcDefines.h; sourceTree = "<group>"; };
-		119E71F018E42FDE00B73C09 /* DceRpcEndDocPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcEndDocPrinter.h; sourceTree = "<group>"; };
-		119E71F118E42FDE00B73C09 /* DceRpcEndDocPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DceRpcEndDocPrinter.m; sourceTree = "<group>"; };
-		119E71F218E42FDE00B73C09 /* DceRpcEnumAll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcEnumAll.h; sourceTree = "<group>"; };
-		119E71F318E42FDE00B73C09 /* DceRpcEnumAll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DceRpcEnumAll.m; sourceTree = "<group>"; };
-		119E71F418E42FDE00B73C09 /* DceRpcGetPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcGetPrinter.h; sourceTree = "<group>"; };
-		119E71F518E42FDE00B73C09 /* DceRpcGetPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DceRpcGetPrinter.m; sourceTree = "<group>"; };
-		119E71F618E42FDE00B73C09 /* DceRpcMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcMessage.h; sourceTree = "<group>"; };
-		119E71F718E42FDE00B73C09 /* DceRpcMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DceRpcMessage.m; sourceTree = "<group>"; };
-		119E71FA18E42FDE00B73C09 /* DceRpcOpenPrinterEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcOpenPrinterEx.h; sourceTree = "<group>"; };
-		119E71FB18E42FDE00B73C09 /* DceRpcOpenPrinterEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DceRpcOpenPrinterEx.m; sourceTree = "<group>"; };
-		119E71FC18E42FDE00B73C09 /* DceRpcPrinterInfo2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcPrinterInfo2.h; sourceTree = "<group>"; };
-		119E71FD18E42FDE00B73C09 /* DceRpcPrinterInfo2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DceRpcPrinterInfo2.m; sourceTree = "<group>"; };
-		119E71FE18E42FDE00B73C09 /* DceRpcStartDocPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcStartDocPrinter.h; sourceTree = "<group>"; };
-		119E71FF18E42FDE00B73C09 /* DceRpcStartDocPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DceRpcStartDocPrinter.m; sourceTree = "<group>"; };
-		119E720018E42FDE00B73C09 /* DceRpcWritePrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DceRpcWritePrinter.h; sourceTree = "<group>"; };
-		119E720118E42FDE00B73C09 /* DceRpcWritePrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DceRpcWritePrinter.m; sourceTree = "<group>"; };
-		119E720218E42FDE00B73C09 /* NbtConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NbtConnection.h; sourceTree = "<group>"; };
-		119E720318E42FDE00B73C09 /* NbtConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NbtConnection.m; sourceTree = "<group>"; };
-		119E720518E42FDE00B73C09 /* NetBios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetBios.h; sourceTree = "<group>"; };
-		119E720618E42FDE00B73C09 /* NetBios.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetBios.m; sourceTree = "<group>"; };
-		119E720718E42FDE00B73C09 /* NetBiosQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetBiosQuery.h; sourceTree = "<group>"; };
-		119E720818E42FDE00B73C09 /* NetBiosQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetBiosQuery.m; sourceTree = "<group>"; };
-		119E720918E42FDE00B73C09 /* NSMutableData+SMB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableData+SMB.h"; sourceTree = "<group>"; };
-		119E720A18E42FDE00B73C09 /* NSMutableData+SMB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableData+SMB.m"; sourceTree = "<group>"; };
-		119E720C18E42FDE00B73C09 /* RapMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RapMessage.h; sourceTree = "<group>"; };
-		119E720D18E42FDE00B73C09 /* RapMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RapMessage.m; sourceTree = "<group>"; };
-		119E720E18E42FDE00B73C09 /* RapNetServerEnum2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RapNetServerEnum2.h; sourceTree = "<group>"; };
-		119E720F18E42FDE00B73C09 /* RapNetServerEnum2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RapNetServerEnum2.m; sourceTree = "<group>"; };
-		119E721018E42FDE00B73C09 /* RapNetServerInfo1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RapNetServerInfo1.h; sourceTree = "<group>"; };
-		119E721118E42FDE00B73C09 /* RapNetServerInfo1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RapNetServerInfo1.m; sourceTree = "<group>"; };
-		119E721218E42FDE00B73C09 /* SmbCloseMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbCloseMessage.h; sourceTree = "<group>"; };
-		119E721318E42FDE00B73C09 /* SmbCloseMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbCloseMessage.m; sourceTree = "<group>"; };
-		119E721418E42FDE00B73C09 /* SmbConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbConnection.h; sourceTree = "<group>"; };
-		119E721518E42FDE00B73C09 /* SmbConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbConnection.m; sourceTree = "<group>"; };
-		119E721618E42FDE00B73C09 /* SmbDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbDefines.h; sourceTree = "<group>"; };
-		119E721918E42FDE00B73C09 /* SmbLogoffMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbLogoffMessage.h; sourceTree = "<group>"; };
-		119E721A18E42FDE00B73C09 /* SmbLogoffMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbLogoffMessage.m; sourceTree = "<group>"; };
-		119E721B18E42FDE00B73C09 /* SmbMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbMessage.h; sourceTree = "<group>"; };
-		119E721C18E42FDE00B73C09 /* SmbMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbMessage.m; sourceTree = "<group>"; };
-		119E721D18E42FDE00B73C09 /* SmbNegotiateProtocolMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbNegotiateProtocolMessage.h; sourceTree = "<group>"; };
-		119E721E18E42FDE00B73C09 /* SmbNegotiateProtocolMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbNegotiateProtocolMessage.m; sourceTree = "<group>"; };
-		119E721F18E42FDE00B73C09 /* SmbNtCreateMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbNtCreateMessage.h; sourceTree = "<group>"; };
-		119E722018E42FDE00B73C09 /* SmbNtCreateMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbNtCreateMessage.m; sourceTree = "<group>"; };
-		119E722118E42FDE00B73C09 /* SmbReadMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbReadMessage.h; sourceTree = "<group>"; };
-		119E722218E42FDE00B73C09 /* SmbReadMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbReadMessage.m; sourceTree = "<group>"; };
-		119E722318E42FDE00B73C09 /* SmbSessionSetupMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbSessionSetupMessage.h; sourceTree = "<group>"; };
-		119E722418E42FDE00B73C09 /* SmbSessionSetupMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbSessionSetupMessage.m; sourceTree = "<group>"; };
-		119E722518E42FDE00B73C09 /* SmbTransactionMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbTransactionMessage.h; sourceTree = "<group>"; };
-		119E722618E42FDE00B73C09 /* SmbTransactionMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbTransactionMessage.m; sourceTree = "<group>"; };
-		119E722718E42FDE00B73C09 /* SmbTreeConnectMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbTreeConnectMessage.h; sourceTree = "<group>"; };
-		119E722818E42FDE00B73C09 /* SmbTreeConnectMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbTreeConnectMessage.m; sourceTree = "<group>"; };
-		119E722918E42FDE00B73C09 /* SmbTreeDisconnectMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbTreeDisconnectMessage.h; sourceTree = "<group>"; };
-		119E722A18E42FDE00B73C09 /* SmbTreeDisconnectMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbTreeDisconnectMessage.m; sourceTree = "<group>"; };
-		119E722B18E42FDE00B73C09 /* SmbWriteMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmbWriteMessage.h; sourceTree = "<group>"; };
-		119E722C18E42FDE00B73C09 /* SmbWriteMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmbWriteMessage.m; sourceTree = "<group>"; };
+		119E71E818E42FDE00B73C09 /* SMB4iOSDceRpc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSDceRpc.h; sourceTree = "<group>"; };
+		119E71E918E42FDE00B73C09 /* SMB4iOSDceRpcBind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSDceRpcBind.h; sourceTree = "<group>"; };
+		119E71EA18E42FDE00B73C09 /* SMB4iOSDceRpcBind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSDceRpcBind.m; sourceTree = "<group>"; };
+		119E71EB18E42FDE00B73C09 /* SMB4iOSDceRpcClosePrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSDceRpcClosePrinter.h; sourceTree = "<group>"; };
+		119E71EC18E42FDE00B73C09 /* SMB4iOSDceRpcClosePrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSDceRpcClosePrinter.m; sourceTree = "<group>"; };
+		119E71ED18E42FDE00B73C09 /* SMB4iOSDceRpcData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSDceRpcData.h; sourceTree = "<group>"; };
+		119E71EE18E42FDE00B73C09 /* SMB4iOSDceRpcData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSDceRpcData.m; sourceTree = "<group>"; };
+		119E71EF18E42FDE00B73C09 /* SMB4iOSDceRpcDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSDceRpcDefines.h; sourceTree = "<group>"; };
+		119E71F018E42FDE00B73C09 /* SMB4iOSDceRpcEndDocPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSDceRpcEndDocPrinter.h; sourceTree = "<group>"; };
+		119E71F118E42FDE00B73C09 /* SMB4iOSDceRpcEndDocPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSDceRpcEndDocPrinter.m; sourceTree = "<group>"; };
+		119E71F218E42FDE00B73C09 /* SMB4iOSDceRpcEnumAll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSDceRpcEnumAll.h; sourceTree = "<group>"; };
+		119E71F318E42FDE00B73C09 /* SMB4iOSDceRpcEnumAll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSDceRpcEnumAll.m; sourceTree = "<group>"; };
+		119E71F418E42FDE00B73C09 /* SMB4iOSDceRpcGetPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSDceRpcGetPrinter.h; sourceTree = "<group>"; };
+		119E71F518E42FDE00B73C09 /* SMB4iOSDceRpcGetPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSDceRpcGetPrinter.m; sourceTree = "<group>"; };
+		119E71F618E42FDE00B73C09 /* SMB4iOSDceRpcMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSDceRpcMessage.h; sourceTree = "<group>"; };
+		119E71F718E42FDE00B73C09 /* SMB4iOSDceRpcMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSDceRpcMessage.m; sourceTree = "<group>"; };
+		119E71FA18E42FDE00B73C09 /* SMB4iOSDceRpcOpenPrinterEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSDceRpcOpenPrinterEx.h; sourceTree = "<group>"; };
+		119E71FB18E42FDE00B73C09 /* SMB4iOSDceRpcOpenPrinterEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSDceRpcOpenPrinterEx.m; sourceTree = "<group>"; };
+		119E71FC18E42FDE00B73C09 /* SMB4iOSDceRpcPrinterInfo2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSDceRpcPrinterInfo2.h; sourceTree = "<group>"; };
+		119E71FD18E42FDE00B73C09 /* SMB4iOSDceRpcPrinterInfo2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSDceRpcPrinterInfo2.m; sourceTree = "<group>"; };
+		119E71FE18E42FDE00B73C09 /* SMB4iOSDceRpcStartDocPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSDceRpcStartDocPrinter.h; sourceTree = "<group>"; };
+		119E71FF18E42FDE00B73C09 /* SMB4iOSDceRpcStartDocPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSDceRpcStartDocPrinter.m; sourceTree = "<group>"; };
+		119E720018E42FDE00B73C09 /* SMB4iOSDceRpcWritePrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSDceRpcWritePrinter.h; sourceTree = "<group>"; };
+		119E720118E42FDE00B73C09 /* SMB4iOSDceRpcWritePrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSDceRpcWritePrinter.m; sourceTree = "<group>"; };
+		119E720218E42FDE00B73C09 /* SMB4iOSNbtConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSNbtConnection.h; sourceTree = "<group>"; };
+		119E720318E42FDE00B73C09 /* SMB4iOSNbtConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSNbtConnection.m; sourceTree = "<group>"; };
+		119E720518E42FDE00B73C09 /* SMB4iOSNetBios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSNetBios.h; sourceTree = "<group>"; };
+		119E720618E42FDE00B73C09 /* SMB4iOSNetBios.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSNetBios.m; sourceTree = "<group>"; };
+		119E720718E42FDE00B73C09 /* SMB4iOSNetBiosQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSNetBiosQuery.h; sourceTree = "<group>"; };
+		119E720818E42FDE00B73C09 /* SMB4iOSNetBiosQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSNetBiosQuery.m; sourceTree = "<group>"; };
+		119E720918E42FDE00B73C09 /* NSMutableData+SMB4iOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableData+SMB4iOS.h"; sourceTree = "<group>"; };
+		119E720A18E42FDE00B73C09 /* NSMutableData+SMB4iOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableData+SMB4iOS.m"; sourceTree = "<group>"; };
+		119E720C18E42FDE00B73C09 /* SMB4iOSRapMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSRapMessage.h; sourceTree = "<group>"; };
+		119E720D18E42FDE00B73C09 /* SMB4iOSRapMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSRapMessage.m; sourceTree = "<group>"; };
+		119E720E18E42FDE00B73C09 /* SMB4iOSRapNetServerEnum2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSRapNetServerEnum2.h; sourceTree = "<group>"; };
+		119E720F18E42FDE00B73C09 /* SMB4iOSRapNetServerEnum2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSRapNetServerEnum2.m; sourceTree = "<group>"; };
+		119E721018E42FDE00B73C09 /* SMB4iOSRapNetServerInfo1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSRapNetServerInfo1.h; sourceTree = "<group>"; };
+		119E721118E42FDE00B73C09 /* SMB4iOSRapNetServerInfo1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSRapNetServerInfo1.m; sourceTree = "<group>"; };
+		119E721218E42FDE00B73C09 /* SMB4iOSSmbCloseMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSSmbCloseMessage.h; sourceTree = "<group>"; };
+		119E721318E42FDE00B73C09 /* SMB4iOSSmbCloseMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSSmbCloseMessage.m; sourceTree = "<group>"; };
+		119E721418E42FDE00B73C09 /* SMB4iOSSmbConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSSmbConnection.h; sourceTree = "<group>"; };
+		119E721518E42FDE00B73C09 /* SMB4iOSSmbConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSSmbConnection.m; sourceTree = "<group>"; };
+		119E721618E42FDE00B73C09 /* SMB4iOSSmbDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSSmbDefines.h; sourceTree = "<group>"; };
+		119E721918E42FDE00B73C09 /* SMB4iOSSmbLogoffMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSSmbLogoffMessage.h; sourceTree = "<group>"; };
+		119E721A18E42FDE00B73C09 /* SMB4iOSSmbLogoffMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSSmbLogoffMessage.m; sourceTree = "<group>"; };
+		119E721B18E42FDE00B73C09 /* SMB4iOSSmbMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSSmbMessage.h; sourceTree = "<group>"; };
+		119E721C18E42FDE00B73C09 /* SMB4iOSSmbMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSSmbMessage.m; sourceTree = "<group>"; };
+		119E721D18E42FDE00B73C09 /* SMB4iOSSmbNegotiateProtocolMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSSmbNegotiateProtocolMessage.h; sourceTree = "<group>"; };
+		119E721E18E42FDE00B73C09 /* SMB4iOSSmbNegotiateProtocolMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSSmbNegotiateProtocolMessage.m; sourceTree = "<group>"; };
+		119E721F18E42FDE00B73C09 /* SMB4iOSSmbNtCreateMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSSmbNtCreateMessage.h; sourceTree = "<group>"; };
+		119E722018E42FDE00B73C09 /* SMB4iOSSmbNtCreateMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSSmbNtCreateMessage.m; sourceTree = "<group>"; };
+		119E722118E42FDE00B73C09 /* SMB4iOSSmbReadMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSSmbReadMessage.h; sourceTree = "<group>"; };
+		119E722218E42FDE00B73C09 /* SMB4iOSSmbReadMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSSmbReadMessage.m; sourceTree = "<group>"; };
+		119E722318E42FDE00B73C09 /* SMB4iOSSmbSessionSetupMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSSmbSessionSetupMessage.h; sourceTree = "<group>"; };
+		119E722418E42FDE00B73C09 /* SMB4iOSSmbSessionSetupMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSSmbSessionSetupMessage.m; sourceTree = "<group>"; };
+		119E722518E42FDE00B73C09 /* SMB4iOSSmbTransactionMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSSmbTransactionMessage.h; sourceTree = "<group>"; };
+		119E722618E42FDE00B73C09 /* SMB4iOSSmbTransactionMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSSmbTransactionMessage.m; sourceTree = "<group>"; };
+		119E722718E42FDE00B73C09 /* SMB4iOSSmbTreeConnectMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSSmbTreeConnectMessage.h; sourceTree = "<group>"; };
+		119E722818E42FDE00B73C09 /* SMB4iOSSmbTreeConnectMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSSmbTreeConnectMessage.m; sourceTree = "<group>"; };
+		119E722918E42FDE00B73C09 /* SMB4iOSSmbTreeDisconnectMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSSmbTreeDisconnectMessage.h; sourceTree = "<group>"; };
+		119E722A18E42FDE00B73C09 /* SMB4iOSSmbTreeDisconnectMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSSmbTreeDisconnectMessage.m; sourceTree = "<group>"; };
+		119E722B18E42FDE00B73C09 /* SMB4iOSSmbWriteMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSSmbWriteMessage.h; sourceTree = "<group>"; };
+		119E722C18E42FDE00B73C09 /* SMB4iOSSmbWriteMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSSmbWriteMessage.m; sourceTree = "<group>"; };
 		119E724D18E430FD00B73C09 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		119E724E18E430FD00B73C09 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
-		AC1E166322102287003100AF /* smbencrypt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = smbencrypt.c; sourceTree = "<group>"; };
-		AC1E166422102287003100AF /* smbutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = smbutil.c; sourceTree = "<group>"; };
-		AC1E1667221022D4003100AF /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
-		AC1E166822102325003100AF /* des.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = des.h; sourceTree = "<group>"; };
-		AC1E166922102326003100AF /* md4.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = md4.c; sourceTree = "<group>"; };
-		AC1E166A22102326003100AF /* md4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md4.h; sourceTree = "<group>"; };
-		AC1E166B22102326003100AF /* des.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = des.c; sourceTree = "<group>"; };
-		AC1E166E2210233B003100AF /* byteswap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = byteswap.h; sourceTree = "<group>"; };
+		AC1E166322102287003100AF /* SMB4iOSsmbencrypt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SMB4iOSsmbencrypt.c; sourceTree = "<group>"; };
+		AC1E166422102287003100AF /* SMB4iOSsmbutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SMB4iOSsmbutil.c; sourceTree = "<group>"; };
+		AC1E1667221022D4003100AF /* SMB4iOSconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSconfig.h; sourceTree = "<group>"; };
+		AC1E166822102325003100AF /* SMB4iOSdes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSdes.h; sourceTree = "<group>"; };
+		AC1E166922102326003100AF /* SMB4iOSmd4.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SMB4iOSmd4.c; sourceTree = "<group>"; };
+		AC1E166A22102326003100AF /* SMB4iOSmd4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSmd4.h; sourceTree = "<group>"; };
+		AC1E166B22102326003100AF /* SMB4iOSdes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SMB4iOSdes.c; sourceTree = "<group>"; };
+		AC1E166E2210233B003100AF /* SMB4iOSbyteswap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMB4iOSbyteswap.h; sourceTree = "<group>"; };
 		AC1E166F22102604003100AF /* SMB4iOSAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMB4iOSAsyncUdpSocket.m; sourceTree = "<group>"; };
 		AC1E167022102604003100AF /* SMB4iOSAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMB4iOSAsyncUdpSocket.h; sourceTree = "<group>"; };
 		AC1E16CE22102FFC003100AF /* SMB4iOSFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SMB4iOSFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -294,6 +297,8 @@
 			children = (
 				1194210918E0170A0051474A /* AppDelegate.h */,
 				1194210A18E0170A0051474A /* AppDelegate.m */,
+				FA00000000000000000000A1 /* SceneDelegate.h */,
+				FA00000000000000000000A2 /* SceneDelegate.m */,
 			);
 			path = smb4ios;
 			sourceTree = "<group>";
@@ -314,10 +319,10 @@
 			children = (
 				AC1E167022102604003100AF /* SMB4iOSAsyncUdpSocket.h */,
 				AC1E166F22102604003100AF /* SMB4iOSAsyncUdpSocket.m */,
-				1194217D18E018A40051474A /* SocketConnection.h */,
-				1194217E18E018A40051474A /* SocketConnection.m */,
-				1194217F18E018A40051474A /* Utils.h */,
-				1194218018E018A40051474A /* Utils.m */,
+				1194217D18E018A40051474A /* SMB4iOSSocketConnection.h */,
+				1194217E18E018A40051474A /* SMB4iOSSocketConnection.m */,
+				1194217F18E018A40051474A /* SMB4iOSUtils.h */,
+				1194218018E018A40051474A /* SMB4iOSUtils.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -325,15 +330,15 @@
 		1194218618E01CD00051474A /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				AC1E166E2210233B003100AF /* byteswap.h */,
-				AC1E166B22102326003100AF /* des.c */,
-				AC1E166822102325003100AF /* des.h */,
-				AC1E166922102326003100AF /* md4.c */,
-				AC1E166A22102326003100AF /* md4.h */,
-				AC1E1667221022D4003100AF /* config.h */,
-				AC1E166322102287003100AF /* smbencrypt.c */,
-				AC1E166422102287003100AF /* smbutil.c */,
-				1194218818E01CD10051474A /* ntlm.h */,
+				AC1E166E2210233B003100AF /* SMB4iOSbyteswap.h */,
+				AC1E166B22102326003100AF /* SMB4iOSdes.c */,
+				AC1E166822102325003100AF /* SMB4iOSdes.h */,
+				AC1E166922102326003100AF /* SMB4iOSmd4.c */,
+				AC1E166A22102326003100AF /* SMB4iOSmd4.h */,
+				AC1E1667221022D4003100AF /* SMB4iOSconfig.h */,
+				AC1E166322102287003100AF /* SMB4iOSsmbencrypt.c */,
+				AC1E166422102287003100AF /* SMB4iOSsmbutil.c */,
+				1194218818E01CD10051474A /* SMB4iOSntlm.h */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -365,35 +370,35 @@
 				119E720418E42FDE00B73C09 /* NetBIOS */,
 				119E720B18E42FDE00B73C09 /* RAP */,
 				119E71E718E42FDE00B73C09 /* DCERPC */,
-				119E721418E42FDE00B73C09 /* SmbConnection.h */,
-				119E721518E42FDE00B73C09 /* SmbConnection.m */,
-				119E721618E42FDE00B73C09 /* SmbDefines.h */,
-				119E721918E42FDE00B73C09 /* SmbLogoffMessage.h */,
-				119E721A18E42FDE00B73C09 /* SmbLogoffMessage.m */,
-				119E721B18E42FDE00B73C09 /* SmbMessage.h */,
-				119E721C18E42FDE00B73C09 /* SmbMessage.m */,
-				119E721D18E42FDE00B73C09 /* SmbNegotiateProtocolMessage.h */,
-				119E721E18E42FDE00B73C09 /* SmbNegotiateProtocolMessage.m */,
-				119E721F18E42FDE00B73C09 /* SmbNtCreateMessage.h */,
-				119E722018E42FDE00B73C09 /* SmbNtCreateMessage.m */,
-				119E722118E42FDE00B73C09 /* SmbReadMessage.h */,
-				119E722218E42FDE00B73C09 /* SmbReadMessage.m */,
-				119E722318E42FDE00B73C09 /* SmbSessionSetupMessage.h */,
-				119E722418E42FDE00B73C09 /* SmbSessionSetupMessage.m */,
-				119E722518E42FDE00B73C09 /* SmbTransactionMessage.h */,
-				119E722618E42FDE00B73C09 /* SmbTransactionMessage.m */,
-				119E722718E42FDE00B73C09 /* SmbTreeConnectMessage.h */,
-				119E722818E42FDE00B73C09 /* SmbTreeConnectMessage.m */,
-				119E722918E42FDE00B73C09 /* SmbTreeDisconnectMessage.h */,
-				119E722A18E42FDE00B73C09 /* SmbTreeDisconnectMessage.m */,
-				119E722B18E42FDE00B73C09 /* SmbWriteMessage.h */,
-				119E722C18E42FDE00B73C09 /* SmbWriteMessage.m */,
-				119E721218E42FDE00B73C09 /* SmbCloseMessage.h */,
-				119E721318E42FDE00B73C09 /* SmbCloseMessage.m */,
-				119E720218E42FDE00B73C09 /* NbtConnection.h */,
-				119E720318E42FDE00B73C09 /* NbtConnection.m */,
-				119E720918E42FDE00B73C09 /* NSMutableData+SMB.h */,
-				119E720A18E42FDE00B73C09 /* NSMutableData+SMB.m */,
+				119E721418E42FDE00B73C09 /* SMB4iOSSmbConnection.h */,
+				119E721518E42FDE00B73C09 /* SMB4iOSSmbConnection.m */,
+				119E721618E42FDE00B73C09 /* SMB4iOSSmbDefines.h */,
+				119E721918E42FDE00B73C09 /* SMB4iOSSmbLogoffMessage.h */,
+				119E721A18E42FDE00B73C09 /* SMB4iOSSmbLogoffMessage.m */,
+				119E721B18E42FDE00B73C09 /* SMB4iOSSmbMessage.h */,
+				119E721C18E42FDE00B73C09 /* SMB4iOSSmbMessage.m */,
+				119E721D18E42FDE00B73C09 /* SMB4iOSSmbNegotiateProtocolMessage.h */,
+				119E721E18E42FDE00B73C09 /* SMB4iOSSmbNegotiateProtocolMessage.m */,
+				119E721F18E42FDE00B73C09 /* SMB4iOSSmbNtCreateMessage.h */,
+				119E722018E42FDE00B73C09 /* SMB4iOSSmbNtCreateMessage.m */,
+				119E722118E42FDE00B73C09 /* SMB4iOSSmbReadMessage.h */,
+				119E722218E42FDE00B73C09 /* SMB4iOSSmbReadMessage.m */,
+				119E722318E42FDE00B73C09 /* SMB4iOSSmbSessionSetupMessage.h */,
+				119E722418E42FDE00B73C09 /* SMB4iOSSmbSessionSetupMessage.m */,
+				119E722518E42FDE00B73C09 /* SMB4iOSSmbTransactionMessage.h */,
+				119E722618E42FDE00B73C09 /* SMB4iOSSmbTransactionMessage.m */,
+				119E722718E42FDE00B73C09 /* SMB4iOSSmbTreeConnectMessage.h */,
+				119E722818E42FDE00B73C09 /* SMB4iOSSmbTreeConnectMessage.m */,
+				119E722918E42FDE00B73C09 /* SMB4iOSSmbTreeDisconnectMessage.h */,
+				119E722A18E42FDE00B73C09 /* SMB4iOSSmbTreeDisconnectMessage.m */,
+				119E722B18E42FDE00B73C09 /* SMB4iOSSmbWriteMessage.h */,
+				119E722C18E42FDE00B73C09 /* SMB4iOSSmbWriteMessage.m */,
+				119E721218E42FDE00B73C09 /* SMB4iOSSmbCloseMessage.h */,
+				119E721318E42FDE00B73C09 /* SMB4iOSSmbCloseMessage.m */,
+				119E720218E42FDE00B73C09 /* SMB4iOSNbtConnection.h */,
+				119E720318E42FDE00B73C09 /* SMB4iOSNbtConnection.m */,
+				119E720918E42FDE00B73C09 /* NSMutableData+SMB4iOS.h */,
+				119E720A18E42FDE00B73C09 /* NSMutableData+SMB4iOS.m */,
 			);
 			path = SMB;
 			sourceTree = "<group>";
@@ -401,30 +406,30 @@
 		119E71E718E42FDE00B73C09 /* DCERPC */ = {
 			isa = PBXGroup;
 			children = (
-				119E71E818E42FDE00B73C09 /* DceRpc.h */,
-				119E71E918E42FDE00B73C09 /* DceRpcBind.h */,
-				119E71EA18E42FDE00B73C09 /* DceRpcBind.m */,
-				119E71EB18E42FDE00B73C09 /* DceRpcClosePrinter.h */,
-				119E71EC18E42FDE00B73C09 /* DceRpcClosePrinter.m */,
-				119E71ED18E42FDE00B73C09 /* DceRpcData.h */,
-				119E71EE18E42FDE00B73C09 /* DceRpcData.m */,
-				119E71EF18E42FDE00B73C09 /* DceRpcDefines.h */,
-				119E71F018E42FDE00B73C09 /* DceRpcEndDocPrinter.h */,
-				119E71F118E42FDE00B73C09 /* DceRpcEndDocPrinter.m */,
-				119E71F218E42FDE00B73C09 /* DceRpcEnumAll.h */,
-				119E71F318E42FDE00B73C09 /* DceRpcEnumAll.m */,
-				119E71F418E42FDE00B73C09 /* DceRpcGetPrinter.h */,
-				119E71F518E42FDE00B73C09 /* DceRpcGetPrinter.m */,
-				119E71F618E42FDE00B73C09 /* DceRpcMessage.h */,
-				119E71F718E42FDE00B73C09 /* DceRpcMessage.m */,
-				119E71FA18E42FDE00B73C09 /* DceRpcOpenPrinterEx.h */,
-				119E71FB18E42FDE00B73C09 /* DceRpcOpenPrinterEx.m */,
-				119E71FC18E42FDE00B73C09 /* DceRpcPrinterInfo2.h */,
-				119E71FD18E42FDE00B73C09 /* DceRpcPrinterInfo2.m */,
-				119E71FE18E42FDE00B73C09 /* DceRpcStartDocPrinter.h */,
-				119E71FF18E42FDE00B73C09 /* DceRpcStartDocPrinter.m */,
-				119E720018E42FDE00B73C09 /* DceRpcWritePrinter.h */,
-				119E720118E42FDE00B73C09 /* DceRpcWritePrinter.m */,
+				119E71E818E42FDE00B73C09 /* SMB4iOSDceRpc.h */,
+				119E71E918E42FDE00B73C09 /* SMB4iOSDceRpcBind.h */,
+				119E71EA18E42FDE00B73C09 /* SMB4iOSDceRpcBind.m */,
+				119E71EB18E42FDE00B73C09 /* SMB4iOSDceRpcClosePrinter.h */,
+				119E71EC18E42FDE00B73C09 /* SMB4iOSDceRpcClosePrinter.m */,
+				119E71ED18E42FDE00B73C09 /* SMB4iOSDceRpcData.h */,
+				119E71EE18E42FDE00B73C09 /* SMB4iOSDceRpcData.m */,
+				119E71EF18E42FDE00B73C09 /* SMB4iOSDceRpcDefines.h */,
+				119E71F018E42FDE00B73C09 /* SMB4iOSDceRpcEndDocPrinter.h */,
+				119E71F118E42FDE00B73C09 /* SMB4iOSDceRpcEndDocPrinter.m */,
+				119E71F218E42FDE00B73C09 /* SMB4iOSDceRpcEnumAll.h */,
+				119E71F318E42FDE00B73C09 /* SMB4iOSDceRpcEnumAll.m */,
+				119E71F418E42FDE00B73C09 /* SMB4iOSDceRpcGetPrinter.h */,
+				119E71F518E42FDE00B73C09 /* SMB4iOSDceRpcGetPrinter.m */,
+				119E71F618E42FDE00B73C09 /* SMB4iOSDceRpcMessage.h */,
+				119E71F718E42FDE00B73C09 /* SMB4iOSDceRpcMessage.m */,
+				119E71FA18E42FDE00B73C09 /* SMB4iOSDceRpcOpenPrinterEx.h */,
+				119E71FB18E42FDE00B73C09 /* SMB4iOSDceRpcOpenPrinterEx.m */,
+				119E71FC18E42FDE00B73C09 /* SMB4iOSDceRpcPrinterInfo2.h */,
+				119E71FD18E42FDE00B73C09 /* SMB4iOSDceRpcPrinterInfo2.m */,
+				119E71FE18E42FDE00B73C09 /* SMB4iOSDceRpcStartDocPrinter.h */,
+				119E71FF18E42FDE00B73C09 /* SMB4iOSDceRpcStartDocPrinter.m */,
+				119E720018E42FDE00B73C09 /* SMB4iOSDceRpcWritePrinter.h */,
+				119E720118E42FDE00B73C09 /* SMB4iOSDceRpcWritePrinter.m */,
 			);
 			path = DCERPC;
 			sourceTree = "<group>";
@@ -432,10 +437,10 @@
 		119E720418E42FDE00B73C09 /* NetBIOS */ = {
 			isa = PBXGroup;
 			children = (
-				119E720518E42FDE00B73C09 /* NetBios.h */,
-				119E720618E42FDE00B73C09 /* NetBios.m */,
-				119E720718E42FDE00B73C09 /* NetBiosQuery.h */,
-				119E720818E42FDE00B73C09 /* NetBiosQuery.m */,
+				119E720518E42FDE00B73C09 /* SMB4iOSNetBios.h */,
+				119E720618E42FDE00B73C09 /* SMB4iOSNetBios.m */,
+				119E720718E42FDE00B73C09 /* SMB4iOSNetBiosQuery.h */,
+				119E720818E42FDE00B73C09 /* SMB4iOSNetBiosQuery.m */,
 			);
 			path = NetBIOS;
 			sourceTree = "<group>";
@@ -443,12 +448,12 @@
 		119E720B18E42FDE00B73C09 /* RAP */ = {
 			isa = PBXGroup;
 			children = (
-				119E720C18E42FDE00B73C09 /* RapMessage.h */,
-				119E720D18E42FDE00B73C09 /* RapMessage.m */,
-				119E720E18E42FDE00B73C09 /* RapNetServerEnum2.h */,
-				119E720F18E42FDE00B73C09 /* RapNetServerEnum2.m */,
-				119E721018E42FDE00B73C09 /* RapNetServerInfo1.h */,
-				119E721118E42FDE00B73C09 /* RapNetServerInfo1.m */,
+				119E720C18E42FDE00B73C09 /* SMB4iOSRapMessage.h */,
+				119E720D18E42FDE00B73C09 /* SMB4iOSRapMessage.m */,
+				119E720E18E42FDE00B73C09 /* SMB4iOSRapNetServerEnum2.h */,
+				119E720F18E42FDE00B73C09 /* SMB4iOSRapNetServerEnum2.m */,
+				119E721018E42FDE00B73C09 /* SMB4iOSRapNetServerInfo1.h */,
+				119E721118E42FDE00B73C09 /* SMB4iOSRapNetServerInfo1.m */,
 			);
 			path = RAP;
 			sourceTree = "<group>";
@@ -470,42 +475,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC1E16D222102FFC003100AF /* SMB4iOSFramework.h in Headers */,
-				AC1E16DB221030EC003100AF /* NetBios.h in Headers */,
-				AC1E16DC221030EC003100AF /* NetBiosQuery.h in Headers */,
-				AC1E16DD221030EC003100AF /* RapMessage.h in Headers */,
-				AC1E16DE221030EC003100AF /* RapNetServerEnum2.h in Headers */,
-				AC1E16DF221030EC003100AF /* RapNetServerInfo1.h in Headers */,
-				AC1E16E0221030EC003100AF /* DceRpc.h in Headers */,
-				AC1E16E1221030EC003100AF /* DceRpcBind.h in Headers */,
-				AC1E16E2221030EC003100AF /* DceRpcClosePrinter.h in Headers */,
-				AC1E16E3221030EC003100AF /* DceRpcData.h in Headers */,
-				AC1E16E4221030EC003100AF /* DceRpcDefines.h in Headers */,
-				AC1E16E5221030EC003100AF /* DceRpcEndDocPrinter.h in Headers */,
-				AC1E16E6221030EC003100AF /* DceRpcEnumAll.h in Headers */,
-				AC1E16E7221030EC003100AF /* DceRpcGetPrinter.h in Headers */,
-				AC1E16E8221030EC003100AF /* DceRpcMessage.h in Headers */,
-				AC1E16E9221030EC003100AF /* DceRpcOpenPrinterEx.h in Headers */,
-				AC1E16EA221030EC003100AF /* DceRpcPrinterInfo2.h in Headers */,
-				AC1E16EB221030EC003100AF /* DceRpcStartDocPrinter.h in Headers */,
-				AC1E16EC221030EC003100AF /* DceRpcWritePrinter.h in Headers */,
-				AC1E16ED221030EC003100AF /* SmbConnection.h in Headers */,
-				AC1E16EE221030EC003100AF /* SmbDefines.h in Headers */,
-				AC1E16EF221030EC003100AF /* SmbLogoffMessage.h in Headers */,
-				AC1E16F0221030EC003100AF /* SmbMessage.h in Headers */,
-				AC1E16F1221030EC003100AF /* SmbNegotiateProtocolMessage.h in Headers */,
-				AC1E16F2221030EC003100AF /* SmbNtCreateMessage.h in Headers */,
-				AC1E16F3221030EC003100AF /* SmbReadMessage.h in Headers */,
-				AC1E16F4221030EC003100AF /* SmbSessionSetupMessage.h in Headers */,
-				AC1E16F5221030EC003100AF /* SmbTransactionMessage.h in Headers */,
-				AC1E16F6221030EC003100AF /* SmbTreeConnectMessage.h in Headers */,
-				AC1E16F7221030EC003100AF /* SmbTreeDisconnectMessage.h in Headers */,
-				AC1E16F8221030EC003100AF /* SmbWriteMessage.h in Headers */,
-				AC1E16F9221030EC003100AF /* SmbCloseMessage.h in Headers */,
-				AC1E16FA221030EC003100AF /* NbtConnection.h in Headers */,
-				AC1E16FB221030EC003100AF /* NSMutableData+SMB.h in Headers */,
+				AC1E16DB221030EC003100AF /* SMB4iOSNetBios.h in Headers */,
+				AC1E16DC221030EC003100AF /* SMB4iOSNetBiosQuery.h in Headers */,
+				AC1E16DD221030EC003100AF /* SMB4iOSRapMessage.h in Headers */,
+				AC1E16DE221030EC003100AF /* SMB4iOSRapNetServerEnum2.h in Headers */,
+				AC1E16DF221030EC003100AF /* SMB4iOSRapNetServerInfo1.h in Headers */,
+				AC1E16E0221030EC003100AF /* SMB4iOSDceRpc.h in Headers */,
+				AC1E16E1221030EC003100AF /* SMB4iOSDceRpcBind.h in Headers */,
+				AC1E16E2221030EC003100AF /* SMB4iOSDceRpcClosePrinter.h in Headers */,
+				AC1E16E3221030EC003100AF /* SMB4iOSDceRpcData.h in Headers */,
+				AC1E16E4221030EC003100AF /* SMB4iOSDceRpcDefines.h in Headers */,
+				AC1E16E5221030EC003100AF /* SMB4iOSDceRpcEndDocPrinter.h in Headers */,
+				AC1E16E6221030EC003100AF /* SMB4iOSDceRpcEnumAll.h in Headers */,
+				AC1E16E7221030EC003100AF /* SMB4iOSDceRpcGetPrinter.h in Headers */,
+				AC1E16E8221030EC003100AF /* SMB4iOSDceRpcMessage.h in Headers */,
+				AC1E16E9221030EC003100AF /* SMB4iOSDceRpcOpenPrinterEx.h in Headers */,
+				AC1E16EA221030EC003100AF /* SMB4iOSDceRpcPrinterInfo2.h in Headers */,
+				AC1E16EB221030EC003100AF /* SMB4iOSDceRpcStartDocPrinter.h in Headers */,
+				AC1E16EC221030EC003100AF /* SMB4iOSDceRpcWritePrinter.h in Headers */,
+				AC1E16ED221030EC003100AF /* SMB4iOSSmbConnection.h in Headers */,
+				AC1E16EE221030EC003100AF /* SMB4iOSSmbDefines.h in Headers */,
+				AC1E16EF221030EC003100AF /* SMB4iOSSmbLogoffMessage.h in Headers */,
+				AC1E16F0221030EC003100AF /* SMB4iOSSmbMessage.h in Headers */,
+				AC1E16F1221030EC003100AF /* SMB4iOSSmbNegotiateProtocolMessage.h in Headers */,
+				AC1E16F2221030EC003100AF /* SMB4iOSSmbNtCreateMessage.h in Headers */,
+				AC1E16F3221030EC003100AF /* SMB4iOSSmbReadMessage.h in Headers */,
+				AC1E16F4221030EC003100AF /* SMB4iOSSmbSessionSetupMessage.h in Headers */,
+				AC1E16F5221030EC003100AF /* SMB4iOSSmbTransactionMessage.h in Headers */,
+				AC1E16F6221030EC003100AF /* SMB4iOSSmbTreeConnectMessage.h in Headers */,
+				AC1E16F7221030EC003100AF /* SMB4iOSSmbTreeDisconnectMessage.h in Headers */,
+				AC1E16F8221030EC003100AF /* SMB4iOSSmbWriteMessage.h in Headers */,
+				AC1E16F9221030EC003100AF /* SMB4iOSSmbCloseMessage.h in Headers */,
+				AC1E16FA221030EC003100AF /* SMB4iOSNbtConnection.h in Headers */,
+				AC1E16FB221030EC003100AF /* NSMutableData+SMB4iOS.h in Headers */,
 				AC1E16FC221030EC003100AF /* SMB4iOSAsyncUdpSocket.h in Headers */,
-				AC1E16FD221030EC003100AF /* SocketConnection.h in Headers */,
-				AC1E16FE221030EC003100AF /* Utils.h in Headers */,
+				AC1E16FD221030EC003100AF /* SMB4iOSSocketConnection.h in Headers */,
+				AC1E16FE221030EC003100AF /* SMB4iOSUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,6 +621,7 @@
 				1194219618E01D6A0051474A /* UIViewSizeShortcuts.m in Sources */,
 				119E724F18E430FD00B73C09 /* LoginController.m in Sources */,
 				1194210E18E0170A0051474A /* AppDelegate.m in Sources */,
+				FA00000000000000000000A3 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,42 +629,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC620AA5221039A70070A1FA /* DceRpcBind.m in Sources */,
-				AC620AA9221039A70070A1FA /* DceRpcEnumAll.m in Sources */,
-				AC620ABB221039B80070A1FA /* NbtConnection.m in Sources */,
-				AC620AA1221039940070A1FA /* NetBiosQuery.m in Sources */,
-				AC620AC0221039C90070A1FA /* des.c in Sources */,
-				AC620AB9221039B80070A1FA /* SmbWriteMessage.m in Sources */,
-				AC620AAB221039A70070A1FA /* DceRpcMessage.m in Sources */,
-				AC620ABE221039B80070A1FA /* SocketConnection.m in Sources */,
-				AC620AA6221039A70070A1FA /* DceRpcClosePrinter.m in Sources */,
-				AC620AA0221039940070A1FA /* NetBios.m in Sources */,
-				AC620AAD221039A70070A1FA /* DceRpcPrinterInfo2.m in Sources */,
-				AC620AB5221039B80070A1FA /* SmbSessionSetupMessage.m in Sources */,
-				AC620ABA221039B80070A1FA /* SmbCloseMessage.m in Sources */,
-				AC620ABF221039B80070A1FA /* Utils.m in Sources */,
-				AC620AA7221039A70070A1FA /* DceRpcData.m in Sources */,
-				AC620AA3221039990070A1FA /* RapNetServerEnum2.m in Sources */,
-				AC620AC3221039C90070A1FA /* smbutil.c in Sources */,
-				AC620AC2221039C90070A1FA /* smbencrypt.c in Sources */,
-				AC620AB0221039B80070A1FA /* SmbLogoffMessage.m in Sources */,
-				AC620AAC221039A70070A1FA /* DceRpcOpenPrinterEx.m in Sources */,
-				AC620AB1221039B80070A1FA /* SmbMessage.m in Sources */,
-				AC620ABC221039B80070A1FA /* NSMutableData+SMB.m in Sources */,
-				AC620AB4221039B80070A1FA /* SmbReadMessage.m in Sources */,
-				AC620A9F2210398C0070A1FA /* SmbConnection.m in Sources */,
-				AC620AB6221039B80070A1FA /* SmbTransactionMessage.m in Sources */,
-				AC620AAF221039A70070A1FA /* DceRpcWritePrinter.m in Sources */,
-				AC620AAE221039A70070A1FA /* DceRpcStartDocPrinter.m in Sources */,
-				AC620AA4221039990070A1FA /* RapNetServerInfo1.m in Sources */,
-				AC620AA8221039A70070A1FA /* DceRpcEndDocPrinter.m in Sources */,
-				AC620AB2221039B80070A1FA /* SmbNegotiateProtocolMessage.m in Sources */,
-				AC620AB7221039B80070A1FA /* SmbTreeConnectMessage.m in Sources */,
-				AC620AC1221039C90070A1FA /* md4.c in Sources */,
-				AC620AB3221039B80070A1FA /* SmbNtCreateMessage.m in Sources */,
-				AC620AAA221039A70070A1FA /* DceRpcGetPrinter.m in Sources */,
-				AC620AB8221039B80070A1FA /* SmbTreeDisconnectMessage.m in Sources */,
-				AC620AA2221039990070A1FA /* RapMessage.m in Sources */,
+				AC620AA5221039A70070A1FA /* SMB4iOSDceRpcBind.m in Sources */,
+				AC620AA9221039A70070A1FA /* SMB4iOSDceRpcEnumAll.m in Sources */,
+				AC620ABB221039B80070A1FA /* SMB4iOSNbtConnection.m in Sources */,
+				AC620AA1221039940070A1FA /* SMB4iOSNetBiosQuery.m in Sources */,
+				AC620AC0221039C90070A1FA /* SMB4iOSdes.c in Sources */,
+				AC620AB9221039B80070A1FA /* SMB4iOSSmbWriteMessage.m in Sources */,
+				AC620AAB221039A70070A1FA /* SMB4iOSDceRpcMessage.m in Sources */,
+				AC620ABE221039B80070A1FA /* SMB4iOSSocketConnection.m in Sources */,
+				AC620AA6221039A70070A1FA /* SMB4iOSDceRpcClosePrinter.m in Sources */,
+				AC620AA0221039940070A1FA /* SMB4iOSNetBios.m in Sources */,
+				AC620AAD221039A70070A1FA /* SMB4iOSDceRpcPrinterInfo2.m in Sources */,
+				AC620AB5221039B80070A1FA /* SMB4iOSSmbSessionSetupMessage.m in Sources */,
+				AC620ABA221039B80070A1FA /* SMB4iOSSmbCloseMessage.m in Sources */,
+				AC620ABF221039B80070A1FA /* SMB4iOSUtils.m in Sources */,
+				AC620AA7221039A70070A1FA /* SMB4iOSDceRpcData.m in Sources */,
+				AC620AA3221039990070A1FA /* SMB4iOSRapNetServerEnum2.m in Sources */,
+				AC620AC3221039C90070A1FA /* SMB4iOSsmbutil.c in Sources */,
+				AC620AC2221039C90070A1FA /* SMB4iOSsmbencrypt.c in Sources */,
+				AC620AB0221039B80070A1FA /* SMB4iOSSmbLogoffMessage.m in Sources */,
+				AC620AAC221039A70070A1FA /* SMB4iOSDceRpcOpenPrinterEx.m in Sources */,
+				AC620AB1221039B80070A1FA /* SMB4iOSSmbMessage.m in Sources */,
+				AC620ABC221039B80070A1FA /* NSMutableData+SMB4iOS.m in Sources */,
+				AC620AB4221039B80070A1FA /* SMB4iOSSmbReadMessage.m in Sources */,
+				AC620A9F2210398C0070A1FA /* SMB4iOSSmbConnection.m in Sources */,
+				AC620AB6221039B80070A1FA /* SMB4iOSSmbTransactionMessage.m in Sources */,
+				AC620AAF221039A70070A1FA /* SMB4iOSDceRpcWritePrinter.m in Sources */,
+				AC620AAE221039A70070A1FA /* SMB4iOSDceRpcStartDocPrinter.m in Sources */,
+				AC620AA4221039990070A1FA /* SMB4iOSRapNetServerInfo1.m in Sources */,
+				AC620AA8221039A70070A1FA /* SMB4iOSDceRpcEndDocPrinter.m in Sources */,
+				AC620AB2221039B80070A1FA /* SMB4iOSSmbNegotiateProtocolMessage.m in Sources */,
+				AC620AB7221039B80070A1FA /* SMB4iOSSmbTreeConnectMessage.m in Sources */,
+				AC620AC1221039C90070A1FA /* SMB4iOSmd4.c in Sources */,
+				AC620AB3221039B80070A1FA /* SMB4iOSSmbNtCreateMessage.m in Sources */,
+				AC620AAA221039A70070A1FA /* SMB4iOSDceRpcGetPrinter.m in Sources */,
+				AC620AB8221039B80070A1FA /* SMB4iOSSmbTreeDisconnectMessage.m in Sources */,
+				AC620AA2221039990070A1FA /* SMB4iOSRapMessage.m in Sources */,
 				AC620ABD221039B80070A1FA /* SMB4iOSAsyncUdpSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -751,7 +757,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "smb4ios-Prefix.pch";
 				INFOPLIST_FILE = "smb4ios-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -769,7 +775,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "smb4ios-Prefix.pch";
 				INFOPLIST_FILE = "smb4ios-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -815,7 +821,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = SMB4iOSFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -863,7 +869,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = SMB4iOSFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

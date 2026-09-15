@@ -14,7 +14,7 @@
     
     self.title = @"Servers";
     
-    [[NetBios instance]
+    [[SMB4iOSNetBios instance]
      resolveMasterBrowser:^(NSString *host)
      {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -26,7 +26,7 @@
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^
                            {
-                SmbConnection *conn = [[SmbConnection alloc] init];
+                SMB4iOSSmbConnection *conn = [[SMB4iOSSmbConnection alloc] init];
                 [conn connectToHost:host];
                 bool success = [conn enumServers:self.domain];
                 [conn close];

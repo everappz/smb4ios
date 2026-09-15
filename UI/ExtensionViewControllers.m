@@ -12,13 +12,21 @@
 	self.tableView.backgroundColor = [UIColor whiteColor];
 	self.tableView.tableFooterView = [[UIView alloc] init];
 
-	_emptyLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.view.width-20, 120)];
+	_emptyLabel = [[UILabel alloc] init];
+	_emptyLabel.translatesAutoresizingMaskIntoConstraints = NO;
 	_emptyLabel.text = @"Nothing found";
 	_emptyLabel.textColor = [UIColor darkGrayColor];
 	_emptyLabel.backgroundColor = [UIColor clearColor];
 	_emptyLabel.numberOfLines = 0;
 	_emptyLabel.hidden = true;
 	[self.view addSubview:_emptyLabel];
+
+	UILayoutGuide *safe = self.view.safeAreaLayoutGuide;
+	[NSLayoutConstraint activateConstraints:@[
+		[_emptyLabel.topAnchor constraintEqualToAnchor:safe.topAnchor constant:10],
+		[_emptyLabel.leadingAnchor constraintEqualToAnchor:safe.leadingAnchor constant:10],
+		[_emptyLabel.trailingAnchor constraintEqualToAnchor:safe.trailingAnchor constant:-10],
+	]];
 }
 
 @end
@@ -33,20 +41,28 @@
 - (void) viewDidLoad
 {
 	[super viewDidLoad];
-	
-	activityView = [[UIView alloc] initWithFrame:CGRectMake((self.view.width - 60) / 2,
-		(self.view.height - 60) / 2, 60, 60)];
-	activityView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+
+	activityView = [[UIView alloc] init];
+	activityView.translatesAutoresizingMaskIntoConstraints = NO;
 	activityView.layer.cornerRadius = 5.0;
 	activityView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4];
 	[self.view addSubview:activityView];
-		
+
 	activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:
 		UIActivityIndicatorViewStyleWhiteLarge];
-	activityIndicator.origin = CGPointMake((activityView.width - activityIndicator.width) / 2,
-		(activityView.height - activityIndicator.height) / 2);
+	activityIndicator.translatesAutoresizingMaskIntoConstraints = NO;
 	[activityView addSubview:activityIndicator];
 	[activityIndicator startAnimating];
+
+	UILayoutGuide *safe = self.view.safeAreaLayoutGuide;
+	[NSLayoutConstraint activateConstraints:@[
+		[activityView.widthAnchor constraintEqualToConstant:60],
+		[activityView.heightAnchor constraintEqualToConstant:60],
+		[activityView.centerXAnchor constraintEqualToAnchor:safe.centerXAnchor],
+		[activityView.centerYAnchor constraintEqualToAnchor:safe.centerYAnchor],
+		[activityIndicator.centerXAnchor constraintEqualToAnchor:activityView.centerXAnchor],
+		[activityIndicator.centerYAnchor constraintEqualToAnchor:activityView.centerYAnchor],
+	]];
 }
 
 - (void) finishActivityWithEmptySet:(bool)emptySet error:(NSString *)error
@@ -59,7 +75,6 @@
 		if (error != NULL)
 			self.emptyLabel.text = error;
 		self.emptyLabel.hidden = false;
-		[self.emptyLabel sizeToFit];
 	}
 	else
 	{

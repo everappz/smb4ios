@@ -20,9 +20,9 @@
 	self.title = @"Login";
 	
 	self.view.backgroundColor = [UIColor whiteColor];
-	
-	txtUsername = [[UITextField alloc] initWithFrame:
-		CGRectMake(10, 20, self.view.width - 10 * 2, 38)];
+
+	txtUsername = [[UITextField alloc] init];
+	txtUsername.translatesAutoresizingMaskIntoConstraints = NO;
 	txtUsername.placeholder = @"Username";
 	txtUsername.backgroundColor = [UIColor colorWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:1.0];
 	txtUsername.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -30,9 +30,9 @@
 	txtUsername.autocorrectionType = UITextAutocorrectionTypeNo;
 	txtUsername.delegate = self;
 	[self.view addSubview:txtUsername];
-	
-	txtPassword = [[UITextField alloc] initWithFrame:
-		CGRectMake(10, 60, self.view.width - 10 * 2, 38)];
+
+	txtPassword = [[UITextField alloc] init];
+	txtPassword.translatesAutoresizingMaskIntoConstraints = NO;
 	txtPassword.placeholder = @"Password";
 	txtPassword.backgroundColor = [UIColor colorWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:1.0];
 	txtPassword.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -43,16 +43,35 @@
 	[self.view addSubview:txtPassword];
 
 	UIButton *btnGuest = [UIButton buttonWithType:UIButtonTypeSystem];
-	btnGuest.frame = CGRectMake(10, 110, 100, 30);
+	btnGuest.translatesAutoresizingMaskIntoConstraints = NO;
 	[btnGuest setTitle:@"Use GUEST" forState:UIControlStateNormal];
 	[btnGuest addTarget:self action:@selector(btnGuest_Touched) forControlEvents:UIControlEventTouchUpInside];
 	[self.view addSubview:btnGuest];
 
 	UIButton *btnLogin = [UIButton buttonWithType:UIButtonTypeSystem];
-	btnLogin.frame = CGRectMake(self.view.width - 110, 110, 100, 30);
+	btnLogin.translatesAutoresizingMaskIntoConstraints = NO;
 	[btnLogin setTitle:@"Login" forState:UIControlStateNormal];
 	[btnLogin addTarget:self action:@selector(btnLogin_Touched) forControlEvents:UIControlEventTouchUpInside];
 	[self.view addSubview:btnLogin];
+
+	UILayoutGuide *safe = self.view.safeAreaLayoutGuide;
+	[NSLayoutConstraint activateConstraints:@[
+		[txtUsername.topAnchor constraintEqualToAnchor:safe.topAnchor constant:20],
+		[txtUsername.leadingAnchor constraintEqualToAnchor:safe.leadingAnchor constant:10],
+		[txtUsername.trailingAnchor constraintEqualToAnchor:safe.trailingAnchor constant:-10],
+		[txtUsername.heightAnchor constraintEqualToConstant:38],
+
+		[txtPassword.topAnchor constraintEqualToAnchor:txtUsername.bottomAnchor constant:12],
+		[txtPassword.leadingAnchor constraintEqualToAnchor:safe.leadingAnchor constant:10],
+		[txtPassword.trailingAnchor constraintEqualToAnchor:safe.trailingAnchor constant:-10],
+		[txtPassword.heightAnchor constraintEqualToConstant:38],
+
+		[btnGuest.topAnchor constraintEqualToAnchor:txtPassword.bottomAnchor constant:20],
+		[btnGuest.leadingAnchor constraintEqualToAnchor:safe.leadingAnchor constant:10],
+
+		[btnLogin.centerYAnchor constraintEqualToAnchor:btnGuest.centerYAnchor],
+		[btnLogin.trailingAnchor constraintEqualToAnchor:safe.trailingAnchor constant:-10],
+	]];
 }
 
 - (void) btnGuest_Touched

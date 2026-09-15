@@ -13,48 +13,62 @@
 	
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^
 	{
-		SmbConnection *conn = [[SmbConnection alloc] init];
+		SMB4iOSSmbConnection *conn = [[SMB4iOSSmbConnection alloc] init];
 		conn.username = self.username;
 		conn.password = self.password;
 		[conn connectToHost:self.serverIP];
 		bool success = [conn getPrinter:self.printerName];
 		[conn close];
 
-		DceRpcPrinterInfo2 *info = conn.printerInfo;
+		SMB4iOSDceRpcPrinterInfo2 *info = conn.printerInfo;
 		NSString *error = (success ? NULL : (conn.error == NULL ? @"SMB error" : conn.error));
 
 		dispatch_async(dispatch_get_main_queue(), ^
 		{
+			UIStackView *stack = [[UIStackView alloc] init];
+			stack.translatesAutoresizingMaskIntoConstraints = NO;
+			stack.axis = UILayoutConstraintAxisVertical;
+			stack.spacing = 10;
+			stack.alignment = UIStackViewAlignmentFill;
+			[self.view addSubview:stack];
+
+			UILayoutGuide *safe = self.view.safeAreaLayoutGuide;
+			[NSLayoutConstraint activateConstraints:@[
+				[stack.topAnchor constraintEqualToAnchor:safe.topAnchor constant:10],
+				[stack.leadingAnchor constraintEqualToAnchor:safe.leadingAnchor constant:10],
+				[stack.trailingAnchor constraintEqualToAnchor:safe.trailingAnchor constant:-10],
+			]];
+
 			if (error)
 			{
-				UILabel *errorLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.view.width-20, 20)];
+				UILabel *errorLabel = [[UILabel alloc] init];
 				errorLabel.text = error;
 				errorLabel.textColor = [UIColor darkGrayColor];
-				[self.view addSubview:errorLabel];
+				errorLabel.numberOfLines = 0;
+				[stack addArrangedSubview:errorLabel];
 			}
 			else
 			{
-				UILabel *serverLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.view.width-20, 20)];
+				UILabel *serverLabel = [[UILabel alloc] init];
 				serverLabel.text = info.serverName;
-				[self.view addSubview:serverLabel];
+				[stack addArrangedSubview:serverLabel];
 
-				UILabel *printerLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 30, self.view.width-20, 20)];
+				UILabel *printerLabel = [[UILabel alloc] init];
 				printerLabel.text = info.printerName;
-				[self.view addSubview:printerLabel];
+				[stack addArrangedSubview:printerLabel];
 
-				UILabel *commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 50, self.view.width-20, 20)];
+				UILabel *commentLabel = [[UILabel alloc] init];
 				commentLabel.text = info.comment;
-				[self.view addSubview:commentLabel];
+				[stack addArrangedSubview:commentLabel];
 
-				UILabel *locationLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 70, self.view.width-20, 20)];
+				UILabel *locationLabel = [[UILabel alloc] init];
 				locationLabel.text = info.location;
-				[self.view addSubview:locationLabel];
-				
+				[stack addArrangedSubview:locationLabel];
+
 				UIButton *printButton = [UIButton buttonWithType:UIButtonTypeSystem];
-				printButton.frame = CGRectMake(10, 100, self.view.width - 20, 20);
 				[printButton setTitle:@"Print Hello World" forState:UIControlStateNormal];
 				[printButton addTarget:self action:@selector(printButton_Touched) forControlEvents:UIControlEventTouchUpInside];
-				[self.view addSubview:printButton];
+				[stack addArrangedSubview:printButton];
 			}
 		});
 	});
@@ -64,7 +78,7 @@
 {
 	NSData *data = [@"Hello World!\f" dataUsingEncoding:NSASCIIStringEncoding];
 
-	SmbConnection *conn = [[SmbConnection alloc] init];
+	SMB4iOSSmbConnection *conn = [[SMB4iOSSmbConnection alloc] init];
 	conn.username = self.username;
 	conn.password = self.password;
 	[conn connectToHost:self.serverIP];
